@@ -15,6 +15,7 @@ Route::get('/', 'IndexController@index');
 
 Route::get('login/twitter', 'SocialAuthTwitterController@redirectToProvider')->name('twitter_login');
 Route::get('login/twitter/callback', 'SocialAuthTwitterController@handleProviderCallback');
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/game', 'GameController@game')->name('game');
+Route::get('/pledge', 'PledgeController@pledge')->name('pledge');
+Route::get('/play', 'PlayController@play')->name('play');

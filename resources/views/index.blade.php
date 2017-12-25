@@ -15,9 +15,9 @@
     <style>
         @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
         @import url("https://fonts.googleapis.com/css?family=Open+Sans");
-        @import url("https://fonts.googleapis.com/css?family=PT+Sans");
         @import url("https://fonts.googleapis.com/css?family=Varela+Round");
-        @import url("https://fonts.googleapis.com/css?family=NTR");
+        @import url("https://fonts.googleapis.com/css?family=Pacifico");
+        @import url("https://fonts.googleapis.com/css?family=Lobster");
 
         html, body {
             height: 100%;
@@ -25,17 +25,44 @@
         }
 
         body {
-            background-color: #5BC3B8;
+            /*background-color: #5BC3B8;*/
+            background-color: #FCF665;
         }
 
-        a {
+        a, a:hover, a:selected, a:active {
             color: inherit;
+            text-decoration: none;
         }
 
-        .x-body {
-            height: 100%;
+        .header {
+            position: absolute;
+            text-align: center;
+            top: 0;
+            margin: auto;
             width: 100%;
-            background-color: #fefefe;
+            margin-top: 30px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 32px;
+            word-spacing: 7px;
+            font-family: "Lobster", "Pacifico", "Raleway";
+        }
+
+        .header a {
+            text-decoration: none;
+            color: #022;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            margin: auto;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-family: "Open Sans";
+            color: #022c;
         }
 
         .central
@@ -96,6 +123,9 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        <a href="/">The Christmas Giveaway</a>
+    </div>
     <div class="central">
         <a href="{{ route('twitter_login') }}" class="twitter-link">
             <div class="card">
@@ -104,6 +134,7 @@
             </div>
         </a>
     </div>
+    <div class="footer">EEE500l #the13thset</div>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
