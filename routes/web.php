@@ -13,9 +13,19 @@
 
 Route::get('/', 'IndexController@index');
 
+Route::get('/home', 'HomeController@index');
+
 Route::get('login/twitter', 'SocialAuthTwitterController@redirectToProvider')->name('twitter_login');
 Route::get('login/twitter/callback', 'SocialAuthTwitterController@handleProviderCallback');
 
+Auth::routes();	
+
 Route::get('/game', 'GameController@game')->name('game');
-Route::get('/pledge', 'PledgeController@pledge')->name('pledge');
+
+Route::get('/pledge', 'PledgeController@create')->name('pledge');
+Route::post('/pledge', 'PledgeController@store')->name('ipledge');
+
 Route::get('/play', 'PlayController@play')->name('play');
+
+// Route::get('/test', 'TestController@test')->name('test');
+// Route::post('/test', 'TestController@test')->name('test_post');

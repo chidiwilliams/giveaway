@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@import url(https://fonts.googleapis.com/css?family=Raleway);@import url(https://fonts.googleapis.com/css?family=Open+Sans);@import url(https://fonts.googleapis.com/css?family=Varela+Round);@import url(https://fonts.googleapis.com/css?family=Pacifico);@import url(https://fonts.googleapis.com/css?family=Lobster);@charset "UTF-8";
+@charset "UTF-8";
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -8354,11 +8354,24 @@ button.close {
 
 /* Colors */
 
+/* Box shadows */
+
+/*@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Lobster');*/
+
 html,
 body,
 #app {
   height: 100%;
   margin: 0;
+}
+
+* {
+  font-size: 18px;
+  color: #022;
 }
 
 .clear {
@@ -8401,7 +8414,7 @@ body,
   float: left;
   width: 50%;
   height: 100%;
-  background-color: #4ba299;
+  background-color: #56bbb1;
 }
 
 .play-box {
@@ -8470,7 +8483,7 @@ body,
 }
 
 .play-box .pledge-line {
-  background-color: #5bc3b8;
+  background-color: #6be6d9;
   float: left;
 }
 
@@ -8487,13 +8500,12 @@ body,
 .page,
 .pledge-page,
 .play-page {
-  height: 100%;
-  margin: 0;
+  min-height: 100%;
   padding: 45px 0;
 }
 
 .pledge-page {
-  background-color: #5bc3b8;
+  background-color: #6be6d9;
 }
 
 .play-page {
@@ -8512,7 +8524,7 @@ body,
 
 .page-line {
   height: 15px;
-  width: 250px;
+  width: 150px;
 }
 
 .pledge-page .page-line {
@@ -8520,11 +8532,88 @@ body,
 }
 
 .play-page .page-line {
-  background-color: #5bc3b8;
+  background-color: #6be6d9;
 }
 
 .page-heading {
-  margin-bottom: 10px;
+  margin-bottom: 35px;
+}
+
+.pledge-form .input-group {
+  margin-bottom: 40px;
+}
+
+.pledge-form label {
+  display: block;
+  font-weight: normal;
+  margin-bottom: 0;
+  font-size: 20px;
+}
+
+.pledge-form input[type=text] {
+  width: 300px;
+  background-color: transparent;
+  border: 0;
+  font-size: 16px;
+  height: 40px;
+  padding: 10px 30px;
+  -webkit-box-shadow: 0 3px 0 #fcf665;
+          box-shadow: 0 3px 0 #fcf665;
+  font-weight: bolder;
+  text-transform: uppercase;
+  margin-right: 40px;
+}
+
+.pledge-form input[type=text].short {
+  width: 120px;
+}
+
+.pledge-form input[type=text]:focus {
+  outline: none;
+}
+
+.pledge-form input[type=submit] {
+  margin-top: 20px;
+  width: 120px;
+  height: 50px;
+  border: 0;
+  text-transform: uppercase;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, #fcf665), to(#cac552));
+  background: linear-gradient(#fcf665 70%, #cac552);
+  border-radius: 3px;
+  -webkit-box-shadow: 0 3px 3px #2f6963;
+          box-shadow: 0 3px 3px #2f6963;
+  font-weight: bolder;
+}
+
+.pledge-form option {
+  font-size: 14px;
+  width: 200px;
+}
+
+.bubbles {
+  margin-top: 50px;
+  position: relative;
+  width: 420px;
+}
+
+img.bubble {
+  display: block;
+  width: 100%;
+  position: absolute;
+}
+
+.bubble-text {
+  position: absolute;
+  width: 100%;
+  margin: 70px auto;
+  font-family: "Pacifico", "Open Sans", "Segoe UI", cursive;
+}
+
+.text {
+  max-width: 270px;
+  margin: auto;
+  font-size: 24px;
 }
 
 @-webkit-keyframes lengthen-line {
@@ -8549,21 +8638,21 @@ body,
 
 @-webkit-keyframes brighten-elf-green {
   0% {
-    background-color: #4ba299;
+    background-color: #56bbb1;
   }
 
   100% {
-    background-color: #5bc3b8;
+    background-color: #6be6d9;
   }
 }
 
 @keyframes brighten-elf-green {
   0% {
-    background-color: #4ba299;
+    background-color: #56bbb1;
   }
 
   100% {
-    background-color: #5bc3b8;
+    background-color: #6be6d9;
   }
 }
 

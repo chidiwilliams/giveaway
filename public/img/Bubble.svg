@@ -1,0 +1,23 @@
+<svg width="877" height="520" viewBox="0 0 877 520" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Bubble</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-1546 1202)">
+<g id="Bubble" filter="url(#filter0_d)">
+<g id="Union">
+<use xlink:href="#path0_fill" transform="matrix(0.991126 -0.132923 0.132923 0.991126 1550 -1092.8)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_d" filterUnits="userSpaceOnUse" x="1546" y="-1202" width="877" height="520" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0"/>
+<feOffset dx="0" dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+<path id="path0_fill" fill-rule="evenodd" d="M 811 178.5C 811 277.083 629.451 357 405.5 357C 181.549 357 -3.79699e-06 277.083 5.95589e-14 178.5C 1.19099e-05 79.9172 181.549 -3.59532e-05 405.5 1.2131e-11C 629.451 3.59532e-05 811 79.9171 811 178.5ZM 787.557 329.869C 793.266 346.302 775.903 367.264 748.774 376.689C 721.646 386.113 695.026 380.431 689.317 363.998C 683.608 347.564 700.972 326.602 728.1 317.178C 755.229 307.753 781.848 313.435 787.557 329.869ZM 801.047 404.944C 814.282 399.375 822.622 389.18 819.673 382.173C 816.725 375.166 803.606 374 790.37 379.569C 777.135 385.138 768.795 395.333 771.743 402.34C 774.692 409.347 787.811 410.513 801.047 404.944Z"/>
+</defs>
+</svg>

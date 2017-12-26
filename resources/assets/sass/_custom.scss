@@ -1,22 +1,27 @@
 /* Fonts */
 $heading-font: 'Lobster', 'Pacifico', 'Raleway', 'Open Sans', 'Segoe UI', cursive;
 $heading-word-spacing: 7px;
-$cursive-font: 'Pacifico';
+$cursive-font: 'Pacifico', 'Open Sans', 'Segoe UI', cursive;
 $body-font: 'Raleway', 'Open Sans';
 $body-font-alternate: 'Open Sans', 'Raleway';
 
 /* Colors */
 $rich-black: #022;
-$elf-green: #5bc3b8;
-$elf-green-dark: #4ba299;
+$elf-green: #6be6d9;
+$elf-green-dark: #56bbb1;
+$elf-green-darker: #2f6963;
 $elf-yellow: #fcf665;
 $elf-yellow-dark: #cac552;
+$elf-yellow-darker: #58561e;
 
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+/* Box shadows */
+$box-shadow-grey: 0 3px 3px rgba(0,0,0,0.075);
+
+/*@import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
-@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Lobster');*/
 
 html,
 body,
@@ -24,6 +29,12 @@ body,
 {
     height: 100%;
     margin: 0;
+}
+
+*
+{
+    font-size: 18px;
+    color: $rich-black;
 }
 
 .clear
@@ -175,8 +186,7 @@ body,
 
 .page
 {
-    height: 100%;
-    margin: 0;
+    min-height: 100%;
     padding: 45px 0;
 }
 
@@ -204,7 +214,7 @@ body,
 .page-line
 {
     height: 15px;
-    width: 250px;
+    width: 150px;
 }
 
 .pledge-page .page-line
@@ -219,8 +229,96 @@ body,
 
 .page-heading
 {
-    margin-bottom: 10px;
+    margin-bottom: 35px;
 }
+
+.pledge-form
+{
+    .input-group {
+        margin-bottom: 40px;
+    }
+
+    label
+    {
+        display: block;
+        font-weight: normal;
+        margin-bottom: 0;
+        font-size: 20px;
+    }
+
+    input[type=text]
+    {
+        width: 300px;
+        background-color: transparent;
+        border: 0;
+        font-size: 16px;
+        height: 40px;
+        padding: 10px 30px;
+        box-shadow: 0 3px 0 $elf-yellow;
+        font-weight: bolder;
+        text-transform: uppercase;
+        margin-right: 40px;
+
+        &.short
+        {
+            width: 120px;
+        }
+
+        &:focus
+        {
+            outline: none;
+        }
+    }
+
+    input[type=submit]
+    {
+        margin-top: 20px;
+        width: 120px;
+        height: 50px;
+        border: 0;
+        text-transform: uppercase;
+        background: linear-gradient($elf-yellow 70%, $elf-yellow-dark);
+        border-radius: 3px;
+        box-shadow: 0 3px 3px $elf-green-darker;
+        font-weight: bolder;
+    }
+
+    option
+    {
+        font-size: 14px;
+        width: 200px;
+    }
+}
+
+.bubbles
+{
+    margin-top: 50px;
+    position: relative;
+    width: 420px;
+}
+
+img.bubble
+{
+    display: block;
+    width: 100%;
+    position: absolute;
+}
+
+.bubble-text
+{
+    position: absolute;
+    width: 100%;
+    margin: 70px auto;
+    font-family: $cursive-font;
+}
+
+.text
+{
+    max-width: 270px;
+    margin: auto;
+    font-size: 24px;
+}
+
 
 @keyframes lengthen-line {
     0% {
