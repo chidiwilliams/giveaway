@@ -4,28 +4,29 @@
 @endsection
 
 @section('content')
-	{{ $errors }}
-	<div class="pledge-page">
+	<div class="pledge-page" id="pledge">
 		<div class="container">
-			<div class="col-md-6">
+			<div class="visible">
 				<div class="page-heading">
 					<div class="page-name">Pledge</div>
 					<div class="page-line"></div>
 				</div>
+
+				{{ $errors }}
 
 				<div class="pledge-form">
 					<form action="{{ route('ipledge') }}" method="POST">
 			            {{ csrf_field() }}
 
 						<div class="input-group">
-							<label for="name">What's your name?</label>
+							<label for="name">What's your name? {{-- This should show an error 'x' when the $errors->has('name') --}}</label>
 							<input type="text" name="name" placeholder="Francis" maxlength="15" required="required">
 						</div>
 						
 						<div class="input-group">
-							<label for="name">What course are you studying? In what level?</label>
-							<input type="text" name="course" placeholder="Marketing" maxlength="20">
-							<input type="text" name="level" placeholder="300" class="short" required="required">
+							<label for="name">What course are you studying?</label>
+							<custom-input type="text" name="course" :items="courses" placeholder="Course" classes="long" dropdown-id="1"></custom-input>
+							<custom-input type="text" name="level" :items="levels" placeholder="Lvl" classes="short" dropdown-id="2"></custom-input>
 						</div>
 
 						<div class="input-group">
@@ -36,16 +37,6 @@
 
 						<input type="submit" value="Pledge">
 					</form>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="bubbles">
-					<img src="{{ asset('img/Bubble.svg') }}" alt="" class="bubble">
-					<div class="bubble-text">
-						<div class="text">
-							Some joke about how rich you are ...
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>

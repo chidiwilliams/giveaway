@@ -6,6 +6,8 @@ $body-font: 'Raleway', 'Open Sans';
 $body-font-alternate: 'Open Sans', 'Raleway';
 
 /* Colors */
+$grey-highlight: #eee;
+$grey-selected: #ddd;
 $rich-black: #022;
 $elf-green: #6be6d9;
 $elf-green-dark: #56bbb1;
@@ -16,6 +18,7 @@ $elf-yellow-darker: #58561e;
 
 /* Box shadows */
 $box-shadow-grey: 0 3px 3px rgba(0,0,0,0.075);
+$box-shadow-green: 0 3px 3px $elf-green-darker;
 
 /*@import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
@@ -24,15 +27,15 @@ $box-shadow-grey: 0 3px 3px rgba(0,0,0,0.075);
 @import url('https://fonts.googleapis.com/css?family=Lobster');*/
 
 html,
-body,
 #app
 {
     height: 100%;
     margin: 0;
 }
 
-*
+body
 {
+    @extend html;
     font-size: 18px;
     color: $rich-black;
 }
@@ -235,7 +238,8 @@ body,
 .pledge-form
 {
     .input-group {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
+        width: 100%;
     }
 
     label
@@ -248,7 +252,7 @@ body,
 
     input[type=text]
     {
-        width: 300px;
+        width: 100%;
         background-color: transparent;
         border: 0;
         font-size: 16px;
@@ -258,15 +262,78 @@ body,
         font-weight: bolder;
         text-transform: uppercase;
         margin-right: 40px;
+        margin-bottom: 15px;
 
         &.short
         {
-            width: 120px;
+            width: 100%;
         }
 
         &:focus
         {
             outline: none;
+        }
+    }
+
+    div.custom-input-group
+    {
+        float: left;
+        width: 100%;
+    }
+
+    div.custom-input
+    {
+        @extend input[type=text];
+        cursor: pointer;
+        position: relative;
+
+        &.short
+        {
+            width: 100%;
+        }
+
+        i {
+            font-size: 12px;
+            color: #355;
+            position: absolute;
+            right: 30px;
+            top: 17px;
+        }
+    }
+
+    div.input-select
+    {
+        max-height: 250px;
+        background: #fff;
+        font-size: 14px;
+        overflow-y: auto;
+        margin-top: -10px;
+        box-shadow: $box-shadow-green;
+        cursor: pointer;
+        position: absolute;
+        z-index: 2;
+
+        &.long
+        {
+            width: 100%;
+        }
+
+        &.short
+        {
+            width: 100%;
+        }
+
+        div {
+            padding: 10px 30px;
+
+            &.selected
+            {
+                background-color: $grey-selected;
+            }
+
+            &:hover {
+                background-color: $grey-highlight;
+            }
         }
     }
 
@@ -319,11 +386,30 @@ img.bubble
     font-size: 24px;
 }
 
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0
+}
+
+@keyframes hide
+{
+    0%
+    {
+        visibility: visible;
+    }
+    100%
+    {
+        visibility: hidden;
+    }
+}
 
 @keyframes lengthen-line {
     0% {
         width: 0px;
-    },
+    }
     100% {
         width: 450px;
     }
@@ -332,7 +418,7 @@ img.bubble
 @keyframes brighten-elf-green {
     0% {
         background-color: $elf-green-dark;
-    },
+    }
     100% {
         background-color: $elf-green;
     }
@@ -341,8 +427,48 @@ img.bubble
 @keyframes brighten-elf-yellow {
     0% {
         background-color: $elf-yellow-dark;
-    },
+    }
     100% {
         background-color: $elf-yellow;
+    }
+}
+
+@media (min-width: 1200px)
+{  
+    .container {
+        width: 1100px;
+    }
+}
+
+@media (min-width: 600px)
+{  
+    .container {
+        width: 1100px;
+    }
+
+    .pledge-form div.input-group, .pledge-form div.custom-input-group
+    {
+        width: auto;
+    }
+
+    .pledge-form input[type=text], .pledge-form div.custom-input
+    // Change the above to more expressive SCSS format
+    {
+        width: 300px;
+
+        &.short
+        {
+            width: 120px;
+        }
+    }
+
+    .pledge-form div.input-select.long
+    {
+        width: 300px;
+    }
+
+    .pledge-form div.input-select.short
+    {
+        width: 120px;
     }
 }

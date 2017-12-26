@@ -8,7 +8,8 @@
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
-html {
+html,
+body {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -155,6 +156,7 @@ select {
 
 button,
 html input[type="button"],
+body input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
@@ -162,7 +164,8 @@ input[type="submit"] {
 }
 
 button[disabled],
-html input[disabled] {
+html input[disabled],
+body input[disabled] {
   cursor: default;
 }
 
@@ -1396,7 +1399,8 @@ th {
   box-sizing: border-box;
 }
 
-html {
+html,
+body {
   font-size: 10px;
   -webkit-tap-highlight-color: transparent;
 }
@@ -8369,7 +8373,7 @@ body,
   margin: 0;
 }
 
-* {
+body {
   font-size: 18px;
   color: #022;
 }
@@ -8540,7 +8544,8 @@ body,
 }
 
 .pledge-form .input-group {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .pledge-form label {
@@ -8550,8 +8555,9 @@ body,
   font-size: 20px;
 }
 
-.pledge-form input[type=text] {
-  width: 300px;
+.pledge-form input[type=text],
+.pledge-form div.custom-input {
+  width: 100%;
   background-color: transparent;
   border: 0;
   font-size: 16px;
@@ -8562,14 +8568,72 @@ body,
   font-weight: bolder;
   text-transform: uppercase;
   margin-right: 40px;
+  margin-bottom: 15px;
 }
 
-.pledge-form input[type=text].short {
-  width: 120px;
+.pledge-form input[type=text].short,
+.pledge-form div.short.custom-input {
+  width: 100%;
 }
 
-.pledge-form input[type=text]:focus {
+.pledge-form input[type=text]:focus,
+.pledge-form div.custom-input:focus {
   outline: none;
+}
+
+.pledge-form div.custom-input-group {
+  float: left;
+  width: 100%;
+}
+
+.pledge-form div.custom-input {
+  cursor: pointer;
+  position: relative;
+}
+
+.pledge-form div.custom-input.short {
+  width: 100%;
+}
+
+.pledge-form div.custom-input i {
+  font-size: 12px;
+  color: #355;
+  position: absolute;
+  right: 30px;
+  top: 17px;
+}
+
+.pledge-form div.input-select {
+  max-height: 250px;
+  background: #fff;
+  font-size: 14px;
+  overflow-y: auto;
+  margin-top: -10px;
+  -webkit-box-shadow: 0 3px 3px #2f6963;
+          box-shadow: 0 3px 3px #2f6963;
+  cursor: pointer;
+  position: absolute;
+  z-index: 2;
+}
+
+.pledge-form div.input-select.long {
+  width: 100%;
+}
+
+.pledge-form div.input-select.short {
+  width: 100%;
+}
+
+.pledge-form div.input-select div {
+  padding: 10px 30px;
+}
+
+.pledge-form div.input-select div.selected {
+  background-color: #ddd;
+}
+
+.pledge-form div.input-select div:hover {
+  background-color: #eee;
 }
 
 .pledge-form input[type=submit] {
@@ -8614,6 +8678,37 @@ img.bubble {
   max-width: 270px;
   margin: auto;
   font-size: 24px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+@-webkit-keyframes hide {
+  0% {
+    visibility: visible;
+  }
+
+  100% {
+    visibility: hidden;
+  }
+}
+
+@keyframes hide {
+  0% {
+    visibility: visible;
+  }
+
+  100% {
+    visibility: hidden;
+  }
 }
 
 @-webkit-keyframes lengthen-line {
@@ -8673,6 +8768,43 @@ img.bubble {
 
   100% {
     background-color: #fcf665;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1100px;
+  }
+}
+
+@media (min-width: 600px) {
+  .container {
+    width: 1100px;
+  }
+
+  .pledge-form div.input-group,
+  .pledge-form div.custom-input-group {
+    width: auto;
+  }
+
+  .pledge-form input[type=text],
+  .pledge-form div.custom-input,
+  .pledge-form div.custom-input {
+    width: 300px;
+  }
+
+  .pledge-form input[type=text].short,
+  .pledge-form div.short.custom-input,
+  .pledge-form div.custom-input.short {
+    width: 120px;
+  }
+
+  .pledge-form div.input-select.long {
+    width: 300px;
+  }
+
+  .pledge-form div.input-select.short {
+    width: 120px;
   }
 }
 

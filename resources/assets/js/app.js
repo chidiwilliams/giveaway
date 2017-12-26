@@ -16,7 +16,18 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('custom-input', require('./components/CustomInput.vue'))
 
 const app = new Vue({
-    el: '#app'
+    el: '#pledge',
+    data: {
+        courses: [''],
+        levels: [100, 200, 300, 400, 500]
+    },
+    created: function() {
+        axios.get('/js/courses.json').then(response => {
+            this.courses_fetched = true
+            this.courses = response.data
+        })
+    }
 });
