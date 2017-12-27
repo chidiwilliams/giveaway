@@ -7538,7 +7538,8 @@ button.close {
   padding: 0 5px;
 }
 
-.tooltip.bottom {
+.tooltip.bottom,
+.tooltip.bottom-text {
   margin-top: 3px;
   padding: 5px 0;
 }
@@ -7605,7 +7606,8 @@ button.close {
   border-left-color: #000;
 }
 
-.tooltip.bottom .tooltip-arrow {
+.tooltip.bottom .tooltip-arrow,
+.tooltip.bottom-text .tooltip-arrow {
   top: 0;
   left: 50%;
   margin-left: -5px;
@@ -7670,7 +7672,8 @@ button.close {
   margin-left: 10px;
 }
 
-.popover.bottom {
+.popover.bottom,
+.popover.bottom-text {
   margin-top: 10px;
 }
 
@@ -7744,7 +7747,8 @@ button.close {
   border-right-color: #fff;
 }
 
-.popover.bottom > .arrow {
+.popover.bottom > .arrow,
+.popover.bottom-text > .arrow {
   left: 50%;
   margin-left: -11px;
   border-top-width: 0;
@@ -7753,7 +7757,8 @@ button.close {
   top: -11px;
 }
 
-.popover.bottom > .arrow:after {
+.popover.bottom > .arrow:after,
+.popover.bottom-text > .arrow:after {
   content: " ";
   top: 1px;
   margin-left: -10px;
@@ -8382,6 +8387,31 @@ body {
   clear: both;
 }
 
+.central,
+.central-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.central-text {
+  padding: 0 15px;
+  width: 100%;
+  text-align: center;
+}
+
+.bottom,
+.bottom-text {
+  position: absolute;
+  bottom: 0;
+}
+
+.bottom-text {
+  text-align: center;
+}
+
 .header {
   font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
   font-size: 32px;
@@ -8412,6 +8442,36 @@ body {
   text-align: center;
   opacity: .8;
   color: #022;
+}
+
+.submit,
+a.submit,
+a.submit:focus,
+a.submit:active,
+a.submit:hover,
+.pledge-form input[type=submit] {
+  width: 120px;
+  height: 50px;
+  border: 0;
+  text-transform: uppercase;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 3px 3px #2f6963;
+          box-shadow: 0 3px 3px #2f6963;
+  font-weight: bolder;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, #fcf665), to(#cac552));
+  background: linear-gradient(#fcf665 70%, #cac552);
+  padding: 10px 20px;
+}
+
+a.submit,
+a.submit:focus,
+a.submit:active,
+a.submit:hover,
+a.submit:focus,
+a.submit:active,
+a.submit:hover {
+  text-decoration: none;
+  color: inherit;
 }
 
 .pledge-box {
@@ -8503,7 +8563,8 @@ body {
 
 .page,
 .pledge-page,
-.play-page {
+.play-page,
+.thank-you-page {
   min-height: 100%;
   padding: 45px 0;
 }
@@ -8540,19 +8601,21 @@ body {
 }
 
 .page-heading {
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 
 .pledge-form .input-group {
-  margin-bottom: 20px;
+  margin-bottom: 35px;
   width: 100%;
+  min-height: 108px;
 }
 
 .pledge-form label {
   display: block;
   font-weight: normal;
-  margin-bottom: 0;
-  font-size: 20px;
+  margin-bottom: 5px;
+  font-size: 28px;
+  font-weight: 300;
 }
 
 .pledge-form input[type=text],
@@ -8560,20 +8623,26 @@ body {
   width: 100%;
   background-color: transparent;
   border: 0;
-  font-size: 16px;
-  height: 40px;
+  font-size: 24px;
+  height: 44px;
   padding: 10px 30px;
   -webkit-box-shadow: 0 3px 0 #fcf665;
           box-shadow: 0 3px 0 #fcf665;
-  font-weight: bolder;
+  font-weight: 500;
   text-transform: uppercase;
   margin-right: 40px;
   margin-bottom: 15px;
+  line-height: 1;
 }
 
 .pledge-form input[type=text].short,
 .pledge-form div.short.custom-input {
   width: 100%;
+}
+
+.pledge-form input[type=text].warning,
+.pledge-form div.warning.custom-input {
+  background-color: #ec5a5a;
 }
 
 .pledge-form input[type=text]:focus,
@@ -8601,6 +8670,10 @@ body {
   position: absolute;
   right: 30px;
   top: 17px;
+}
+
+.pledge-form div.custom-input .placeholder {
+  color: #757575;
 }
 
 .pledge-form div.input-select {
@@ -8637,17 +8710,9 @@ body {
 }
 
 .pledge-form input[type=submit] {
-  margin-top: 20px;
-  width: 120px;
-  height: 50px;
-  border: 0;
-  text-transform: uppercase;
+  margin-top: 0px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, #fcf665), to(#cac552));
   background: linear-gradient(#fcf665 70%, #cac552);
-  border-radius: 3px;
-  -webkit-box-shadow: 0 3px 3px #2f6963;
-          box-shadow: 0 3px 3px #2f6963;
-  font-weight: bolder;
 }
 
 .pledge-form option {
@@ -8678,6 +8743,27 @@ img.bubble {
   max-width: 270px;
   margin: auto;
   font-size: 24px;
+}
+
+.thank-you-page {
+  background-color: #6be6d9;
+}
+
+.thank-you-page .central-text {
+  -webkit-transform: translate(-50%, calc(-50% + 25px));
+          transform: translate(-50%, calc(-50% + 25px));
+}
+
+.thank-you-page .thanks {
+  font-size: 65px;
+  font-weight: 900;
+  font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
+}
+
+.thank-you-page .sub {
+  font-family: "Open Sans", "Raleway";
+  text-transform: uppercase;
+  margin-bottom: 80px;
 }
 
 .fade-enter-active,
@@ -8771,17 +8857,7 @@ img.bubble {
   }
 }
 
-@media (min-width: 1200px) {
-  .container {
-    width: 1100px;
-  }
-}
-
 @media (min-width: 600px) {
-  .container {
-    width: 1100px;
-  }
-
   .pledge-form div.input-group,
   .pledge-form div.custom-input-group {
     width: auto;
@@ -8790,21 +8866,21 @@ img.bubble {
   .pledge-form input[type=text],
   .pledge-form div.custom-input,
   .pledge-form div.custom-input {
-    width: 300px;
+    width: 400px;
   }
 
   .pledge-form input[type=text].short,
   .pledge-form div.short.custom-input,
   .pledge-form div.custom-input.short {
-    width: 120px;
+    width: 180px;
   }
 
   .pledge-form div.input-select.long {
-    width: 300px;
+    width: 400px;
   }
 
   .pledge-form div.input-select.short {
-    width: 120px;
+    width: 180px;
   }
 }
 

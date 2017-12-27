@@ -66,7 +66,7 @@ class PledgeController extends Controller
 
         $pledge->save();
 
-        return "Successfully created pledge" . $pledge;
+        return view("pledge_success");
     }
 
     /**

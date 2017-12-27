@@ -1,9 +1,11 @@
 <template>
     <div class="custom-input-group" :id="dropdownCompId">
-        <div class="custom-input" :class="classes" v-on:click.prevent="toggleDrop">
-            <span class="item" v-if="!selected_item">{{ placeholder }}</span>
-            <span class="item" v-else>{{ selected_item }}</span> 
-            <i class="glyphicon glyphicon-chevron-down"></i>
+        <div class="custom-input" :class="classes" @click.prevent="toggleDrop">
+            <span class="item" v-if="value">{{ value }}</span>
+            <span class="item" v-else-if="selected_item">{{ selected_item }}</span>
+            <span class="item placeholder" v-else>{{ place }}</span>
+            
+            <i class="glyphicon glyphicon-chevron-down" v-if="!disabled"></i>
         </div>
 
         <!-- Real input for form submission -->
@@ -11,7 +13,7 @@
         
         <transition name="fade">
             <div class="input-select" :class="classes" v-show="dropped"> <!-- Big body dropdown  -->
-                <div v-for="item in items" :key="item.id" v-on:click="selectItem(item)" v-bind:class="checkIfSelected(item)"> <!-- Dropdown items -->
+                <div v-for="item in items" :key="item.id" @click="selectItem(item)" class="item" v-bind:class="checkIfSelected(item)"> <!-- Dropdown items -->
                     {{ item }}
                 </div>
             </div>
@@ -24,12 +26,14 @@
         data() {
             return {
                 dropped: false,
-                selected_item: this.items[0]
+                selected_item: ""
             }
         },
         methods: {
             toggleDrop: function () {
-                this.dropped = !this.dropped
+                if (!this.disabled) {
+                    this.dropped = !this.dropped
+                }
             },
             closeDrop: function () {
                 this.dropped = false
@@ -37,9 +41,11 @@
             openDrop: function () {
                 this.dropped = true
             },
-            selectItem: function (item) { 
-                this.selected_item = item
-                this.toggleDrop()
+            selectItem: function (item) {
+                if (!this.disabled) {
+                    this.selected_item = item
+                    this.toggleDrop()
+                }
             },
             checkIfSelected: function (item) {
                 return (item == this.selected_item) ? 'selected' : ''
@@ -52,12 +58,27 @@
                 }
             }
         },
+        watch: {
+            selected_item: function (val, old) {
+                this.$emit('change', val, old)
+            },
+            reset: function () {
+                this.selected_item = this.items[0]
+            }
+        },
         computed: {
             dropdownCompId: function () {
                 return "custom-input-" + this.dropdownId
+            },
+            place: function () {
+                if (this.placeholder) {
+                    return this.placeholder
+                } else {
+                    return "Select"
+                }
             }
         },
-        props: ['type', 'name', 'classes', 'items', 'placeholder', 'dropdownId'],
+        props: ['type', 'classes', 'items', 'placeholder', 'dropdownId', 'reset', 'disabled', 'value', 'name'],
         mounted: function () {
             document.querySelector("#app").addEventListener('click', this.onClickBody)
         },

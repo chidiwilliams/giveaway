@@ -1,5 +1,3 @@
 TODO LIST
 1. Change bubble SVG with text to image from Figma
 2. Pledge form validation with Vue and Controller
-3. Get list of all courses offered in CU. Make JSON to feed into Controller Validation
-4. Custom select field for course and level

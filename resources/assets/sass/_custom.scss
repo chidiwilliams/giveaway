@@ -45,6 +45,34 @@ body
     clear: both;
 }
 
+.central
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.central-text
+{
+    @extend .central;
+    padding: 0 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.bottom
+{
+    position: absolute;
+    bottom: 0;
+}
+
+.bottom-text
+{
+    @extend .bottom;
+    text-align: center;
+}
+
 .header
 {
     font-family: $heading-font;
@@ -85,6 +113,27 @@ body
 
     opacity: .8;
     color: $rich-black;
+}
+
+
+.submit
+{
+    width: 120px;
+    height: 50px;
+    border: 0;
+    text-transform: uppercase;
+    border-radius: 3px;
+    box-shadow: 0 3px 3px $elf-green-darker;
+    font-weight: bolder;
+    background: linear-gradient($elf-yellow 70%, $elf-yellow-dark);
+    padding: 10px 20px;
+}
+
+a.submit, a.submit:focus, a.submit:active, a.submit:hover
+{
+    @extend .submit;
+    text-decoration: none;
+    color: inherit;
 }
 
 .pledge-box
@@ -232,22 +281,24 @@ body
 
 .page-heading
 {
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .pledge-form
 {
     .input-group {
-        margin-bottom: 20px;
+        margin-bottom: 35px;
         width: 100%;
+        min-height: 108px;
     }
 
     label
     {
         display: block;
         font-weight: normal;
-        margin-bottom: 0;
-        font-size: 20px;
+        margin-bottom: 5px;
+        font-size: 28px;
+        font-weight: 300;
     }
 
     input[type=text]
@@ -255,18 +306,24 @@ body
         width: 100%;
         background-color: transparent;
         border: 0;
-        font-size: 16px;
-        height: 40px;
+        font-size: 24px;
+        height: 44px;
         padding: 10px 30px;
         box-shadow: 0 3px 0 $elf-yellow;
-        font-weight: bolder;
+        font-weight: 500;
         text-transform: uppercase;
         margin-right: 40px;
         margin-bottom: 15px;
+        line-height: 1;
 
         &.short
         {
             width: 100%;
+        }
+
+        &.warning
+        {
+            background-color: #ec5a5a;
         }
 
         &:focus
@@ -292,12 +349,18 @@ body
             width: 100%;
         }
 
-        i {
+        i
+        {
             font-size: 12px;
             color: #355;
             position: absolute;
             right: 30px;
             top: 17px;
+        }
+
+        .placeholder
+        {
+            color: #757575;
         }
     }
 
@@ -339,15 +402,9 @@ body
 
     input[type=submit]
     {
-        margin-top: 20px;
-        width: 120px;
-        height: 50px;
-        border: 0;
-        text-transform: uppercase;
+        @extend .submit;
+        margin-top: 0px;
         background: linear-gradient($elf-yellow 70%, $elf-yellow-dark);
-        border-radius: 3px;
-        box-shadow: 0 3px 3px $elf-green-darker;
-        font-weight: bolder;
     }
 
     option
@@ -386,6 +443,30 @@ img.bubble
     font-size: 24px;
 }
 
+.thank-you-page {
+    @extend .page;
+    background-color: $elf-green;
+
+    .central-text
+    {
+        transform: translate(-50%, calc(-50% + 25px));
+    }
+
+    .thanks 
+    {
+        font-size: 65px;
+        font-weight: 900;
+        font-family: $heading-font;
+    }
+
+    .sub 
+    {
+        font-family: $body-font-alternate;
+        text-transform: uppercase;
+        margin-bottom: 80px;
+    }
+}
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s
 }
@@ -396,55 +477,31 @@ img.bubble
 
 @keyframes hide
 {
-    0%
-    {
-        visibility: visible;
-    }
-    100%
-    {
-        visibility: hidden;
-    }
+    0% { visibility: visible; }
+    100% { visibility: hidden; }
 }
 
 @keyframes lengthen-line {
-    0% {
-        width: 0px;
-    }
-    100% {
-        width: 450px;
-    }
+    0% { width: 0px; }
+    100% { width: 450px; }
 }
 
 @keyframes brighten-elf-green {
-    0% {
-        background-color: $elf-green-dark;
-    }
-    100% {
-        background-color: $elf-green;
-    }
+    0% { background-color: $elf-green-dark; }
+    100% { background-color: $elf-green; }
 }
 
 @keyframes brighten-elf-yellow {
-    0% {
-        background-color: $elf-yellow-dark;
-    }
-    100% {
-        background-color: $elf-yellow;
-    }
+    0% { background-color: $elf-yellow-dark; }
+    100% { background-color: $elf-yellow; }
 }
 
 @media (min-width: 1200px)
 {  
-    .container {
-        width: 1100px;
-    }
 }
 
 @media (min-width: 600px)
 {  
-    .container {
-        width: 1100px;
-    }
 
     .pledge-form div.input-group, .pledge-form div.custom-input-group
     {
@@ -454,21 +511,21 @@ img.bubble
     .pledge-form input[type=text], .pledge-form div.custom-input
     // Change the above to more expressive SCSS format
     {
-        width: 300px;
+        width: 400px;
 
         &.short
         {
-            width: 120px;
+            width: 180px;
         }
     }
 
     .pledge-form div.input-select.long
     {
-        width: 300px;
+        width: 400px;
     }
 
     .pledge-form div.input-select.short
     {
-        width: 120px;
+        width: 180px;
     }
 }

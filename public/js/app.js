@@ -1097,22 +1097,11 @@ window.Vue = __webpack_require__(36);
  */
 
 Vue.component('example-component', __webpack_require__(39));
+Vue.component('pledge-component', __webpack_require__(57));
 Vue.component('custom-input', __webpack_require__(42));
 
 var app = new Vue({
-    el: '#pledge',
-    data: {
-        courses: [''],
-        levels: [100, 200, 300, 400, 500]
-    },
-    created: function created() {
-        var _this = this;
-
-        axios.get('/js/courses.json').then(function (response) {
-            _this.courses_fetched = true;
-            _this.courses = response.data;
-        });
-    }
+  el: '#app'
 });
 
 /***/ }),
@@ -42826,18 +42815,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             dropped: false,
-            selected_item: this.items[0]
+            selected_item: ""
         };
     },
 
     methods: {
         toggleDrop: function toggleDrop() {
-            this.dropped = !this.dropped;
+            if (!this.disabled) {
+                this.dropped = !this.dropped;
+            }
         },
         closeDrop: function closeDrop() {
             this.dropped = false;
@@ -42846,8 +42839,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.dropped = true;
         },
         selectItem: function selectItem(item) {
-            this.selected_item = item;
-            this.toggleDrop();
+            if (!this.disabled) {
+                this.selected_item = item;
+                this.toggleDrop();
+            }
         },
         checkIfSelected: function checkIfSelected(item) {
             return item == this.selected_item ? 'selected' : '';
@@ -42860,12 +42855,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         }
     },
+    watch: {
+        selected_item: function selected_item(val, old) {
+            this.$emit('change', val, old);
+        },
+        reset: function reset() {
+            this.selected_item = this.items[0];
+        }
+    },
     computed: {
         dropdownCompId: function dropdownCompId() {
             return "custom-input-" + this.dropdownId;
+        },
+        place: function place() {
+            if (this.placeholder) {
+                return this.placeholder;
+            } else {
+                return "Select";
+            }
         }
     },
-    props: ['type', 'name', 'classes', 'items', 'placeholder', 'dropdownId'],
+    props: ['type', 'classes', 'items', 'placeholder', 'dropdownId', 'reset', 'disabled', 'value', 'name'],
     mounted: function mounted() {
         document.querySelector("#app").addEventListener('click', this.onClickBody);
     },
@@ -42899,15 +42909,19 @@ var render = function() {
           }
         },
         [
-          !_vm.selected_item
-            ? _c("span", { staticClass: "item" }, [
-                _vm._v(_vm._s(_vm.placeholder))
-              ])
-            : _c("span", { staticClass: "item" }, [
-                _vm._v(_vm._s(_vm.selected_item))
-              ]),
+          _vm.value
+            ? _c("span", { staticClass: "item" }, [_vm._v(_vm._s(_vm.value))])
+            : _vm.selected_item
+              ? _c("span", { staticClass: "item" }, [
+                  _vm._v(_vm._s(_vm.selected_item))
+                ])
+              : _c("span", { staticClass: "item placeholder" }, [
+                  _vm._v(_vm._s(_vm.place))
+                ]),
           _vm._v(" "),
-          _c("i", { staticClass: "glyphicon glyphicon-chevron-down" })
+          !_vm.disabled
+            ? _c("i", { staticClass: "glyphicon glyphicon-chevron-down" })
+            : _vm._e()
         ]
       ),
       _vm._v(" "),
@@ -42952,6 +42966,7 @@ var render = function() {
               "div",
               {
                 key: item.id,
+                staticClass: "item",
                 class: _vm.checkIfSelected(item),
                 on: {
                   click: function($event) {
@@ -42983,6 +42998,139 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(58)
+/* template */
+var __vue_template__ = null
+/* template functional */
+  var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\PledgeComponent.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-e7c1127e", Component.options)
+  } else {
+    hotAPI.reload("data-v-e7c1127e", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            courses: [''],
+            four_year_courses: [''],
+            levels: [100, 200, 300, 400, 500],
+            five_levels: [100, 200, 300, 400, 500],
+            four_levels: [100, 200, 300, 400],
+            selectedCourse: "",
+            selectedLevel: 0,
+            // to reset the levels so that the four year courses shows properly toggle this value
+            resetLevel: false,
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            types: {
+                item: "word",
+                qty: "number"
+            },
+            inputs: {
+                item: "",
+                qty: ""
+            }
+        };
+    },
+
+    methods: {
+        changeCourse: function changeCourse(course) {
+            this.selectedCourse = course;
+        },
+        changeLevel: function changeLevel(level) {
+            this.selectedLevel = level;
+        },
+        in: function _in(item, arr) {
+            return arr.indexOf(item) > -1;
+        },
+        updateValue: function updateValue(event) {
+            // Edit value
+            // this.item = event.target.attributes.name.value + "jjkn"
+            var input = this.inputs[event.target.attributes.name.value];
+            alert(input);
+        },
+        testWord: function testWord(value) {
+            return !/[0-9]/.test(value);
+        },
+        testNumber: function testNumber(value) {
+            return !!(value * 1);
+        }
+    },
+    watch: {
+        selectedCourse: function selectedCourse(val, old) {
+            if (this.in(val, this.four_year_courses)) this.levels = this.four_levels;else this.levels = this.five_levels;
+
+            if (!this.in(this.selectedLevel, this.levels)) this.resetLevel = !this.resetLevel;
+        }
+    },
+    created: function created() {
+        var _this = this;
+
+        axios.get('/js/courses.json').then(function (response) {
+            _this.courses = response.data;
+        });
+
+        axios.get('/js/four_year_courses.json').then(function (response) {
+            _this.four_year_courses = response.data;
+        });
+    }
+});
 
 /***/ })
 /******/ ]);
