@@ -8619,7 +8619,7 @@ a.submit:hover {
 }
 
 .pledge-form input[type=text],
-.pledge-form div.custom-input {
+.pledge-form div.custom-input-group div.custom-input {
   width: 100%;
   background-color: transparent;
   border: 0;
@@ -8635,18 +8635,13 @@ a.submit:hover {
   line-height: 1;
 }
 
-.pledge-form input[type=text].short,
-.pledge-form div.short.custom-input {
-  width: 100%;
-}
-
-.pledge-form input[type=text].warning,
-.pledge-form div.warning.custom-input {
-  background-color: #ec5a5a;
+.pledge-form input[type=text].error,
+.pledge-form div.custom-input-group div.error.custom-input {
+  border: 2px solid #ef6464;
 }
 
 .pledge-form input[type=text]:focus,
-.pledge-form div.custom-input:focus {
+.pledge-form div.custom-input-group div.custom-input:focus {
   outline: none;
 }
 
@@ -8655,16 +8650,12 @@ a.submit:hover {
   width: 100%;
 }
 
-.pledge-form div.custom-input {
+.pledge-form div.custom-input-group div.custom-input {
   cursor: pointer;
   position: relative;
 }
 
-.pledge-form div.custom-input.short {
-  width: 100%;
-}
-
-.pledge-form div.custom-input i {
+.pledge-form div.custom-input-group div.custom-input i {
   font-size: 12px;
   color: #355;
   position: absolute;
@@ -8672,11 +8663,11 @@ a.submit:hover {
   top: 17px;
 }
 
-.pledge-form div.custom-input .placeholder {
+.pledge-form div.custom-input-group div.custom-input .placeholder {
   color: #757575;
 }
 
-.pledge-form div.input-select {
+.pledge-form div.custom-input-group div.input-select {
   max-height: 250px;
   background: #fff;
   font-size: 14px;
@@ -8687,25 +8678,18 @@ a.submit:hover {
   cursor: pointer;
   position: absolute;
   z-index: 2;
-}
-
-.pledge-form div.input-select.long {
   width: 100%;
 }
 
-.pledge-form div.input-select.short {
-  width: 100%;
-}
-
-.pledge-form div.input-select div {
+.pledge-form div.custom-input-group div.input-select div {
   padding: 10px 30px;
 }
 
-.pledge-form div.input-select div.selected {
+.pledge-form div.custom-input-group div.input-select div.selected {
   background-color: #ddd;
 }
 
-.pledge-form div.input-select div:hover {
+.pledge-form div.custom-input-group div.input-select div:hover {
   background-color: #eee;
 }
 
@@ -8863,24 +8847,40 @@ img.bubble {
     width: auto;
   }
 
-  .pledge-form input[type=text],
-  .pledge-form div.custom-input,
-  .pledge-form div.custom-input {
+  .pledge-form div.input-group input[type=text],
+  .pledge-form div.input-group div.custom-input-group div.custom-input,
+  .pledge-form div.custom-input-group div.input-group div.custom-input,
+  .pledge-form div.input-group div.custom-input,
+  .pledge-form div.input-group div.input-select,
+  .pledge-form div.custom-input-group input[type=text],
+  .pledge-form div.custom-input-group div.custom-input,
+  .pledge-form div.custom-input-group div.custom-input,
+  .pledge-form div.custom-input-group div.input-select {
     width: 400px;
   }
 
-  .pledge-form input[type=text].short,
-  .pledge-form div.short.custom-input,
-  .pledge-form div.custom-input.short {
+  .pledge-form div.input-group input[type=text].short,
+  .pledge-form div.input-group div.custom-input-group div.short.custom-input,
+  .pledge-form div.custom-input-group div.input-group div.short.custom-input,
+  .pledge-form div.input-group div.custom-input.short,
+  .pledge-form div.input-group div.input-select.short,
+  .pledge-form div.custom-input-group input[type=text].short,
+  .pledge-form div.custom-input-group div.short.custom-input,
+  .pledge-form div.custom-input-group div.custom-input.short,
+  .pledge-form div.custom-input-group div.input-select.short {
     width: 180px;
   }
 
-  .pledge-form div.input-select.long {
-    width: 400px;
-  }
-
-  .pledge-form div.input-select.short {
-    width: 180px;
+  .pledge-form div.input-group.short input[type=text],
+  .pledge-form div.input-group.short div.custom-input-group div.custom-input,
+  .pledge-form div.custom-input-group div.input-group.short div.custom-input,
+  .pledge-form div.input-group.short div.custom-input,
+  .pledge-form div.input-group.short div.input-select,
+  .pledge-form div.custom-input-group.short input[type=text],
+  .pledge-form div.custom-input-group.short div.custom-input,
+  .pledge-form div.custom-input-group.short div.custom-input,
+  .pledge-form div.custom-input-group.short div.input-select {
+    width: 180px !important;
   }
 }
 

@@ -242,7 +242,7 @@ a.submit, a.submit:focus, a.submit:active, a.submit:hover
     padding: 45px 0;
 }
 
-.pledge-page {
+    {
     @extend .page;
     background-color: $elf-green;
 }
@@ -316,14 +316,9 @@ a.submit, a.submit:focus, a.submit:active, a.submit:hover
         margin-bottom: 15px;
         line-height: 1;
 
-        &.short
+        &.error
         {
-            width: 100%;
-        }
-
-        &.warning
-        {
-            background-color: #ec5a5a;
+            border: 2px solid #ef6464;
         }
 
         &:focus
@@ -336,66 +331,52 @@ a.submit, a.submit:focus, a.submit:active, a.submit:hover
     {
         float: left;
         width: 100%;
-    }
 
-    div.custom-input
-    {
-        @extend input[type=text];
-        cursor: pointer;
-        position: relative;
-
-        &.short
+        div.custom-input
         {
-            width: 100%;
-        }
+            @extend input[type=text];
+            cursor: pointer;
+            position: relative;
 
-        i
-        {
-            font-size: 12px;
-            color: #355;
-            position: absolute;
-            right: 30px;
-            top: 17px;
-        }
-
-        .placeholder
-        {
-            color: #757575;
-        }
-    }
-
-    div.input-select
-    {
-        max-height: 250px;
-        background: #fff;
-        font-size: 14px;
-        overflow-y: auto;
-        margin-top: -10px;
-        box-shadow: $box-shadow-green;
-        cursor: pointer;
-        position: absolute;
-        z-index: 2;
-
-        &.long
-        {
-            width: 100%;
-        }
-
-        &.short
-        {
-            width: 100%;
-        }
-
-        div {
-            padding: 10px 30px;
-
-            &.selected
+            i
             {
-                background-color: $grey-selected;
+                font-size: 12px;
+                color: #355;
+                position: absolute;
+                right: 30px;
+                top: 17px;
             }
 
-            &:hover {
-                background-color: $grey-highlight;
+            .placeholder
+            {
+                color: #757575;
+            }
+        }
+
+        div.input-select
+        {
+            max-height: 250px;
+            background: #fff;
+            font-size: 14px;
+            overflow-y: auto;
+            margin-top: -10px;
+            box-shadow: $box-shadow-green;
+            cursor: pointer;
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+
+            div {
+                padding: 10px 30px;
+
+                &.selected
+                {
+                    background-color: $grey-selected;
+                }
+
+                &:hover {
+                    background-color: $grey-highlight;
+                }
             }
         }
     }
@@ -501,31 +482,30 @@ img.bubble
 }
 
 @media (min-width: 600px)
-{  
-
-    .pledge-form div.input-group, .pledge-form div.custom-input-group
+{
+    .pledge-form
     {
-        width: auto;
-    }
-
-    .pledge-form input[type=text], .pledge-form div.custom-input
-    // Change the above to more expressive SCSS format
-    {
-        width: 400px;
-
-        &.short
+        div.input-group, div.custom-input-group
         {
-            width: 180px;
+            width: auto;
+
+            input[type=text], div.custom-input, div.input-select
+            {
+                width: 400px;
+
+                &.short
+                {
+                    width: 180px;
+                }
+            }
+
+            &.short
+            {
+                input[type=text], div.custom-input, div.input-select
+                {
+                    width: 180px !important;
+                }
+            }
         }
-    }
-
-    .pledge-form div.input-select.long
-    {
-        width: 400px;
-    }
-
-    .pledge-form div.input-select.short
-    {
-        width: 180px;
     }
 }

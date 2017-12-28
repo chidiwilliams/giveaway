@@ -32,13 +32,7 @@ class PledgeController extends Controller
      */
     public function create()
     {
-        $courses = ["ACCOUNTING","APPLIED BIOLOGY","APPLIED GEOPHYSICS","ARCHITECTURE","BANKING AND FINANCE","BIOCHEMISTRY","BUILDING TECHNOLOGY","BUSINESS ADMINISTRATION","CHEMICAL ENGINEERING","CIVIL ENGINEERING","COMPUTER ENGINEERING","COMPUTER SCIENCE","DEMOGRAPHY","ECONOMICS","ELECT-ELECT","ENGLISH","ESTATE MANAGEMENT","I.C.E.","INDUSTRIAL CHEMISTRY","INDUSTRIAL RELATIONS","INTERNATIONAL RELATIONS","MARKETING","MASS COMMUNICATION","MATHEMATICS","MECHANICAL ENGINEERING","MICROBIOLOGY","MIS","PETROLEUM ENGINEERING","PHYSICS","POLITICAL SCIENCE","PSYCHOLOGY","SOCIOLOGY"];
-
-        $params = [
-            "courses" => $courses
-        ];
-
-        return view('pledge', $params);
+        return view('pledge');
     }
 
     /**
@@ -50,8 +44,7 @@ class PledgeController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-        	'name' => ['required', 'string'],
-        	// 'course' => ['required', Rule::in(['Computer Science'])],
+            // for the course, check if the values exist in the JSON list
         	'course' => ['required'],
         	'level' => ['required', Rule::in(['100', '200', '300', '400', '500'])],
         	'item' => ['required', 'string'],

@@ -4,56 +4,93 @@
         return {
             courses: [''],
             four_year_courses: [''],
-            levels: [100, 200, 300, 400, 500],
+            levels: [100, 200, 300, 400],
             five_levels: [100, 200, 300, 400, 500],
             four_levels: [100, 200, 300, 400],
-            selectedCourse: "",
-            selectedLevel: 0,
-            // to reset the levels so that the four year courses shows properly toggle this value
-            resetLevel: false,
-            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            types: {
-                item: "word",
-                qty: "number"
-            },
+            toggleResetLevel: false,
             inputs: {
-                item: "",
-                qty: ""
+                item: {
+                    value: "",
+                    type: "",
+                    error: false
+                },
+                qty: {
+                    value: "",
+                    type: "number",
+                    error: false
+                },
+                course: {
+                    value: "",
+                    type: "custom",
+                    error: false
+                },
+                level: {
+                    value: 0,
+                    type: "custom",
+                    error: false
+                }
             }
         }
     },
     methods: {
         changeCourse: function (course) {
-            this.selectedCourse = course
+            this.inputs["course"].value = course
+
+            // If new course is for four years and levels are five years, reset level to 100l
+            this.in(course, this.four_year_courses) && (this.levels == this.five_levels) ? this.resetLevel() : null
+
+            // Set levels to course-specific
+            this.levels = (this.in(course, this.four_year_courses)) ? this.four_levels : this.five_levels
+
+            // Clear course input error
+            this.inputs.course.error = false
         },
         changeLevel: function (level) {
-            this.selectedLevel = level
+            this.inputs["level"].value = level
+
+            // Clear level input error
+            this.inputs.level.error = false
         },
         in: function (item, arr) {
             return (arr.indexOf(item) > -1)
         },
         updateValue: function (event) {
-            // Edit value
-            // this.item = event.target.attributes.name.value + "jjkn"
-            var input = this.inputs[event.target.attributes.name.value]
-            alert(input)
+            var inputName = event.target.name
+            var inputVal = this.inputs[inputName].value
+            var inputType = this.inputs[inputName].type
+
+            this.inputs[inputName].error = !this.isCorrectInput(inputVal, inputType)
+
+            this.inputs[inputName].value = inputVal.trim()
         },
-        testWord: function (value) {
+        isCorrectInput: function (val, type) {
+            switch (type) {
+                case "word":
+                    return this.isCorrectInputWord(val);
+                    break;
+                case "number":
+                    return this.isCorrectInputNumber(val);
+                    break;
+                default:
+                    return 1;
+                    break;
+            }
+        },
+        isCorrectInputWord: function (value) {
             return !(/[0-9]/.test(value))
         },
-        testNumber: function (value) {
-            return !!(value * 1)
-        }
-    },
-    watch: {
-        selectedCourse: function (val, old) {
-            if (this.in(val, this.four_year_courses)) 
-                this.levels = this.four_levels
-            else 
-                this.levels = this.five_levels
+        isCorrectInputNumber: function (value) {
+            return (value * 1) > 0
+        },
+        onSubmit: function (event) {
+            var errors = false
 
-            if (!(this.in(this.selectedLevel, this.levels)))
-                this.resetLevel = !this.resetLevel
+        for (var i in this.inputs) errors = this.inputs[i].error ? true : errors
+
+            if (!errors) event.target.submit()
+        },
+        resetLevel: function () {
+            this.toggleResetLevel = !this.toggleResetLevel
         }
     },
     created: function() {

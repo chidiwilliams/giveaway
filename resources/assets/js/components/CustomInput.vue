@@ -1,6 +1,6 @@
 <template>
-    <div class="custom-input-group" :id="dropdownCompId">
-        <div class="custom-input" :class="classes" @click.prevent="toggleDrop">
+    <div class="custom-input-group" :class="classes" :id="dropdownCompId">
+        <div class="custom-input" :class="errorClass" @click.prevent="toggleDrop">
             <span class="item" v-if="value">{{ value }}</span>
             <span class="item" v-else-if="selected_item">{{ selected_item }}</span>
             <span class="item placeholder" v-else>{{ place }}</span>
@@ -12,7 +12,7 @@
         <input :name="name" type="hidden" v-model="selected_item" required="required">
         
         <transition name="fade">
-            <div class="input-select" :class="classes" v-show="dropped"> <!-- Big body dropdown  -->
+            <div class="input-select" v-show="dropped"> <!-- Big body dropdown  -->
                 <div v-for="item in items" :key="item.id" @click="selectItem(item)" class="item" v-bind:class="checkIfSelected(item)"> <!-- Dropdown items -->
                     {{ item }}
                 </div>
@@ -78,7 +78,7 @@
                 }
             }
         },
-        props: ['type', 'classes', 'items', 'placeholder', 'dropdownId', 'reset', 'disabled', 'value', 'name'],
+        props: ['type', 'classes', 'items', 'placeholder', 'dropdownId', 'reset', 'disabled', 'value', 'name', 'errorClass'],
         mounted: function () {
             document.querySelector("#app").addEventListener('click', this.onClickBody)
         },
