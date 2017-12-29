@@ -36,8 +36,8 @@ return [
     ],
 
     'twitter' => [
-        'client_id' => env('TWITTER_CLIENT_ID'),         // Your TWITTER Client ID
-        'client_secret' => env('TWITTER_CLIENT_SECRET'), // Your TWITTER Client Secret
+        'client_id' => 'QtmNiuBYONQlCWhiOyFH8yVe2',         // Your TWITTER Client ID
+        'client_secret' => 'zayp9uVhpHwvkWDXnoKHhoDwGdDWwwJbFwDVp3gD2333GAcXpo', // Your TWITTER Client Secret
         'redirect' => '/login/twitter/callback',
     ],
 
