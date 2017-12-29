@@ -26,6 +26,9 @@ Route::get('/pledge', 'PledgeController@create')->name('pledge');
 Route::post('/pledge', 'PledgeController@store')->name('ipledge');
 
 Route::get('/play', 'PlayController@create')->name('play');
+Route::post('/play', 'PlayController@store')->name('iplay');
 
 Route::get('/test', 'TestController@test')->name('test');
 Route::post('/test', 'TestController@post')->name('test_post');
+
+Route::get('/plays', 'ApiController@plays')->name('plays');

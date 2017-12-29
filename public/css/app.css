@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Raleway);@import url(https://fonts.googleapis.com/css?family=Open+Sans);@import url(https://fonts.googleapis.com/css?family=Varela+Round);@import url(https://fonts.googleapis.com/css?family=Pacifico);@import url(https://fonts.googleapis.com/css?family=Lobster);@charset "UTF-8";
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -8365,12 +8365,6 @@ button.close {
 
 /* Box shadows */
 
-/*@import url('https://fonts.googleapis.com/css?family=Raleway');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=Varela+Round');
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
-@import url('https://fonts.googleapis.com/css?family=Lobster');*/
-
 html,
 body,
 #app {
@@ -8381,6 +8375,10 @@ body,
 body {
   font-size: 18px;
   color: #022;
+}
+
+[v-cloak] {
+  display: none;
 }
 
 .clear {
@@ -8410,6 +8408,10 @@ body {
 
 .bottom-text {
   text-align: center;
+}
+
+:root {
+  --rotation-degree: 10000deg;
 }
 
 .header {
@@ -8750,10 +8752,87 @@ img.bubble {
   margin-bottom: 80px;
 }
 
+.game {
+  position: relative;
+}
+
+.game img.wheel {
+  position: relative;
+  /* xs width would be 100%, higher sizes would be in px */
+  width: 450px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+
+.game img.pointer {
+  left: 31.45%;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  top: 125px;
+  position: absolute;
+  width: 200px;
+}
+
+.game img.pointer.rotate {
+  -webkit-animation: rotate-pointer 20s forwards;
+  animation: rotate-pointer 20s forwards;
+}
+
+.game .bounce {
+  -webkit-animation: bounce 5s alternate forwards;
+          animation: bounce 5s alternate forwards;
+}
+
+.winnings {
+  background: rgba(51, 51, 51, 0.658824);
+  min-height: 450px;
+  border: 10px solid #333;
+  padding: 15px;
+  -webkit-box-shadow: 0 3px 3px #58561e;
+          box-shadow: 0 3px 3px #58561e;
+}
+
+.winnings div.spin {
+  text-align: center;
+  background-color: #e4ac24;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 5px 10px;
+  font-size: 28px;
+  -webkit-box-shadow: 0 3px 3px #58561e;
+          box-shadow: 0 3px 3px #58561e;
+  color: #fff;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.winnings div.tries {
+  text-align: center;
+}
+
+.winnings span.tries-number {
+  font-size: 150px;
+  line-height: 1;
+  font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
+  font-weight: bold;
+  margin-right: 25px;
+  color: #b12b28;
+  text-shadow: 2px 2px 0px #fff, 5px 5px 0px #460c0c;
+}
+
+.winnings span.tries-word {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 45px;
+  color: #777543;
+  text-shadow: 2px 2px 0px #f00, -2px -2px 0 #0f0;
+}
+
 .fade-enter-active,
 .fade-leave-active {
-  -webkit-transition: opacity .5s;
-  transition: opacity .5s;
+  -webkit-transition: opacity .5s ease-out;
+  transition: opacity .5s ease-out;
 }
 
 .fade-enter,
@@ -8838,6 +8917,50 @@ img.bubble {
 
   100% {
     background-color: #fcf665;
+  }
+}
+
+@-webkit-keyframes rotate-pointer {
+  0% {
+    -webkit-transform: initial;
+            transform: initial;
+  }
+
+  100% {
+    -webkit-transform: rotate(var(--rotation-degree));
+            transform: rotate(var(--rotation-degree));
+  }
+}
+
+@keyframes rotate-pointer {
+  0% {
+    -webkit-transform: initial;
+            transform: initial;
+  }
+
+  100% {
+    -webkit-transform: rotate(var(--rotation-degree));
+            transform: rotate(var(--rotation-degree));
+  }
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    background-color: #fff;
+  }
+
+  100% {
+    background-color: #000;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    background-color: #fff;
+  }
+
+  100% {
+    background-color: #000;
   }
 }
 

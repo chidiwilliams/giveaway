@@ -1,3 +1,2 @@
 TODO LIST
 1. Change bubble SVG with text to image from Figma
-2. Pledge form validation with Vue and Controller

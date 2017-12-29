@@ -15,7 +15,7 @@ class CreatePledgesTable extends Migration
     {
         Schema::create('pledges', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('pledger')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('item');
             $table->integer('qty');
 
@@ -23,7 +23,7 @@ class CreatePledgesTable extends Migration
         });
 
         Schema::table('pledges', function ($table) {
-            $table->foreign('pledger')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

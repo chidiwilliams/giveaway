@@ -14,6 +14,10 @@ class TestController extends Controller
 
     public function post(Request $request)
     {
-    	return "Yes!";
+    	return [
+            "pledge" => 45,
+            "owner" => "lead",
+            "number" => 4
+        ];
     }
 }

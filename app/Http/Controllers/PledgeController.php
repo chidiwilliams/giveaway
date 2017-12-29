@@ -7,6 +7,7 @@ use Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use App\Pledge;
+use App\User;
 
 class PledgeController extends Controller
 {
@@ -51,9 +52,16 @@ class PledgeController extends Controller
         	'qty' => ['required', 'integer']
         ])->validate();
 
+        $user = User::find(Auth::user()->id);
+
+        $user->course = $request->course;
+        $user->level = (int) $request->level;
+
+        $user->save();
+
         $pledge = new Pledge;
 
-        $pledge->pledger = Auth::user()->id;
+        $pledge->user_id = Auth::user()->id;
         $pledge->item = $request->item;
         $pledge->qty = $request->qty;
 

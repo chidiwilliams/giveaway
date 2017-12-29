@@ -19,12 +19,13 @@ $elf-yellow-darker: #58561e;
 /* Box shadows */
 $box-shadow-grey: 0 3px 3px rgba(0,0,0,0.075);
 $box-shadow-green: 0 3px 3px $elf-green-darker;
+$box-shadow-yellow: 0 3px 3px $elf-yellow-darker;
 
-/*@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
-@import url('https://fonts.googleapis.com/css?family=Lobster');*/
+@import url('https://fonts.googleapis.com/css?family=Lobster');
 
 html,
 #app
@@ -38,6 +39,11 @@ body
     @extend html;
     font-size: 18px;
     color: $rich-black;
+}
+
+[v-cloak]
+{
+    display: none;
 }
 
 .clear
@@ -71,6 +77,10 @@ body
 {
     @extend .bottom;
     text-align: center;
+}
+
+:root {
+    --rotation-degree: 10000deg;
 }
 
 .header
@@ -242,7 +252,8 @@ a.submit, a.submit:focus, a.submit:active, a.submit:hover
     padding: 45px 0;
 }
 
-    {
+.pledge-page
+{
     @extend .page;
     background-color: $elf-green;
 }
@@ -448,8 +459,94 @@ img.bubble
     }
 }
 
+.game
+{
+    position: relative;
+
+    img.wheel
+    {
+        position: relative;
+        /* xs width would be 100%, higher sizes would be in px */
+        width: 450px;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+        -o-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+
+    img.pointer
+    {
+        left: 31.45%;
+        transform: rotate(0deg);
+        top: 125px;
+        position: absolute;
+        width: 200px;
+
+        &.rotate
+        {
+            -webkit-animation: rotate-pointer 20s forwards;
+            -o-animation: rotate-pointer 20s forwards;
+            animation: rotate-pointer 20s forwards;
+        }
+    }
+
+    .bounce
+    {
+        animation: bounce 5s alternate forwards;
+    }
+}
+
+.winnings
+{
+    background: rgba(51, 51, 51, 0.6588235294117647);
+    min-height: 450px;
+    border: 10px solid #333;
+    padding: 15px;
+    box-shadow: 0 3px 3px #58561e;
+
+    div.spin
+    {
+        text-align: center;
+        background-color: #e4ac24;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 5px 10px;
+        font-size: 28px;
+        box-shadow: $box-shadow-yellow;
+        color: #fff;
+        margin-bottom: 40px;
+        cursor: pointer;
+    }
+
+    div.tries
+    {
+        text-align: center;
+    }
+
+    span.tries-number
+    {
+        font-size: 150px;
+        line-height: 1;
+        font-family: $heading-font;
+        font-weight: bold; 
+        margin-right: 25px;
+        color: #b12b28;
+        text-shadow: 2px 2px 0px #fff, 5px 5px 0px #460c0c;
+    }
+
+    span.tries-word
+    {
+        text-transform: uppercase;
+        font-weight: 800;
+        font-size: 45px;
+        color: #777543;
+        text-shadow: 2px 2px 0px #f00, -2px -2px 0 #0f0;
+    }
+}
+
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s
+  transition: opacity .5s ease-out;
 }
 
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
@@ -477,8 +574,25 @@ img.bubble
     100% { background-color: $elf-yellow; }
 }
 
+@keyframes rotate-pointer {
+    0% { transform: initial; }
+    100% { transform: rotate(var(--rotation-degree)); }
+}
+
+// TODO: Improve animation of bounce
+@keyframes bounce {
+    0% {
+        background-color: #fff;
+    }
+    100%
+    {
+        background-color: #000;
+    }
+}
+
 @media (min-width: 1200px)
-{  
+{
+
 }
 
 @media (min-width: 600px)

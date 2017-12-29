@@ -15,10 +15,16 @@
                     <div class="pledge-form">
                         <form action="{{ route('ipledge') }}" method="POST" v-on:submit.prevent="onSubmit($event)">
                         	{{ csrf_field() }}
+
+							{{ Auth::user()->course }}
                             
                             <div class="input-group">
                                 <label for="name">What course are you studying?</label>
                                 <custom-input 
+									@if(Auth::user()->course)
+										value="{{ Auth::user()->course }}"
+										disabled="true"
+									@endif
                                 	name="course" 
                                 	classes="long" 
                                 	dropdown-id="1" 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePlaysTable extends Migration
+class CreateRedeemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreatePlaysTable extends Migration
      */
     public function up()
     {
-        Schema::create('plays', function (Blueprint $table) {
+        Schema::create('redeems', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('win');
+            $table->integer('pledge_id')->unsigned();
             
             $table->timestamps();
         });
 
-        Schema::table('plays', function ($table) {
+        Schema::table('redeems', function($table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('pledge_id')->references('id')->on('pledges')->onDelete('cascade');
         });
     }
 
@@ -33,6 +34,6 @@ class CreatePlaysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plays');
+        Schema::dropIfExists('redeems');
     }
 }

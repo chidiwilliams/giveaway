@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Play extends Model
+class Redeem extends Model
 {
     protected $fillable = [
-        'player', 'pledge'
+        'pledger', 'item', 'qty'
     ];
 }

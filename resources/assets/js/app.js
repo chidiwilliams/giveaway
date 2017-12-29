@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('pledge-component', require('./components/PledgeComponent.vue'));
+Vue.component('play-component', require('./components/PlayComponent.vue'));
 Vue.component('custom-input', require('./components/CustomInput.vue'))
 
 const app = new Vue({
