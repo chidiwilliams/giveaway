@@ -21,13 +21,17 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="winnings">
+                    <div class="winnings" v-cloak>
                         <div class="spin" @click="spin">Spin</div>
                         <div class="tries" v-cloak>
                             <span class="tries-number">@{{ triesLeft }}</span>
                             <span class="tries-word">@{{ tryTries }} left</span>
                         </div>
-                        <div class="prize" v-if="showPrize" v-cloak>You've just won @{{ prize.item }} x @{{ prize.qty }}. Redeem your prize from <a :href="'https://twitter.com/' + prize.pledger.handle'">@{{ "@" + prize.pledger.handle }}</a></div>
+                        <div class="prize" v-if="showPrize" v-cloak>
+                        You've just won @{{ prize.item }} x @{{ prize.qty }}. 
+                        Redeem your prize from 
+                        <a :href="'https://twitter.com/' + prize.pledger.handle">@{{ "@" + prize.pledger.handle }}</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,9 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="user-id" content="{{ Auth::user()->id }}">
+    @if(Auth::check())
+        <meta name="user-id" content="{{ Auth::user()->id }}">
+    @endif
 
     <title>The Christmas Giveaway</title>
 
@@ -25,7 +27,9 @@
         </div>
     @show
 
-    <div class="welcome-user">{{ "@" . Auth::user()->handle }}</div>
+    @if(Auth::check())
+        <div class="welcome-user">{{ "@" . Auth::user()->handle }}</div>
+    @endif
 
     <div id="app">
         @yield('content')

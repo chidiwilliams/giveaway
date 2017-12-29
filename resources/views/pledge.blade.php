@@ -11,7 +11,7 @@
 	                <div class="page-name">Pledge</div>
 	                <div class="page-line"></div>
 	            </div>
-	            <div class="col-md-offset-2">
+	            <div class="col-md-offset-2" v-cloak>
                     <div class="pledge-form">
                         <form action="{{ route('ipledge') }}" method="POST" v-on:submit.prevent="onSubmit($event)">
                         	{{ csrf_field() }}
