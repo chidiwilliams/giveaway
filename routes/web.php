@@ -32,3 +32,8 @@ Route::get('/test', 'TestController@test')->name('test');
 Route::post('/test', 'TestController@post')->name('test_post');
 
 Route::get('/plays', 'ApiController@plays')->name('plays');
+
+Route::get('/users', function()
+{
+    return User::all();
+});
