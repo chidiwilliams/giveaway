@@ -11,14 +11,22 @@
 |
 */
 
-Route::get('/', 'IndexController@index');
+Route::get('/', 'IndexController@index')->name('login');
 
 Route::get('/home', 'HomeController@index');
 
 Route::get('login/twitter', 'SocialAuthTwitterController@redirectToProvider')->name('twitter_login');
 Route::get('login/twitter/callback', 'SocialAuthTwitterController@handleProviderCallback');
 
-Auth::routes();	
+Route::get('login/', 'Auth\LoginController@showLoginForm');
+Route::post('login/', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+Route::get('1234567890/register/', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('1234567890/register/', 'Auth\RegisterController@register');
+
+
 
 Route::get('/game', 'GameController@game')->name('game');
 
