@@ -43093,26 +43093,47 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.selected_item,
-            expression: "selected_item"
-          }
-        ],
-        attrs: { name: _vm.name, type: "hidden", required: "required" },
-        domProps: { value: _vm.selected_item },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+      _vm.value
+        ? _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.value,
+                expression: "value"
+              }
+            ],
+            attrs: { name: _vm.name, type: "hidden", required: "required" },
+            domProps: { value: _vm.value },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.value = $event.target.value
+              }
             }
-            _vm.selected_item = $event.target.value
-          }
-        }
-      }),
+          })
+        : _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.selected_item,
+                expression: "selected_item"
+              }
+            ],
+            attrs: { name: _vm.name, type: "hidden", required: "required" },
+            domProps: { value: _vm.selected_item },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.selected_item = $event.target.value
+              }
+            }
+          }),
       _vm._v(" "),
       _c("transition", { attrs: { name: "fade" } }, [
         _c(

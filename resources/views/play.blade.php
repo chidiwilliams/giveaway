@@ -27,7 +27,7 @@
                             <span class="tries-number">@{{ triesLeft }}</span>
                             <span class="tries-word">@{{ tryTries }} left</span>
                         </div>
-                        <div class="prize" v-if="showPrize" v-cloak>You've just won @{{ prize.item }} x @{{ prize.qty }}. Redeem your prize from @{{ "@" + prize.pledger.handle }}</div>
+                        <div class="prize" v-if="showPrize" v-cloak>You've just won @{{ prize.item }} x @{{ prize.qty }}. Redeem your prize from <a :href="'https://twitter.com/' + prize.pledger.handle'">@{{ "@" + prize.pledger.handle }}</a></div>
                     </div>
                 </div>
             </div>

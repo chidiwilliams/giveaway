@@ -8,8 +8,8 @@
             <i class="glyphicon glyphicon-chevron-down" v-if="!disabled"></i>
         </div>
 
-        <!-- Real input for form submission -->
-        <input :name="name" type="hidden" v-model="selected_item" required="required">
+        <input :name="name" type="hidden" v-model="value" required="required" v-if="value">
+        <input :name="name" type="hidden" v-model="selected_item" required="required" v-else>
         
         <transition name="fade">
             <div class="input-select" v-show="dropped"> <!-- Big body dropdown  -->

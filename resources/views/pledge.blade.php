@@ -16,8 +16,6 @@
                         <form action="{{ route('ipledge') }}" method="POST" v-on:submit.prevent="onSubmit($event)">
                         	{{ csrf_field() }}
 
-							{{ Auth::user()->course }}
-                            
                             <div class="input-group">
                                 <label for="name">What course are you studying?</label>
                                 <custom-input 
@@ -36,6 +34,10 @@
                             <div class="input-group">
                                 <label for="name">What level are you currently in?</label>
                                 <custom-input 
+									@if(Auth::user()->level)
+										value="{{ Auth::user()->level }}"
+										disabled="true"
+									@endif
                                 	name="level" 
                                 	:items="levels" 
                                 	classes="short" 
