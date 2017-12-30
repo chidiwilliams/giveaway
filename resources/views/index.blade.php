@@ -22,13 +22,13 @@
 				</div>
 			</a>
 
-			{{-- TODO: Login with Facebook --}}
+			<!-- {{-- TODO: Login with Facebook --}}
 			<a href="{{ route('twitter_login') }}" class="twitter-link">
 				<div class="twitter-button">
 					<img src="{{ asset('img/Twitter_Logo_WhiteOnWhite.svg') }}" alt="Twitter" class="new-twitter-logo left">
 					<div class="new-twitter-text left">Continue with Facebook</div>
 				</div>
-			</a>
+			</a> -->
 
 			<div class="menu-footer visible-xs">
 				<div class="main">The New Year Giveaway</div>

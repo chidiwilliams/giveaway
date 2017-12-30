@@ -1,2 +1,4 @@
 TODO LIST
-1. Change bubble SVG with text to image from Figma
+1. Game page conversion to grid
+2. Implement FB login
+3. Change spinning wheel + mobile responsiveness

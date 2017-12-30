@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway);@import url(https://fonts.googleapis.com/css?family=Open+Sans);@import url(https://fonts.googleapis.com/css?family=Varela+Round);@import url(https://fonts.googleapis.com/css?family=Pacifico);@import url(https://fonts.googleapis.com/css?family=Lobster);@charset "UTF-8";
+@charset "UTF-8";
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -8365,6 +8365,12 @@ button.close {
 
 /* Box shadows */
 
+/*@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Lobster');*/
+
 html,
 body,
 #app {
@@ -8539,30 +8545,6 @@ a.submit:hover {
   color: inherit;
 }
 
-.pledge-box {
-  float: left;
-  width: 100%;
-  height: 100%;
-  background-color: #56bbb1;
-}
-
-.play-box {
-  float: left;
-  width: 100%;
-  height: 100%;
-  background-color: #cac552;
-}
-
-.pledge-box:hover {
-  -webkit-animation: brighten-elf-green 1s forwards;
-  animation: brighten-elf-green 1s forwards;
-}
-
-.play-box:hover {
-  -webkit-animation: brighten-elf-yellow 1s forwards;
-  animation: brighten-elf-yellow 1s forwards;
-}
-
 .welcome-user {
   font-size: 17px;
   position: absolute;
@@ -8571,59 +8553,6 @@ a.submit:hover {
   background: #fff;
   padding: 5px 10px;
   font-family: "Open Sans", "Raleway";
-}
-
-.choice-box {
-  bottom: 25%;
-  position: absolute;
-  margin: 40px;
-  text-transform: uppercase;
-  color: #022;
-}
-
-.pledge-box .choice-box {
-  right: 50%;
-  text-align: right;
-}
-
-.play-box .choice-box {
-  left: 50%;
-}
-
-.pledge-wish {
-  font-family: "Open Sans", "Raleway";
-  font-size: 30px;
-}
-
-.pledge-action {
-  font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
-  font-size: 90px;
-  margin: -35px 0 -20px 0;
-  font-weight: 900;
-}
-
-.pledge-line {
-  height: 20px;
-}
-
-.pledge-box .pledge-line {
-  background-color: #fcf665;
-  float: right;
-}
-
-.play-box .pledge-line {
-  background-color: #6be6d9;
-  float: left;
-}
-
-.pledge-box:hover .pledge-line {
-  -webkit-animation: lengthen-line 0.5s forwards;
-  animation: lengthen-line 0.5s forwards;
-}
-
-.play-box:hover .pledge-line {
-  -webkit-animation: lengthen-line 0.5s forwards;
-  animation: lengthen-line 0.5s forwards;
 }
 
 .page,
@@ -8652,6 +8581,15 @@ a.submit:hover {
   grid-template-rows: 300px 1fr;
   grid-template-columns: 1fr;
   grid-template-areas: "text" "menu";
+}
+
+.index-container .index-container .index-text {
+  padding: 50px;
+}
+
+.index-container .index-container .index-text .index-seller .index-seller-header {
+  font-size: 120px;
+  font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
 }
 
 .index-container .index-text {
@@ -8994,6 +8932,158 @@ img.bubble {
   opacity: 0;
 }
 
+/* GAME PAGE */
+
+div.game-page {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "pledge" "play";
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  div.game-page {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "pledge" "play";
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+div.game-page div.game-box,
+div.game-page div.new-pledge-box,
+div.game-page div.new-play-box {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+div.game-page div.game-box .game-label,
+div.game-page div.new-pledge-box .game-label,
+div.game-page div.new-play-box .game-label {
+  padding: 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+div.game-page div.game-box .game-label .game-label-sub,
+div.game-page div.new-pledge-box .game-label .game-label-sub,
+div.game-page div.new-play-box .game-label .game-label-sub {
+  font-family: "Open Sans", "Raleway";
+  font-size: 30px;
+}
+
+div.game-page div.game-box .game-label .game-label-main,
+div.game-page div.new-pledge-box .game-label .game-label-main,
+div.game-page div.new-play-box .game-label .game-label-main {
+  font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
+  font-weight: 900;
+  font-size: 50px;
+  margin: -20px 0 -20px 0;
+}
+
+@media (min-width: 768px) {
+  div.game-page div.game-box .game-label .game-label-main,
+  div.game-page div.new-pledge-box .game-label .game-label-main,
+  div.game-page div.new-play-box .game-label .game-label-main {
+    font-size: 80px;
+    margin: -35px 0 -20px 0;
+  }
+}
+
+@media (min-width: 1125px) {
+  div.game-page div.game-box .game-label .game-label-main,
+  div.game-page div.new-pledge-box .game-label .game-label-main,
+  div.game-page div.new-play-box .game-label .game-label-main {
+    font-size: 90px;
+  }
+}
+
+div.game-page div.game-box .game-label .game-line,
+div.game-page div.new-play-box .game-label .game-line,
+div.game-page div.new-pledge-box .game-label .game-line {
+  height: 20px;
+}
+
+@media (min-width: 768px) {
+  div.game-page div.game-box:hover .game-line,
+  div.game-page div.new-play-box:hover .game-line,
+  div.game-page div.new-pledge-box:hover .game-line {
+    -webkit-animation: lengthen-line-250 0.5s forwards;
+    animation: lengthen-line-250 0.5s forwards;
+  }
+}
+
+@media (min-width: 1125px) {
+  div.game-page div.game-box:hover .game-line,
+  div.game-page div.new-play-box:hover .game-line,
+  div.game-page div.new-pledge-box:hover .game-line {
+    -webkit-animation: lengthen-line-450 0.5s forwards;
+    animation: lengthen-line-450 0.5s forwards;
+  }
+}
+
+div.game-page div.new-pledge-box {
+  background-color: #56bbb1;
+  justify-items: center;
+}
+
+@media (min-width: 768px) {
+  div.game-page div.new-pledge-box {
+    justify-items: right;
+  }
+}
+
+div.game-page div.new-pledge-box:hover {
+  -webkit-animation: brighten-elf-green 1s forwards;
+  animation: brighten-elf-green 1s forwards;
+}
+
+@media (min-width: 768px) {
+  div.game-page div.new-pledge-box div.game-label {
+    text-align: right;
+  }
+}
+
+div.game-page div.new-pledge-box .game-line {
+  background-color: #fcf665;
+  float: right;
+}
+
+div.game-page .new-play-box {
+  background-color: #cac552;
+  justify-items: center;
+}
+
+@media (min-width: 768px) {
+  div.game-page .new-play-box {
+    justify-items: left;
+  }
+}
+
+div.game-page .new-play-box div.game-line {
+  background-color: #6be6d9;
+  float: left;
+}
+
+@media (min-width: 768px) {
+  div.game-page .new-play-box div.game-label {
+    text-align: left;
+  }
+}
+
+div.game-page .new-play-box:hover {
+  -webkit-animation: brighten-elf-yellow 1s forwards;
+  animation: brighten-elf-yellow 1s forwards;
+}
+
 @-webkit-keyframes hide {
   0% {
     visibility: visible;
@@ -9014,7 +9104,7 @@ img.bubble {
   }
 }
 
-@-webkit-keyframes lengthen-line {
+@-webkit-keyframes lengthen-line-450 {
   0% {
     width: 0px;
   }
@@ -9024,13 +9114,53 @@ img.bubble {
   }
 }
 
-@keyframes lengthen-line {
+@keyframes lengthen-line-450 {
   0% {
     width: 0px;
   }
 
   100% {
     width: 450px;
+  }
+}
+
+@-webkit-keyframes lengthen-line-250 {
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    width: 250px;
+  }
+}
+
+@keyframes lengthen-line-250 {
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    width: 250px;
+  }
+}
+
+@-webkit-keyframes lengthen-line-150 {
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    width: 150px;
+  }
+}
+
+@keyframes lengthen-line-150 {
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    width: 150px;
   }
 }
 
@@ -9213,12 +9343,6 @@ img.bubble {
   }
 }
 
-@media (min-width: 1200px) {
-  .index-container .index-text .index-seller .index-seller-header {
-    font-size: 110px;
-  }
-}
-
 @media (min-width: 600px) {
   .pledge-form div.input-group,
   .pledge-form div.custom-input-group {
@@ -9284,20 +9408,6 @@ img.bubble {
     width: 40px;
     height: 40px;
     margin: 20px 25px 20px 30px;
-  }
-
-  .pledge-box {
-    float: left;
-    width: 50%;
-    height: 100%;
-    background-color: #56bbb1;
-  }
-
-  .play-box {
-    float: left;
-    width: 50%;
-    height: 100%;
-    background-color: #cac552;
   }
 }
 

@@ -21,11 +21,17 @@ $box-shadow-grey: 0 3px 3px rgba(0,0,0,0.075);
 $box-shadow-green: 0 3px 3px $elf-green-darker;
 $box-shadow-yellow: 0 3px 3px $elf-yellow-darker;
 
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+/*@import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
-@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Lobster');*/
+
+@mixin media ($queryString){
+    @media #{$queryString} {
+      @content;
+    }
+}
 
 html,
 #app
@@ -218,36 +224,7 @@ a.submit, a.submit:focus, a.submit:active, a.submit:hover
     color: inherit;
 }
 
-.pledge-box
-{
-    float: left;
-
-    width: 100%;
-    height: 100%;
-    background-color: $elf-green-dark;
-}
-
-.play-box
-{
-    float: left;
-
-    width: 100%;
-    height: 100%;
-    background-color: $elf-yellow-dark;
-}
-
-.pledge-box:hover {
-    -webkit-animation: brighten-elf-green 1s forwards;
-    -o-animation: brighten-elf-green 1s forwards;
-    animation: brighten-elf-green 1s forwards;
-}
-
-.play-box:hover {
-    -webkit-animation: brighten-elf-yellow 1s forwards;
-    -o-animation: brighten-elf-yellow 1s forwards;
-    animation: brighten-elf-yellow 1s forwards;
-}
-
+/* TBD !!! TBD !!! TBD !!! TBD !!! TBD !!! TBD !!! 
 .welcome-user
 {
     font-size: 17px;
@@ -259,64 +236,7 @@ a.submit, a.submit:focus, a.submit:active, a.submit:hover
     background: #fff;
     padding: 5px 10px;
     font-family: $body-font-alternate;
-}
-
-.choice-box {
-    bottom: 25%;
-    position: absolute;
-    margin: 40px;
-    text-transform: uppercase;
-    color: $rich-black;   
-}
-
-.pledge-box .choice-box
-{
-    right: 50%;
-    text-align: right;
-}
-
-.play-box .choice-box
-{
-    left: 50%;
-}
-
-.pledge-wish {
-    font-family: $body-font-alternate;
-    font-size: 30px;
-}
-
-.pledge-action {
-    font-family: $heading-font;
-    font-size: 90px;
-    margin: -35px 0 -20px 0;
-    font-weight: 900;
-}
-
-.pledge-line {
-    height: 20px;
-}
-
-.pledge-box .pledge-line {
-    background-color: $elf-yellow;
-    float: right;
-}
-
-.play-box .pledge-line {
-    background-color: $elf-green;
-    float: left;
-}
-
-.pledge-box:hover .pledge-line {
-    -webkit-animation: lengthen-line 0.5s forwards;
-    -o-animation: lengthen-line 0.5s forwards;
-    animation: lengthen-line 0.5s forwards;
-}
-
-.play-box:hover .pledge-line {
-    -webkit-animation: lengthen-line 0.5s forwards;
-    -o-animation: lengthen-line 0.5s forwards;
-    animation: lengthen-line 0.5s forwards;
-}
+} */
 
 .page
 {
@@ -329,6 +249,8 @@ a.submit, a.submit:focus, a.submit:active, a.submit:hover
     height: 100%;
     position: relative;
 }
+
+/* INDEX PAGE */
 
 .index-page
 {
@@ -357,6 +279,10 @@ a.submit, a.submit:focus, a.submit:active, a.submit:hover
         font-size: 60px;
         padding: 5px;
 
+        @include media("(min-width: 1200px)"){
+            padding: 50px;
+        }
+
         .index-seller
         {
             line-height: 1.2;
@@ -366,6 +292,11 @@ a.submit, a.submit:focus, a.submit:active, a.submit:hover
                 font-family: "Open Sans";
                 font-weight: 100;
                 line-height: 1.2;
+
+                @include media("(min-width: 1200px)"){
+                    font-size: 120px;
+                    font-family: $heading-font;
+                }
             }
         }
     }
@@ -417,15 +348,17 @@ a.submit, a.submit:focus, a.submit:active, a.submit:hover
     }
 }
 
+/* END OF INDEX PAGE */
 
 
+/* TBD !!! TBD !!! TBD !!! TBD !!! TBD !!! TBD !!! 
 .midway-y
 {
     position: absolute;
     top: 50%;
     width: 100%;
     transform: translateY(-50%);
-}
+}*/
 
 .pledge-page
 {
@@ -728,15 +661,169 @@ img.bubble
   opacity: 0
 }
 
+
+
+/* GAME PAGE */
+div.game-page
+{
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:    "pledge"
+                            "play";
+
+    height: 100%;
+
+    @include media("(min-width: 768px)"){
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "pledge" "play";
+        align-items: center;
+    }
+
+    div.game-box
+    {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        align-items: center;
+        cursor: pointer;
+
+        .game-label
+        {
+            padding: 30px;
+            text-transform: uppercase;
+            text-align: center;
+
+            .game-label-sub
+            {
+                font-family: $body-font-alternate;
+                font-size: 30px;
+            }
+
+            .game-label-main
+            {
+                font-family: $heading-font;
+                font-weight: 900;
+                font-size: 50px;
+                margin: -20px 0 -20px 0;
+
+                @include media("(min-width: 768px)"){
+                    font-size: 80px;
+                    margin: -35px 0 -20px 0;
+                }
+
+                @include media("(min-width: 1125px)"){
+                    font-size: 90px;
+                }
+            }
+
+            .game-line { height: 20px; }
+        }
+
+        &:hover .game-line
+        {
+            @include media("(min-width: 768px)"){
+                -webkit-animation: lengthen-line-250 0.5s forwards;
+                -o-animation: lengthen-line-250 0.5s forwards;
+                animation: lengthen-line-250 0.5s forwards;
+            }
+
+            @include media("(min-width: 1125px)"){
+                -webkit-animation: lengthen-line-450 0.5s forwards;
+                -o-animation: lengthen-line-450 0.5s forwards;
+                animation: lengthen-line-450 0.5s forwards;
+            }
+        }
+    }
+
+    div.new-pledge-box
+    {
+        @extend .game-box;
+        background-color: $elf-green-dark;
+        justify-items: center;
+
+        @include media("(min-width: 768px)"){
+            justify-items: right;
+        }
+
+        &:hover
+        {
+            -webkit-animation: brighten-elf-green 1s forwards;
+            -o-animation: brighten-elf-green 1s forwards;
+            animation: brighten-elf-green 1s forwards;
+        }
+
+        div.game-label
+        {
+            @include media("(min-width: 768px)"){
+                text-align: right;
+            }
+        }
+
+        .game-line
+        {
+            @extend .game-line;
+            background-color: $elf-yellow;
+            float: right;
+        }
+    }
+
+    .new-play-box
+    {
+        @extend .game-box;
+        background-color: $elf-yellow-dark;
+        justify-items: center;
+
+        @include media("(min-width: 768px)"){
+            justify-items: left;
+        }
+
+        div.game-line
+        {
+            @extend .game-line;
+            background-color: $elf-green;
+            float: left;
+        }
+
+        div.game-label
+        {
+            @include media("(min-width: 768px)"){
+                text-align: left;
+            }
+        }
+        
+        &:hover
+        {
+            -webkit-animation: brighten-elf-yellow 1s forwards;
+            -o-animation: brighten-elf-yellow 1s forwards;
+            animation: brighten-elf-yellow 1s forwards;
+        }
+    }
+}
+
+
+
 @keyframes hide
 {
     0% { visibility: visible; }
     100% { visibility: hidden; }
 }
 
-@keyframes lengthen-line {
+@keyframes lengthen-line-450 {
     0% { width: 0px; }
     100% { width: 450px; }
+}
+
+@keyframes lengthen-line-250 {
+    0% { width: 0px; }
+    100% { width: 250px; }
+}
+
+@keyframes lengthen-line-150 {
+    0% { width: 0px; }
+    100% { width: 150px; }
 }
 
 @keyframes brighten-elf-green {
@@ -889,19 +976,7 @@ img.bubble
 
 @media (min-width: 1200px)
 {
-    .index-container
-    {
-        .index-text
-        {
-            .index-seller
-            {
-                .index-seller-header
-                {
-                    font-size: 110px;
-                }
-            }
-        }
-    }
+
 }
 
 @media (min-width: 600px)
@@ -955,23 +1030,5 @@ img.bubble
         width: 40px;
         height: 40px;
         margin: 20px 25px 20px 30px;
-    }
-
-    .pledge-box
-    {
-        float: left;
-
-        width: 50%;
-        height: 100%;
-        background-color: $elf-green-dark;
-    }
-
-    .play-box
-    {
-        float: left;
-
-        width: 50%;
-        height: 100%;
-        background-color: $elf-yellow-dark;
     }
 }

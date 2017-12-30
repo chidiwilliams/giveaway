@@ -43378,7 +43378,7 @@ if (false) {
 /* 49 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: \r\n        .index-seller\r\n       ^\r\n      Media query expression must begin with '('\r\n      in C:\\xampp\\htdocs\\giveaway\\resources\\assets\\sass\\_custom.scss (line 298, column 9)\n    at runLoaders (C:\\xampp\\htdocs\\giveaway\\node_modules\\webpack\\lib\\NormalModule.js:193:19)\n    at C:\\xampp\\htdocs\\giveaway\\node_modules\\loader-runner\\lib\\LoaderRunner.js:364:11\n    at C:\\xampp\\htdocs\\giveaway\\node_modules\\loader-runner\\lib\\LoaderRunner.js:230:18\n    at context.callback (C:\\xampp\\htdocs\\giveaway\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (C:\\xampp\\htdocs\\giveaway\\node_modules\\sass-loader\\lib\\loader.js:55:13)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\giveaway\\node_modules\\async\\dist\\async.js:2244:31)\n    at Object.callback (C:\\xampp\\htdocs\\giveaway\\node_modules\\async\\dist\\async.js:906:16)\n    at options.error (C:\\xampp\\htdocs\\giveaway\\node_modules\\node-sass\\lib\\index.js:294:32)");
 
 /***/ })
 /******/ ]);

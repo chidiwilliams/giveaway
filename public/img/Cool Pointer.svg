@@ -1,0 +1,30 @@
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Pointer</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-5811 406)">
+<g id="Pointer">
+<g id="Ellipse">
+<use xlink:href="#path0_fill" transform="translate(5811 -406)" fill="#FFFFFF" fill-opacity="0.01"/>
+</g>
+<g id="Pointer">
+<use xlink:href="#path1_fill" transform="translate(6286 -324)" fill="url(#paint1_linear)"/>
+<mask id="mask0_outline_ins">
+<use xlink:href="#path1_fill" fill="white" transform="translate(6286 -324)"/>
+</mask>
+<g mask="url(#mask0_outline_ins)">
+<use xlink:href="#path2_stroke_2x" transform="translate(6286 -324)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint1_linear" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(42.764 384 632.064 -28.0595 -327.752 47.0297)">
+<stop offset="0" stop-color="#CA00D8"/>
+<stop offset="0.0001" stop-color="#CA00D8"/>
+<stop offset="1" stop-color="#6D37FF"/>
+</linearGradient>
+<path id="path0_fill" d="M 1000 500C 1000 776.142 776.142 1000 500 1000C 223.858 1000 0 776.142 0 500C 0 223.858 223.858 0 500 0C 776.142 0 1000 223.858 1000 500Z"/>
+<path id="path1_fill" fill-rule="evenodd" d="M 33 0L 18 0L 18 393.121C 7.57666 396.323 0 406.027 0 417.5C 0 431.583 11.4165 443 25.5 443C 39.5835 443 51 431.583 51 417.5C 51 406.027 43.4233 396.323 33 393.121L 33 0Z"/>
+<path id="path2_stroke_2x" d="M 18 0L 18 -4L 14 -4L 14 0L 18 0ZM 33 0L 37 0L 37 -4L 33 -4L 33 0ZM 18 393.121L 19.1748 396.944L 22 396.076L 22 393.121L 18 393.121ZM 33 393.121L 29 393.121L 29 396.076L 31.8252 396.944L 33 393.121ZM 18 4L 33 4L 33 -4L 18 -4L 18 4ZM 22 393.121L 22 0L 14 0L 14 393.121L 22 393.121ZM 4 417.5C 4 407.832 10.3833 399.646 19.1748 396.944L 16.8252 389.297C 4.77004 393.001 -4 404.221 -4 417.5L 4 417.5ZM 25.5 439C 13.6257 439 4 429.374 4 417.5L -4 417.5C -4 433.792 9.20734 447 25.5 447L 25.5 439ZM 47 417.5C 47 429.374 37.3743 439 25.5 439L 25.5 447C 41.7927 447 55 433.792 55 417.5L 47 417.5ZM 31.8252 396.944C 40.6167 399.646 47 407.832 47 417.5L 55 417.5C 55 404.221 46.23 393.001 34.1748 389.297L 31.8252 396.944ZM 29 0L 29 393.121L 37 393.121L 37 0L 29 0Z"/>
+</defs>
+</svg>
