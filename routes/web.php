@@ -18,15 +18,16 @@ Route::get('/home', 'HomeController@index');
 Route::get('login/twitter', 'SocialAuthTwitterController@redirectToProvider')->name('twitter_login');
 Route::get('login/twitter/callback', 'SocialAuthTwitterController@handleProviderCallback');
 
-Route::get('login/', 'Auth\LoginController@showLoginForm');
-Route::post('login/', 'Auth\LoginController@login');
+Route::get('1234567890/login/', 'Auth\LoginController@showLoginForm');
+Route::post('1234567890/login/', 'Auth\LoginController@login')->name('manual_login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
 Route::get('1234567890/register/', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('1234567890/register/', 'Auth\RegisterController@register');
 
-
+// TODO: Password routes
+Route::get('1234567890/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 
 Route::get('/game', 'GameController@game')->name('game');
 

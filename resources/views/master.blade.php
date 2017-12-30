@@ -11,21 +11,18 @@
         <meta name="user-id" content="{{ Auth::user()->id }}">
     @endif
 
-    <title>The Christmas Giveaway</title>
+    <title>2018 New Year Giveaway</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('css')
 </head>
 <body>
-    @section('heafoo')
-        <div class="heafoo">
-            <div class="header">
-                <a href="/">The Christmas Giveaway</a>
-            </div>
-            <div class="footer">EEE500l #the13thset</div>
-        </div>
-    @show
+    {{-- 
+    <div class="header">2018 New Year Giveaway</div>
+    <div>
+        <div class="footer">EEE500l #the13thset</div>
+    </div> --}}
 
     @if(Auth::check())
         <div class="welcome-user">{{ "@" . Auth::user()->handle }}</div>

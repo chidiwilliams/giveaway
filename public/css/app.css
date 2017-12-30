@@ -8386,6 +8386,7 @@ body {
 }
 
 .central,
+.central-right,
 .central-text {
   position: absolute;
   top: 50%;
@@ -8410,63 +8411,66 @@ body {
   text-align: center;
 }
 
-.card {
-  -webkit-box-shadow: 0 3px 3px #58561e;
-          box-shadow: 0 3px 3px #58561e;
-  border-radius: 7px;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, #00aced), to(#0384b5));
-  background: linear-gradient(#00aced 70%, #0384b5);
-  width: 250px;
-  height: 70px;
-}
-
-.continue {
-  font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
-  color: #fffffff0;
-  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
-  font-size: 16px;
-  line-height: 1;
-  margin-top: 27px;
-  margin-bottom: 27px;
-}
-
-.twitter-logo {
-  width: 25px;
-  margin: 22.5px 15px 22.5px 22px;
-  height: 25px;
-}
-
-.twitter-link:hover .card {
-  -webkit-animation: darken 1s forwards;
-  animation: darken 1s forwards;
-}
-
 .left {
   float: left;
 }
 
-@-webkit-keyframes darken {
-  0% {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, #00aced), to(#0384b5));
-    background: linear-gradient(#00aced 70%, #0384b5);
-  }
-
-  100% {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, #00a1de), to(#00739e));
-    background: linear-gradient(#00a1de 70%, #00739e);
-  }
+.right {
+  float: right;
 }
 
-@keyframes darken {
-  0% {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, #00aced), to(#0384b5));
-    background: linear-gradient(#00aced 70%, #0384b5);
-  }
+.card {
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
+          box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
+}
 
-  100% {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, #00a1de), to(#00739e));
-    background: linear-gradient(#00a1de 70%, #00739e);
-  }
+.card .card-header {
+  text-transform: uppercase;
+  font-size: 30px;
+  line-height: 1;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 200;
+}
+
+.card .card-footer {
+  font-size: 14px;
+  color: #444;
+  text-align: center;
+}
+
+.twitter-button,
+.index-container .index-menu .twitter-button {
+  width: 280px;
+  height: 55px;
+  background-color: #00aced;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
+          box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
+  margin: auto;
+}
+
+.twitter-button img.new-twitter-logo,
+.index-container .index-menu .twitter-button img.new-twitter-logo {
+  width: 25px;
+  height: 25px;
+  margin: 15px 15px 15px 20px;
+}
+
+.twitter-button div.new-twitter-text,
+.index-container .index-menu .twitter-button div.new-twitter-text {
+  /*       
+        font-size: 16px;
+        margin-top: 27px 0 27px 0; */
+  font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
+  color: #fffffff0;
+  font-size: 18px;
+  line-height: 1;
+  margin: 18.5px 0;
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
 }
 
 :root {
@@ -8623,11 +8627,102 @@ a.submit:hover {
 }
 
 .page,
+.index-page,
 .pledge-page,
 .play-page,
 .thank-you-page {
   min-height: 100%;
   padding: 45px 0;
+}
+
+.all-page {
+  height: 100%;
+  position: relative;
+}
+
+.index-page {
+  padding: 0;
+  background-color: #6be6d9;
+  height: 100%;
+}
+
+.index-container {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 300px 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas: "text" "menu";
+}
+
+.index-container .index-text {
+  grid-area: text;
+  padding-right: 25px;
+  padding: 0;
+  text-align: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 60px;
+  padding: 5px;
+}
+
+.index-container .index-text .index-seller {
+  line-height: 1.2;
+}
+
+.index-container .index-text .index-seller .index-seller-header {
+  font-family: "Open Sans";
+  font-weight: 100;
+  line-height: 1.2;
+}
+
+.index-container .index-menu {
+  grid-area: menu;
+  /*width: 375px;*/
+  text-align: center;
+  /*margin: auto;*/
+}
+
+.index-container .index-menu .menu-header,
+.index-container .index-menu .menu-footer {
+  margin-bottom: 40px;
+}
+
+.index-container .index-menu .menu-header .main,
+.index-container .index-menu .menu-footer .main {
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 1;
+  /*font-size: 25px;*/
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.index-container .index-menu .menu-header .sub,
+.index-container .index-menu .menu-footer .sub {
+  line-height: 1;
+  /*font-size: 18px;*/
+  font-size: 14px;
+  font-family: "Open Sans", "Raleway";
+  font-weight: 300;
+}
+
+.index-container .index-menu .menu-footer {
+  margin-top: 80px;
+  margin-bottom: 0;
+}
+
+.index-container .index-menu .twitter-button {
+  margin-bottom: 15px;
+  -webkit-box-shadow: 0 3px 3px #2f6963;
+          box-shadow: 0 3px 3px #2f6963;
+}
+
+.midway-y {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .pledge-page {
@@ -8675,8 +8770,8 @@ a.submit:hover {
   display: block;
   font-weight: normal;
   margin-bottom: 5px;
-  font-size: 28px;
   font-weight: 300;
+  font-size: 20px;
 }
 
 .pledge-form input[type=text],
@@ -8684,8 +8779,8 @@ a.submit:hover {
   width: 100%;
   background-color: transparent;
   border: 0;
-  font-size: 24px;
-  height: 44px;
+  font-size: 18px;
+  height: 36px;
   padding: 10px 30px;
   -webkit-box-shadow: 0 3px 0 #fcf665;
           box-shadow: 0 3px 0 #fcf665;
@@ -9023,6 +9118,107 @@ img.bubble {
   }
 }
 
+@media (min-width: 768px) {
+  .pledge-form label {
+    font-size: 28px;
+  }
+
+  .pledge-form input[type=text],
+  .pledge-form div.custom-input-group div.custom-input {
+    font-size: 24px;
+    height: 44px;
+  }
+
+  .index-container {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr;
+    grid-template-areas: "text menu";
+  }
+
+  .index-container .index-text {
+    text-align: left;
+    padding: 15px;
+  }
+
+  .index-container .index-text .index-seller .index-seller-header {
+    font-size: 60px;
+  }
+
+  .index-container .index-menu {
+    width: 285px;
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
+
+  .index-container .index-menu .twitter-button {
+    width: 285px;
+    height: 55px;
+  }
+
+  .index-container .index-menu .twitter-button img.new-twitter-logo {
+    width: 25px;
+    height: 25px;
+  }
+
+  .index-container .index-menu .twitter-button div.new-twitter-text {
+    font-size: 17px;
+    margin: 19px 0;
+  }
+
+  .index-container .index-menu .menu-header .main,
+  .index-container .index-menu .menu-footer .main {
+    font-size: 25px;
+  }
+
+  .index-container .index-menu .menu-header .sub,
+  .index-container .index-menu .menu-footer .sub {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 992px) {
+  .index-container .index-text .index-seller .index-seller-header {
+    font-size: 85px;
+  }
+
+  .index-container .index-menu {
+    width: 375px;
+  }
+
+  .index-container .index-menu .twitter-button {
+    width: 375px;
+    height: 65px;
+    background-color: #00aced;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
+            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
+  }
+
+  .index-container .index-menu .twitter-button img.new-twitter-logo {
+    width: 35px;
+    height: 35px;
+    margin: 15px 25px 15px 30px;
+  }
+
+  .index-container .index-menu .twitter-button div.new-twitter-text {
+    /*       
+                    font-size: 16px;
+                    margin-top: 27px 0 27px 0; */
+    font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
+    color: #fffffff0;
+    font-size: 22px;
+    line-height: 1;
+    margin: 22px 0 21px 0;
+    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
+  }
+}
+
+@media (min-width: 1200px) {
+  .index-container .index-text .index-seller .index-seller-header {
+    font-size: 110px;
+  }
+}
+
 @media (min-width: 600px) {
   .pledge-form div.input-group,
   .pledge-form div.custom-input-group {
@@ -9065,29 +9261,29 @@ img.bubble {
     width: 180px !important;
   }
 
-  .card {
-    width: 475px;
-    height: 100px;
+  .big-button {
+    width: 375px;
+    height: 80px;
     -webkit-box-shadow: 0 3px 3px #58561e;
             box-shadow: 0 3px 3px #58561e;
-    border-radius: 7px;
+    border-radius: 5px;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, #00aced), to(#0384b5));
     background: linear-gradient(#00aced 70%, #0384b5);
   }
 
   .continue {
-    font-size: 30px;
-    line-height: 36px;
     font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
     color: #fffffff0;
-    margin: 35px 0;
+    font-size: 22px;
+    line-height: 1;
+    margin: 29px 0 29px 0;
     text-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
   }
 
   .twitter-logo {
-    width: 50px;
-    height: 50px;
-    margin: 25px 32px 25px 37.5px;
+    width: 40px;
+    height: 40px;
+    margin: 20px 25px 20px 30px;
   }
 
   .pledge-box {

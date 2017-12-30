@@ -59,6 +59,12 @@ body
     transform: translate(-50%, -50%);
 }
 
+.central-right
+{
+    @extend .central;
+
+}
+
 .central-text
 {
     @extend .central;
@@ -78,56 +84,72 @@ body
     @extend .bottom;
     text-align: center;
 }
-
-// START INDEX
-.card
-{
-    box-shadow: $box-shadow-yellow;
-    border-radius: 7px;
-    background: linear-gradient(#00aced 70%, #0384b5);
-    width: 250px;
-    height: 70px;
-}
-
-.continue {
-    font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
-    color: #fffffff0;
-    text-shadow: $box-shadow-grey;
-    font-size: 16px;
-    line-height: 1;
-    margin-top: 27px;
-    margin-bottom: 27px;
-}
-
-.twitter-logo
-{
-    width: 25px;
-    margin: 22.5px 15px 22.5px 22px;
-    height: 25px;
-}
-
-.twitter-link:hover .card
-{
-    -webkit-animation: darken 1s forwards;
-    -o-animation: darken 1s forwards;
-    animation: darken 1s forwards;
-}  
     
-.left {
+.left
+{
     float: left;
 }
 
-@keyframes darken {
-    0% {
-        background: linear-gradient(#00aced 70%, #0384b5);
+.right
+{
+    float: right;
+}
+
+.card
+{
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: $box-shadow-grey;
+
+    .card-header
+    {
+        text-transform: uppercase;
+        font-size: 30px;
+        line-height: 1;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: 200;
     }
 
-    100% {
-        background: linear-gradient(#00a1de 70%, #00739e);
+    .card-footer
+    {
+        font-size: 14px;
+        color: #444;
+        text-align: center;
     }
 }
 
-// END INDEX
+.twitter-button
+{
+    width: 280px;
+    height: 55px;
+    background-color: #00aced;
+    border-radius: 5px;
+    box-shadow: $box-shadow-grey;
+    margin: auto;
+
+    img.new-twitter-logo
+    {   
+        width: 25px;
+        height: 25px;
+        margin: 15px 15px 15px 20px;
+    }
+
+    div.new-twitter-text
+    {
+/*       
+        font-size: 16px;
+        margin-top: 27px 0 27px 0; */
+        font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
+        color: #fffffff0;
+        font-size: 18px;
+        line-height: 1;
+        margin: 18.5px 0;
+
+        text-shadow: $box-shadow-grey;
+    }
+}
 
 :root {
     --rotation-degree: 10000deg;
@@ -302,6 +324,109 @@ a.submit, a.submit:focus, a.submit:active, a.submit:hover
     padding: 45px 0;
 }
 
+.all-page
+{
+    height: 100%;
+    position: relative;
+}
+
+.index-page
+{
+    @extend .page;
+    padding: 0;
+    background-color: #6be6d9;
+    height: 100%;
+}
+
+.index-container
+{
+    height: 100%;
+    display: grid;
+    grid-template-rows: 300px 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:    "text"
+                            "menu";
+
+    .index-text
+    {
+        grid-area: text;
+        padding-right: 25px;
+        padding: 0;
+        text-align: center;
+        align-self: center;
+        font-size: 60px;
+        padding: 5px;
+
+        .index-seller
+        {
+            line-height: 1.2;
+
+            .index-seller-header
+            {
+                font-family: "Open Sans";
+                font-weight: 100;
+                line-height: 1.2;
+            }
+        }
+    }
+
+    .index-menu
+    {
+        grid-area: menu;
+        /*width: 375px;*/
+        text-align: center;
+        /*margin: auto;*/
+
+        .menu-header
+        {
+            margin-bottom: 40px;
+
+            .main
+            {
+                text-transform: uppercase; 
+                font-weight: bold;
+                line-height: 1;
+                /*font-size: 25px;*/
+                font-size: 20px;
+                margin-bottom: 5px;
+            }
+
+            .sub
+            {
+                line-height: 1;
+                /*font-size: 18px;*/
+                font-size: 14px;
+                font-family: $body-font-alternate;
+                font-weight: 300;
+            }
+        }
+
+        .menu-footer
+        {
+            @extend .menu-header;
+            margin-top: 80px;
+            margin-bottom: 0;
+        }
+
+        .twitter-button
+        {
+            @extend .twitter-button;
+            margin-bottom: 15px;
+            box-shadow: $box-shadow-green;
+        }
+    }
+}
+
+
+
+.midway-y
+{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+}
+
 .pledge-page
 {
     @extend .page;
@@ -358,8 +483,8 @@ a.submit, a.submit:focus, a.submit:active, a.submit:hover
         display: block;
         font-weight: normal;
         margin-bottom: 5px;
-        font-size: 28px;
         font-weight: 300;
+        font-size: 20px;
     }
 
     input[type=text]
@@ -367,8 +492,8 @@ a.submit, a.submit:focus, a.submit:active, a.submit:hover
         width: 100%;
         background-color: transparent;
         border: 0;
-        font-size: 24px;
-        height: 44px;
+        font-size: 18px;
+        height: 36px;
         padding: 10px 30px;
         box-shadow: 0 3px 0 $elf-yellow;
         font-weight: 500;
@@ -640,9 +765,143 @@ img.bubble
     }
 }
 
+
+@media (min-width: 768px)
+{
+    .pledge-form
+    {
+        label
+        {
+            font-size: 28px;
+        }
+
+        input[type=text]
+        {
+            font-size: 24px;
+            height: 44px;
+        }
+    }
+
+    .index-container
+    {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: 1fr;
+        grid-template-areas: "text menu";
+
+        .index-text
+        {
+            text-align: left;
+            padding: 15px;
+
+            .index-seller
+            {
+                .index-seller-header
+                {
+                    font-size: 60px;
+                }
+            }
+        }
+
+        .index-menu
+        {
+            width: 285px;
+            align-self: center;
+
+            .twitter-button
+            {
+                width: 285px;
+                height: 55px;
+
+                img.new-twitter-logo
+                {
+                    width: 25px;
+                    height: 25px;
+                }
+
+                div.new-twitter-text
+                {
+                    font-size: 17px;
+                    margin: 19px 0;
+                }
+            }
+
+            .menu-header
+            {
+                .main { font-size: 25px; }
+                .sub { font-size: 18px; }
+            }
+        }
+    }
+}
+
+@media (min-width: 992px)
+{
+    .index-container
+    {
+        .index-text
+        {
+            .index-seller
+            {
+                .index-seller-header
+                {
+                    font-size: 85px;
+                }
+            }
+        }
+
+        .index-menu
+        {
+            width: 375px;
+
+            .twitter-button
+            {
+                width: 375px;
+                height: 65px;
+                background-color: #00aced;
+                border-radius: 5px;
+                box-shadow: $box-shadow-grey;
+
+                img.new-twitter-logo
+                {
+                    width: 35px;
+                    height: 35px;
+                    margin: 15px 25px 15px 30px;
+                }
+
+                div.new-twitter-text
+                {
+                    /*       
+                    font-size: 16px;
+                    margin-top: 27px 0 27px 0; */
+                    font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
+                    color: #fffffff0;
+                    font-size: 22px;
+                    line-height: 1;
+                    margin: 22px 0 21px 0;
+                    text-shadow: $box-shadow-grey;
+                }
+            }
+        }
+    }
+
+
+}
+
 @media (min-width: 1200px)
 {
-
+    .index-container
+    {
+        .index-text
+        {
+            .index-seller
+            {
+                .index-seller-header
+                {
+                    font-size: 110px;
+                }
+            }
+        }
+    }
 }
 
 @media (min-width: 600px)
@@ -673,29 +932,29 @@ img.bubble
         }
     }
 
-    .card
+    .big-button
     {
-        width: 475px;
-        height: 100px;
+        width: 375px;
+        height: 80px;
         box-shadow: $box-shadow-yellow;
-        border-radius: 7px;
+        border-radius: 5px;
         background: linear-gradient(#00aced 70%, #0384b5);
     }
 
     .continue {
-        font-size: 30px;
-        line-height: 36px;
         font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
         color: #fffffff0;
-        margin: 35px 0;
+        font-size: 22px;
+        line-height: 1;
+        margin: 29px 0 29px 0;
         text-shadow: $box-shadow-grey;
     }
 
     .twitter-logo
     {
-        width: 50px;
-        height: 50px;
-        margin: 25px 32px 25px 37.5px;
+        width: 40px;
+        height: 40px;
+        margin: 20px 25px 20px 30px;
     }
 
     .pledge-box
