@@ -8574,7 +8574,7 @@ body {
 .index-page .index-container {
   height: 100%;
   display: grid;
-  grid-template-rows: 300px 1fr;
+  grid-template-rows: 250px 1fr;
   grid-template-columns: 1fr;
   grid-template-areas: "text" "menu";
 }
@@ -8659,25 +8659,21 @@ body {
   }
 }
 
-.index-page .index-container .index-menu .menu-header,
-.index-page .index-container .index-menu .menu-footer {
+.index-page .index-container .index-menu .menu-header {
   margin-bottom: 40px;
 }
 
 @media (min-width: 768px) {
-  .index-page .index-container .index-menu .menu-header .main,
-  .index-page .index-container .index-menu .menu-footer .main {
+  .index-page .index-container .index-menu .menu-header .main {
     font-size: 25px;
   }
 
-  .index-page .index-container .index-menu .menu-header .sub,
-  .index-page .index-container .index-menu .menu-footer .sub {
+  .index-page .index-container .index-menu .menu-header .sub {
     font-size: 18px;
   }
 }
 
-.index-page .index-container .index-menu .menu-header .main,
-.index-page .index-container .index-menu .menu-footer .main {
+.index-page .index-container .index-menu .menu-header .main {
   text-transform: uppercase;
   font-weight: bold;
   line-height: 1;
@@ -8686,14 +8682,12 @@ body {
 }
 
 @media (min-width: 768px) {
-  .index-page .index-container .index-menu .menu-header .main,
-  .index-page .index-container .index-menu .menu-footer .main {
+  .index-page .index-container .index-menu .menu-header .main {
     font-size: 25px;
   }
 }
 
-.index-page .index-container .index-menu .menu-header .sub,
-.index-page .index-container .index-menu .menu-footer .sub {
+.index-page .index-container .index-menu .menu-header .sub {
   line-height: 1;
   /*font-size: 18px;*/
   font-size: 14px;
@@ -8702,15 +8696,23 @@ body {
 }
 
 @media (min-width: 768px) {
-  .index-page .index-container .index-menu .menu-header .sub,
-  .index-page .index-container .index-menu .menu-footer .sub {
+  .index-page .index-container .index-menu .menu-header .sub {
     font-size: 18px;
   }
 }
 
 .index-page .index-container .index-menu .menu-footer {
-  margin-top: 80px;
-  margin-bottom: 0;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  margin-bottom: 20px;
+  left: 0;
+  width: 100%;
+}
+
+.index-page .index-container .index-menu .menu-footer .main {
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .index-page .index-container .index-menu .twitter-button {
@@ -9011,9 +9013,15 @@ body {
   animation: rotate-pointer 20s forwards;
 }
 
-.play-page .game .bounce {
-  -webkit-animation: bounce 5s alternate forwards;
-          animation: bounce 5s alternate forwards;
+.play-page .game img.display {
+  display: block;
+  width: 100%;
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .play-page .winnings-board {

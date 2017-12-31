@@ -14,12 +14,18 @@
     <title>2018 New Year Giveaway</title>
 
     <!-- Styles -->
+
+    {{-- Animate.css --}}
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css"> --}}
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('css')
 </head>
 <body>
     <div id="app">
         @yield('content')
+
     </div>
     
     <script src="{{ asset('js/app.js') }}"></script>

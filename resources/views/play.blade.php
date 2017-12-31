@@ -17,8 +17,17 @@
                         <img src="{{ asset('img/Cool Wheel.svg') }}" alt="" class="wheel">
                         <img src="{{ asset('img/Cool Pointer.svg') }}" alt="" :class="{ pointer: true, rotate: rolling}" id="pointer">
 
-                        <div v-if="congratulations" :class="{ bounce: animate }">Congratulations</div>
-                        <div v-if="sorry" :class="{ bounce: animate }">Sorry</div>
+                        <img 
+                            src="{{ asset('img/Congrats.svg') }}" 
+                            alt="Congrats" 
+                            v-show="congratulations" 
+                            :class="{ display: true, congrats: true, animated: congratulations, infinite: congratulations, flash: congratulations }">
+
+                        <img 
+                            src="{{ asset('img/Sorry.svg') }}" 
+                            alt="Sorry" 
+                            v-show="sorry" 
+                            :class="{ display: true, sorry: true, animated: sorry, infinite: sorry, flash: sorry }">
                     </div>
 
                     <div class="winnings" v-cloak>

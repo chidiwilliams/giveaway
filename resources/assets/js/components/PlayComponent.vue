@@ -48,11 +48,9 @@
                         var result = didWin ? "congratulations" : "sorry"
 
                         vm[result] = true
-                        vm.animate = true
 
                         setTimeout(function() {
                             vm[result] = false
-                            vm.animate = false
                         }, 5000);
 
                         // If this fails, display flash... Bad network connection, refresh
