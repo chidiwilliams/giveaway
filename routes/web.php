@@ -40,7 +40,7 @@ Route::post('/play', 'PlayController@store')->name('iplay');
 Route::get('/test', 'TestController@test')->name('test');
 Route::post('/test', 'TestController@post')->name('test_post');
 
-Route::get('/plays', 'ApiController@plays')->name('plays');
+Route::get('/plays', 'TestController@plays')->name('plays');
 
 Route::get('/users', 'TestController@users');
 Route::get('/pledges', 'TestController@pledges');

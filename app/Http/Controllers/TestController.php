@@ -32,6 +32,11 @@ class TestController extends Controller
 
     public function pledges(Request $request)
     {
-    	return Pledge::all();
+        return Pledge::all();
+    }
+
+    public function plays(Request $request)
+    {
+    	return Play::all();
     }
 }
