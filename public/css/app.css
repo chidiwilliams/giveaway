@@ -8736,7 +8736,7 @@ body {
   .index-page .index-container .index-menu .twitter-button div.new-twitter-text {
     font-size: 17px;
     margin: 19px 0;
-    color: #fffffff0;
+    color: #fffffff0 !important;
   }
 }
 

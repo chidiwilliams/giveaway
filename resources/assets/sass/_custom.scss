@@ -21,11 +21,11 @@ $box-shadow-grey: 0 3px 3px rgba(0,0,0,0.075);
 $box-shadow-green: 0 3px 3px $elf-green-darker;
 $box-shadow-yellow: 0 3px 3px $elf-yellow-darker;
 
-/*@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
-@import url('https://fonts.googleapis.com/css?family=Lobster');*/
+@import url('https://fonts.googleapis.com/css?family=Lobster');
 
 @mixin media ($queryString){
     @media #{$queryString} {
