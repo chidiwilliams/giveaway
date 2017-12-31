@@ -10,6 +10,18 @@
                 <div class="page-heading">
                     <div class="page-name">Play</div>
                     <div class="page-line"></div>
+
+                    <div class="sub-menu">
+                        <a href="{{ route('game') }}">Return to Home</a>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </div>
                 </div>
 
                 <div class="play-game">
@@ -38,9 +50,9 @@
                                 <span class="tries-word">@{{ tryTries }} left</span>
                             </div>
                             <div class="prize" v-if="showPrize" v-cloak>
-                            You've just won @{{ prize.item }} x @{{ prize.qty }}. 
-                            Redeem your prize from 
-                            <a :href="'https://twitter.com/' + prize.pledger.handle">@{{ "@" + prize.pledger.handle }}</a>
+                                You've just won <b>@{{ prize.item }} @{{ "x" + prize.qty }}</b>. <br>
+                                Redeem your prize from 
+                                <a :href="'https://twitter.com/' + prize.pledger.handle">@{{ "@" + prize.pledger.handle }}</a>
                             </div>
                         </div>
                     </div>
