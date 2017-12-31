@@ -42966,8 +42966,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             plays: 0,
             maxPlays: 3,
             win: {
-                min: 0,
-                max: 180
+                min: 30,
+                max: 330
             },
             disabled: false,
             congratulations: false,
@@ -43016,12 +43016,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                             vm.animate = false;
                         }, 5000);
 
-                        // TODO:
-                        // 1. Send win / lose information to server
-                        // 2. Get random pledge if win
-                        // 3. Display pledge information
-                        // 4. Update number of plays done.
-
+                        // If this fails, display flash... Bad network connection, refresh
                         axios.post('/play', {
                             token: document.querySelector("meta[name=csrf-token]").content,
                             play: didWin
@@ -43061,14 +43056,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         savePointerPosition: function savePointerPosition(degree) {
             var pointer = document.getElementById("pointer");
-            pointer.style.top = "125px";
-            pointer.style.left = "31.45%";
             pointer.style.transform = "rotate(" + degree + "deg)";
         },
         didWin: function didWin(degree) {
             var deg = degree % 360;
 
-            return deg > this.win.min && deg < this.win.max;
+            return deg < this.win.min || deg > this.win.max;
         },
         displayPrize: function displayPrize() {
             this.showPrize = true;

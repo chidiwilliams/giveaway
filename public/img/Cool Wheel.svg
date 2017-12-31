@@ -1,17 +1,35 @@
-<svg width="1000" height="1000" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="1008" height="1001" viewBox="0 0 1008 1001" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <title>Cool Wheel</title>
 <desc>Created using Figma</desc>
-<g id="Canvas" transform="translate(-5742 417)">
-<g id="Cool Wheel">
+<g id="Canvas" transform="translate(-5807 406)">
+<g id="Cool Wheel" filter="url(#filter0_d)">
 <g id="Subtract">
-<use xlink:href="#path0_fill" transform="translate(5742 -350.484)" fill="#FFFFFF"/>
+<use xlink:href="#path0_fill" transform="translate(5811 -339.484)" fill="#FFFFFF"/>
 </g>
-<g id="Intersect">
-<use xlink:href="#path1_fill" transform="translate(5992 -417)" fill="url(#paint1_linear)"/>
+<g id="Intersect" filter="url(#filter1_d)">
+<use xlink:href="#path1_fill" transform="translate(6061 -406)" fill="url(#paint1_linear)"/>
 </g>
 </g>
 </g>
 <defs>
+<filter id="filter0_d" filterUnits="userSpaceOnUse" x="5807" y="-406" width="1008" height="1008" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0"/>
+<feOffset dx="0" dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+<filter id="filter1_d" filterUnits="userSpaceOnUse" x="6057" y="-406" width="508" height="509" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0"/>
+<feOffset dx="0" dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
 <linearGradient id="paint1_linear" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-456 447.5 -515.569 -525.362 743.108 222.681)">
 <stop offset="0" stop-color="#FF008A"/>
 <stop offset="0.198895" stop-color="#AD00FF"/>

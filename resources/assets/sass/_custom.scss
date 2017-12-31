@@ -90,6 +90,18 @@ body
     @extend .bottom;
     text-align: center;
 }
+
+.master-button
+{
+    border: 0;
+    text-transform: uppercase;
+    padding: 7px 20px;
+    border-radius: 2px;
+    font-weight: 600;
+    margin-top: 0px;
+    background: linear-gradient($elf-yellow 70%, $elf-yellow-dark);
+    box-shadow: $box-shadow-green;
+}
     
 .left
 {
@@ -135,9 +147,17 @@ body
 
     position: absolute;
     bottom: 0;
-    padding: 15px 25px;
     left: 50%;
     transform: translateX(-50%);
+
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+
+    @include media("(min-width: 768px)") {
+        width: auto;
+        padding: 15px 25px;
+    }
 }
 
 .sub-menu
@@ -247,7 +267,7 @@ body
             padding: 0;
             text-align: center;
             align-self: center;
-            font-size: 60px;
+            font-size: 40px;
             padding: 5px;
 
             @include media("min-width: 768px)") {
@@ -549,14 +569,7 @@ body
 
         input[type=submit]
         {
-            border: 0;
-            text-transform: uppercase;
-            padding: 7px 20px;
-            border-radius: 2px;
-            font-weight: 600;
-            margin-top: 0px;
-            background: linear-gradient($elf-yellow 70%, $elf-yellow-dark);
-            box-shadow: $box-shadow-green;
+            @extend .master-button
         }
 
         option
@@ -582,43 +595,74 @@ body
         background-color: $elf-green;
     }
 
+    .play-game
+    {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+
+        @include media("(min-width: 768px)") {
+            grid-template-columns: 250px 1fr;
+            grid-template-rows: 1fr 1fr;
+
+            padding: 0 50px;
+            grid-gap: 50px;
+        }
+
+        @include media("(min-width: 992px)") {
+            grid-template-columns: 350px 1fr;
+        }
+
+        @include media("(min-width: 1200px)") {
+            grid-template-columns: 400px 1fr;
+        }
+    }
+
     .game
     {
+        display: grid;
         position: relative;
+        overflow: hidden;
+        margin-bottom: 30px;
 
-        img
-        {
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
+        @include media("(min-width: 768px)") {
+            margin-bottom: 0;
         }
 
         img.wheel
         {
-/*            position: relative;
-            width: 450px;
-            left: 50%;
-            -webkit-transform: translate(-50%, 0);
-            -ms-transform: translate(-50%, 0);
-            -o-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);*/
+            width: 50px;
+            justify-self: center;
+            width: 100%;
         }
 
         img.pointer
         {
-/*            left: 31.45%;
-            transform: rotate(0deg);
-            top: 125px;
+            width: 100%;
             position: absolute;
-            width: 200px;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            margin: auto;
+
+            @include media("(min-width: 768px)") {
+                width: 250px;
+            }
+
+            @include media("(min-width: 992px)") {
+                width: 350px;
+            }
+
+            @include media("(min-width: 1200px)") {
+                width: 400px;
+            }
 
             &.rotate
             {
                 -webkit-animation: rotate-pointer 20s forwards;
                 -o-animation: rotate-pointer 20s forwards;
                 animation: rotate-pointer 20s forwards;
-            }*/
+            }
         }
 
         .bounce
@@ -627,10 +671,9 @@ body
         }
     }
 
-    .winnings
+    .winnings-board
     {
-        background: rgba(51, 51, 51, 0.6588235294117647);
-        min-height: 450px;
+        background: rgba(51, 51, 51, 0.66);
         border: 10px solid #333;
         padding: 15px;
         box-shadow: 0 3px 3px #58561e;
@@ -645,33 +688,43 @@ body
             font-size: 28px;
             box-shadow: $box-shadow-yellow;
             color: #fff;
-            margin-bottom: 40px;
             cursor: pointer;
         }
 
         div.tries
         {
             text-align: center;
+            padding-bottom: 30px;
         }
 
         span.tries-number
         {
-            font-size: 150px;
             line-height: 1;
             font-family: $heading-font;
             font-weight: bold; 
-            margin-right: 25px;
             color: #b12b28;
             text-shadow: 2px 2px 0px #fff, 5px 5px 0px #460c0c;
+            font-size: 80px;
+            margin-right: 15px;
+
+            @include media("(min-width: 992px)") {
+                font-size: 150px;
+                margin-right: 25px;
+
+            }
         }
 
         span.tries-word
         {
             text-transform: uppercase;
             font-weight: 800;
-            font-size: 45px;
             color: #777543;
             text-shadow: 2px 2px 0px #f00, -2px -2px 0 #0f0;
+            font-size: 30px;
+
+            @include media("(min-width: 992px)") {
+                font-size: 45px;
+            }
         }
     }
 }
@@ -760,7 +813,11 @@ div.game-page
                 }
             }
 
-            .game-line { height: 20px; }
+            .game-line {
+                @include media("(min-width: 768px)") {
+                    height: 20px; 
+                }
+            }
         }
 
         &:hover .game-line
@@ -834,12 +891,44 @@ div.game-page
                 text-align: left;
             }
         }
+
+        div.pledge-plead
+        {
+            margin-top: 10px; 
+            font-size: 15px; 
+            font-weight: 700; 
+            color: #ec2121;
+        }
         
         &:hover
         {
             -webkit-animation: brighten-elf-yellow 1s forwards;
             -o-animation: brighten-elf-yellow 1s forwards;
             animation: brighten-elf-yellow 1s forwards;
+        }
+
+        &.new-play-box-disabled
+        {
+            cursor: default;
+
+            div.game-label
+            {
+                margin-top: 60px;
+            }
+
+            &:hover
+            {
+                -webkit-animation: 0;
+                -o-animation: 0;
+                animation: 0;
+
+                div.game-line
+                {
+                    -webkit-animation: 0;
+                    -o-animation: 0;
+                    animation: 0;
+                }
+            }
         }
     }
 }

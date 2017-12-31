@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Play', 'user_id');
     }
+
+    public function pledges()
+    {
+        return $this->hasMany('App\Pledge', 'user_id');
+    }
 }

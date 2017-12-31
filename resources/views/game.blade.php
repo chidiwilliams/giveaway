@@ -6,15 +6,31 @@
             <div class="game-label pledge-label">
                 <div class="game-label-sub">I want to</div>
                 <div class="game-label-main">Pledge</div>
+
                 <div class="game-line"></div>
+                <div class="clearfix"></div>
             </div>
         </div>
-        
+
+        @if (count(Auth::user()->pledges)) 
         <div class="new-play-box" onclick="window.location = `{{ route('play') }}`">
-            <div class="game-label pledge-label">
+        @else
+        <div class="new-play-box new-play-box-disabled">
+        @endif
+            <div class="game-label play-label">
                 <div class="game-label-sub">I want to</div>
                 <div class="game-label-main">Play</div>
+
                 <div class="game-line"></div>
+                <div class="clearfix"></div>
+
+                @if (!count(Auth::user()->pledges)) 
+                    <div class="pledge-plead" style="">
+                        Playing is currently disabled
+                        <br> 
+                        Make a pledge to continue
+                    </div>
+                @endif 
             </div>
         </div>
     </div>

@@ -34,7 +34,12 @@ class PlayController extends Controller
      */
     public function create()
     {
-        return view('play');
+        if (count(Auth::user()->pledges)) {
+            return view('play');
+        } else {
+            /* TODO: Change this to a better view */
+            return "Error. Please return to home.";
+        }
     }
 
     /**
