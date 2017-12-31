@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="game-page">
-        <div class="new-pledge-box" onclick="window.location = `{{ route('pledge') }}`">
+        <div class="new-pledge-box">
             <div class="game-label pledge-label">
                 <div class="game-label-sub">I want to</div>
                 <div class="game-label-main">Pledge</div>
@@ -47,4 +47,19 @@
             {{ csrf_field() }}
         </form>
     </div>
+@endsection
+
+@section('js')
+<script>
+    $(document).ready(function() {
+        $('.new-pledge-box').on('click touchstart', function() {
+            window.location = "{{ route('pledge') }}";
+        })
+
+        $('.new-play-box').on('click touchstart', function() {
+            window.location = "{{ route('play') }}";
+        })
+    });
+</script>
+
 @endsection

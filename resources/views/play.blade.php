@@ -63,4 +63,9 @@
 @endsection
 
 @section('js')
+<script>
+    $(document).ready(function() {
+        alert("Hello");
+    });
+</script>
 @endsection
