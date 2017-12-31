@@ -11,16 +11,17 @@
                     <div class="page-name">Play</div>
                     <div class="page-line"></div>
                 </div>
-                <div class="col-md-6">
+
+                <div class="play-game">
                     <div class="game" v-cloak>
-                        <img src="{{ asset('img/07ehm9mc.svg') }}" alt="Wheel" class="wheel">
-                        <img src="{{ asset('img/pointer.svg') }}" alt="" :class="{ pointer: true, rotate: rolling }" id="pointer">
+                        <img src="{{ asset('img/Cool Wheel.svg') }}" alt="">
+                        <img src="{{ asset('img/Cool Pointer.svg') }}" alt="Wheel">
+                        <div class="stop"></div>
 
                         <div v-if="congratulations" :class="{ bounce: animate }">Congratulations</div>
                         <div v-if="sorry" :class="{ bounce: animate }">Sorry</div>
                     </div>
-                </div>
-                <div class="col-md-6">
+                    
                     <div class="winnings" v-cloak>
                         <div class="spin" @click="spin">Spin</div>
                         <div class="tries" v-cloak>

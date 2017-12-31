@@ -101,28 +101,57 @@ body
     float: right;
 }
 
-.card
+:root {
+    --rotation-degree: 10000deg;
+}
+
+.user-menu
 {
-    padding: 15px;
-    background-color: #fff;
-    border-radius: 2px;
-    box-shadow: $box-shadow-grey;
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 1;
+    padding: 30px 40px;
+    font-size: 30px;    
+}
 
-    .card-header
+.menu
+{
+    text-transform: uppercase;
+
+    a
     {
-        text-transform: uppercase;
-        font-size: 30px;
-        line-height: 1;
-        margin-bottom: 20px;
-        text-align: center;
-        font-weight: 200;
+        margin-right: 20px;
+        color: #022;
+        font-size: 15px;
+        opacity: 0.8;
+        font-weight: 600;
     }
+}
 
-    .card-footer
+.master-menu
+{
+    @extend .menu;
+
+    position: absolute;
+    bottom: 0;
+    padding: 15px 25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sub-menu
+{
+    @extend .menu;
+    margin-top: 10px;
+
+    a
     {
-        font-size: 14px;
-        color: #444;
-        text-align: center;
+        margin-right: 15px;
+
+        @include media("(min-width: 768px)") {
+            display: block;
+        }
     }
 }
 
@@ -144,99 +173,14 @@ body
 
     div.new-twitter-text
     {
-/*       
-        font-size: 16px;
-        margin-top: 27px 0 27px 0; */
         font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
         color: #fffffff0;
         font-size: 18px;
         line-height: 1;
         margin: 18.5px 0;
-
         text-shadow: $box-shadow-grey;
     }
 }
-
-:root {
-    --rotation-degree: 10000deg;
-}
-
-.header
-{
-    font-family: $heading-font;
-    font-size: 32px;
-    font-weight: 900;
-
-    position: absolute;
-    top: 0;
-
-    width: 100%;
-    margin: auto;
-    margin-top: 30px;
-
-    text-align: center;
-    word-spacing: $heading-word-spacing;
-    text-transform: uppercase;
-}
-
-.header a
-{
-    text-decoration: none;
-    color: $rich-black;
-}
-
-.footer
-{
-    font-family: $body-font-alternate;
-    font-size: 20px;
-
-    position: absolute;
-    bottom: 0;
-
-    width: 100%;
-    margin: auto;
-    margin-bottom: 20px;
-
-    text-align: center;
-
-    opacity: .8;
-    color: $rich-black;
-}
-
-
-.submit
-{
-    width: 120px;
-    height: 50px;
-    border: 0;
-    text-transform: uppercase;
-    border-radius: 3px;
-    box-shadow: 0 3px 3px $elf-green-darker;
-    font-weight: bolder;
-    background: linear-gradient($elf-yellow 70%, $elf-yellow-dark);
-    padding: 10px 20px;
-}
-
-a.submit, a.submit:focus, a.submit:active, a.submit:hover
-{
-    @extend .submit;
-    text-decoration: none;
-    color: inherit;
-}
-
-/* TBD !!! TBD !!! TBD !!! TBD !!! TBD !!! TBD !!! 
-.welcome-user
-{
-    font-size: 17px;
-
-    position: absolute;
-    right: 0;
-
-    margin: 45px 50px 0 0;
-    background: #fff;
-    padding: 5px 10px;
-    font-family: $body-font-alternate;
-} */
 
 .page
 {
@@ -250,125 +194,9 @@ a.submit, a.submit:focus, a.submit:active, a.submit:hover
     position: relative;
 }
 
-/* INDEX PAGE */
-
-.index-page
+.page-heading
 {
-    @extend .page;
-    padding: 0;
-    background-color: #6be6d9;
-    height: 100%;
-}
-
-.index-container
-{
-    height: 100%;
-    display: grid;
-    grid-template-rows: 300px 1fr;
-    grid-template-columns: 1fr;
-    grid-template-areas:    "text"
-                            "menu";
-
-    .index-text
-    {
-        grid-area: text;
-        padding-right: 25px;
-        padding: 0;
-        text-align: center;
-        align-self: center;
-        font-size: 60px;
-        padding: 5px;
-
-        @include media("(min-width: 1200px)"){
-            padding: 50px;
-        }
-
-        .index-seller
-        {
-            line-height: 1.2;
-
-            .index-seller-header
-            {
-                font-family: "Open Sans";
-                font-weight: 100;
-                line-height: 1.2;
-
-                @include media("(min-width: 1200px)"){
-                    font-size: 120px;
-                    font-family: $heading-font;
-                }
-            }
-        }
-    }
-
-    .index-menu
-    {
-        grid-area: menu;
-        /*width: 375px;*/
-        text-align: center;
-        /*margin: auto;*/
-
-        .menu-header
-        {
-            margin-bottom: 40px;
-
-            .main
-            {
-                text-transform: uppercase; 
-                font-weight: bold;
-                line-height: 1;
-                /*font-size: 25px;*/
-                font-size: 20px;
-                margin-bottom: 5px;
-            }
-
-            .sub
-            {
-                line-height: 1;
-                /*font-size: 18px;*/
-                font-size: 14px;
-                font-family: $body-font-alternate;
-                font-weight: 300;
-            }
-        }
-
-        .menu-footer
-        {
-            @extend .menu-header;
-            margin-top: 80px;
-            margin-bottom: 0;
-        }
-
-        .twitter-button
-        {
-            @extend .twitter-button;
-            margin-bottom: 15px;
-            box-shadow: $box-shadow-green;
-        }
-    }
-}
-
-/* END OF INDEX PAGE */
-
-
-/* TBD !!! TBD !!! TBD !!! TBD !!! TBD !!! TBD !!! 
-.midway-y
-{
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    transform: translateY(-50%);
-}*/
-
-.pledge-page
-{
-    @extend .page;
-    background-color: $elf-green;
-}
-
-.play-page {
-    @extend .page;
-    background-color: $elf-yellow;
+    margin-bottom: 30px;
 }
 
 .page-name
@@ -388,169 +216,476 @@ a.submit, a.submit:focus, a.submit:active, a.submit:hover
     width: 150px;
 }
 
-.pledge-page .page-line
+/* INDEX PAGE */
+
+.index-page
 {
-    background-color: $elf-yellow;
+    @extend .page;
+    padding: 0;
+    background-color: #6be6d9;
+    height: 100%;
+
+    .index-container
+    {
+        height: 100%;
+        display: grid;
+        grid-template-rows: 300px 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas:    "text"
+                                "menu";
+
+        @include media("(min-width: 768px)") {
+            grid-template-columns: 1fr auto;
+            grid-template-rows: 1fr;
+            grid-template-areas: "text menu";
+        }
+
+        .index-text
+        {
+            grid-area: text;
+            padding-right: 25px;
+            padding: 0;
+            text-align: center;
+            align-self: center;
+            font-size: 60px;
+            padding: 5px;
+
+            @include media("min-width: 768px)") {
+                text-align: left;
+                padding: 15px;
+            }
+
+            @include media("(min-width: 1200px)"){
+                padding: 50px;
+            }
+
+            .index-seller
+            {
+                line-height: 1.2;
+
+                .index-seller-header
+                {
+                    font-family: "Open Sans";
+                    font-weight: 100;
+                    line-height: 1.2;
+
+                    @include media("(min-width: 768px)") {
+                        font-size: 60px;
+                    }
+
+                    @include media("(min-width: 992px)") {
+                        font-size: 85px;
+                    }
+
+                    @include media("(min-width: 1200px)"){
+                        font-size: 120px;
+                        font-family: $heading-font;
+                    }
+                }
+            }
+        }
+
+        .index-menu
+        {
+            grid-area: menu;
+            text-align: center;
+
+            @include media("(min-width: 768px)") {
+                width: 285px;
+                align-self: center;
+            }
+
+            @include media("(min-width: 992px)") {
+                width: 375px;
+            }
+
+            .menu-header
+            {
+                margin-bottom: 40px;
+
+                @include media("(min-width: 768px)") {
+                                    .main { font-size: 25px; }
+                .sub { font-size: 18px; }
+                }
+
+                .main
+                {
+                    text-transform: uppercase; 
+                    font-weight: bold;
+                    line-height: 1;
+                    font-size: 20px;
+                    margin-bottom: 5px;
+
+                    @include media("(min-width: 768px)") {
+                        font-size: 25px;
+                    }
+                }
+
+                .sub
+                {
+                    line-height: 1;
+                    /*font-size: 18px;*/
+                    font-size: 14px;
+                    font-family: $body-font-alternate;
+                    font-weight: 300;
+
+                    @include media("(min-width: 768px)") {
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            .menu-footer
+            {
+                @extend .menu-header;
+                margin-top: 80px;
+                margin-bottom: 0;
+            }
+
+            .twitter-button
+            {
+                @extend .twitter-button;
+                margin-bottom: 15px;
+                box-shadow: $box-shadow-green;
+
+                @include media("(min-width: 768px)") {
+                    width: 285px;
+                    height: 55px;
+
+                    img.new-twitter-logo
+                    {
+                        width: 25px;
+                        height: 25px;
+                    }
+
+                    div.new-twitter-text
+                    {
+                        font-size: 17px;
+                        margin: 19px 0;
+                    }
+                }
+
+                @include media("(min-width: 992px)") {
+                    width: 375px;
+                    height: 65px;
+                    background-color: #00aced;
+                    border-radius: 5px;
+                    box-shadow: $box-shadow-grey;
+
+                    img.new-twitter-logo
+                    {
+                        width: 35px;
+                        height: 35px;
+                        margin: 15px 25px 15px 30px;
+                    }
+
+                    div.new-twitter-text
+                    {
+                        font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
+                        color: #fffffff0;
+                        font-size: 22px;
+                        line-height: 1;
+                        margin: 22px 0 21px 0;
+                        text-shadow: $box-shadow-grey;
+                    }
+                }    
+            }
+        }
+    }
 }
 
-.play-page .page-line
+/* END OF INDEX PAGE */
+
+/* PLEDGE PAGE */
+.pledge-page
 {
+    @extend .page;
     background-color: $elf-green;
-}
 
-.page-heading
-{
-    margin-bottom: 30px;
-}
-
-.pledge-form
-{
-    .input-group {
-        margin-bottom: 35px;
-        width: 100%;
-        min-height: 108px;
-    }
-
-    label
+    .page-heading
     {
-        display: block;
-        font-weight: normal;
-        margin-bottom: 5px;
-        font-weight: 300;
-        font-size: 20px;
-    }
-
-    input[type=text]
-    {
-        width: 100%;
-        background-color: transparent;
-        border: 0;
-        font-size: 18px;
-        height: 36px;
-        padding: 10px 30px;
-        box-shadow: 0 3px 0 $elf-yellow;
-        font-weight: 500;
-        text-transform: uppercase;
-        margin-right: 40px;
-        margin-bottom: 15px;
-        line-height: 1;
-
-        &.error
-        {
-            border: 2px solid #ef6464;
-        }
-
-        &:focus
-        {
-            outline: none;
+        @include media("(min-width: 992px)") {
+            margin-bottom: -30px;
         }
     }
 
-    div.custom-input-group
+    .page-line
     {
-        float: left;
-        width: 100%;
+        @extend .page-line;
+        background-color: $elf-yellow;
+    }
 
-        div.custom-input
-        {
-            @extend input[type=text];
-            cursor: pointer;
-            position: relative;
-
-            i
-            {
-                font-size: 12px;
-                color: #355;
-                position: absolute;
-                right: 30px;
-                top: 17px;
-            }
-
-            .placeholder
-            {
-                color: #757575;
-            }
-        }
-
-        div.input-select
-        {
-            max-height: 250px;
-            background: #fff;
-            font-size: 14px;
-            overflow-y: auto;
-            margin-top: -10px;
-            box-shadow: $box-shadow-green;
-            cursor: pointer;
-            position: absolute;
-            z-index: 2;
+    .pledge-form
+    {
+        .input-group {
+            margin-bottom: 30px;
             width: 100%;
 
-            div {
-                padding: 10px 30px;
+            @include media("(min-width: 600px)") {
+                width: auto;
+                margin-bottom: 20px;
+            }
+        }
 
-                &.selected
+        label
+        {
+            display: block;
+            font-weight: normal;
+            font-weight: 300;
+            font-size: 20px;
+
+            @include media("(min-width: 768px)"){
+                font-size: 25px;
+            }
+        }
+
+        input[type=text]
+        {
+            width: 100%;
+            background-color: transparent;
+            border: 0;
+            font-size: 18px;
+            height: 36px;
+            padding: 10px 30px;
+            box-shadow: 0 3px 0 $elf-yellow;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-right: 40px;
+            margin-bottom: 15px;
+            line-height: 1;
+
+            @include media("(min-width: 600px)") {
+                width: 400px;
+
+                &.short
                 {
-                    background-color: $grey-selected;
+                    width: 180px;
+                }
+            }
+
+            @include media("(min-width: 768px)") {
+                font-size: 22px;
+                height: 40px;
+            }
+
+
+            &.error
+            {
+                border: 2px solid #ef6464;
+            }
+
+            &:focus
+            {
+                outline: none;
+            }
+        }
+
+        div.custom-input-group
+        {
+            float: left;
+            width: 100%;
+
+            @include media("(min-width: 600px)") {
+                width: auto;
+            }
+
+            div.custom-input
+            {
+                @extend input[type=text];
+                cursor: pointer;
+                position: relative;
+
+                i
+                {
+                    font-size: 12px;
+                    color: #355;
+                    position: absolute;
+                    right: 30px;
+                    top: 17px;
                 }
 
-                &:hover {
-                    background-color: $grey-highlight;
+                .placeholder
+                {
+                    color: #757575;
+                }
+            }
+
+            div.input-select
+            {
+                max-height: 250px;
+                background: #fff;
+                font-size: 14px;
+                overflow-y: auto;
+                margin-top: -10px;
+                box-shadow: $box-shadow-green;
+                cursor: pointer;
+                position: absolute;
+                z-index: 2;
+                width: 100%;
+
+                div {
+                    padding: 10px 30px;
+
+                    &.selected
+                    {
+                        background-color: $grey-selected;
+                    }
+
+                    &:hover {
+                        background-color: $grey-highlight;
+                    }
+                }
+
+                @include media("(min-width: 600px)") {
+                    width: 400px;
+
+                    &.short
+                    {
+                        width: 180px;
+                    }
                 }
             }
         }
+
+        input[type=submit]
+        {
+            border: 0;
+            text-transform: uppercase;
+            padding: 7px 20px;
+            border-radius: 2px;
+            font-weight: 600;
+            margin-top: 0px;
+            background: linear-gradient($elf-yellow 70%, $elf-yellow-dark);
+            box-shadow: $box-shadow-green;
+        }
+
+        option
+        {
+            font-size: 14px;
+            width: 200px;
+        }
     }
 
-    input[type=submit]
+}
+
+/* END OF PLEDGE PAGE */
+
+
+/* PLAY PAGE */
+.play-page {
+    @extend .page;
+    background-color: $elf-yellow;
+
+    .page-line
     {
-        @extend .submit;
-        margin-top: 0px;
-        background: linear-gradient($elf-yellow 70%, $elf-yellow-dark);
+        @extend .page-line;
+        background-color: $elf-green;
     }
 
-    option
+    .game
     {
-        font-size: 14px;
-        width: 200px;
+        position: relative;
+
+        img
+        {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        img.wheel
+        {
+/*            position: relative;
+            width: 450px;
+            left: 50%;
+            -webkit-transform: translate(-50%, 0);
+            -ms-transform: translate(-50%, 0);
+            -o-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);*/
+        }
+
+        img.pointer
+        {
+/*            left: 31.45%;
+            transform: rotate(0deg);
+            top: 125px;
+            position: absolute;
+            width: 200px;
+
+            &.rotate
+            {
+                -webkit-animation: rotate-pointer 20s forwards;
+                -o-animation: rotate-pointer 20s forwards;
+                animation: rotate-pointer 20s forwards;
+            }*/
+        }
+
+        .bounce
+        {
+            animation: bounce 5s alternate forwards;
+        }
+    }
+
+    .winnings
+    {
+        background: rgba(51, 51, 51, 0.6588235294117647);
+        min-height: 450px;
+        border: 10px solid #333;
+        padding: 15px;
+        box-shadow: 0 3px 3px #58561e;
+
+        div.spin
+        {
+            text-align: center;
+            background-color: #e4ac24;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 5px 10px;
+            font-size: 28px;
+            box-shadow: $box-shadow-yellow;
+            color: #fff;
+            margin-bottom: 40px;
+            cursor: pointer;
+        }
+
+        div.tries
+        {
+            text-align: center;
+        }
+
+        span.tries-number
+        {
+            font-size: 150px;
+            line-height: 1;
+            font-family: $heading-font;
+            font-weight: bold; 
+            margin-right: 25px;
+            color: #b12b28;
+            text-shadow: 2px 2px 0px #fff, 5px 5px 0px #460c0c;
+        }
+
+        span.tries-word
+        {
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 45px;
+            color: #777543;
+            text-shadow: 2px 2px 0px #f00, -2px -2px 0 #0f0;
+        }
     }
 }
 
-.bubbles
-{
-    margin-top: 50px;
-    position: relative;
-    width: 420px;
-}
+/* END OF PLAY PAGE */
 
-img.bubble
-{
-    display: block;
-    width: 100%;
-    position: absolute;
-}
 
-.bubble-text
-{
-    position: absolute;
-    width: 100%;
-    margin: 70px auto;
-    font-family: $cursive-font;
-}
-
-.text
-{
-    max-width: 270px;
-    margin: auto;
-    font-size: 24px;
-}
+/* THANK YOU PAGE */
 
 .thank-you-page {
     @extend .page;
     background-color: $elf-green;
 
-    .central-text
-    {
-        transform: translate(-50%, calc(-50% + 25px));
-    }
+    .central-text { transform: translate(-50%, calc(-50% + 25px)); }
 
     .thanks 
     {
@@ -567,101 +702,7 @@ img.bubble
     }
 }
 
-.game
-{
-    position: relative;
-
-    img.wheel
-    {
-        position: relative;
-        /* xs width would be 100%, higher sizes would be in px */
-        width: 450px;
-        left: 50%;
-        -webkit-transform: translate(-50%, 0);
-        -ms-transform: translate(-50%, 0);
-        -o-transform: translate(-50%, 0);
-        transform: translate(-50%, 0);
-    }
-
-    img.pointer
-    {
-        left: 31.45%;
-        transform: rotate(0deg);
-        top: 125px;
-        position: absolute;
-        width: 200px;
-
-        &.rotate
-        {
-            -webkit-animation: rotate-pointer 20s forwards;
-            -o-animation: rotate-pointer 20s forwards;
-            animation: rotate-pointer 20s forwards;
-        }
-    }
-
-    .bounce
-    {
-        animation: bounce 5s alternate forwards;
-    }
-}
-
-.winnings
-{
-    background: rgba(51, 51, 51, 0.6588235294117647);
-    min-height: 450px;
-    border: 10px solid #333;
-    padding: 15px;
-    box-shadow: 0 3px 3px #58561e;
-
-    div.spin
-    {
-        text-align: center;
-        background-color: #e4ac24;
-        text-transform: uppercase;
-        font-weight: 700;
-        padding: 5px 10px;
-        font-size: 28px;
-        box-shadow: $box-shadow-yellow;
-        color: #fff;
-        margin-bottom: 40px;
-        cursor: pointer;
-    }
-
-    div.tries
-    {
-        text-align: center;
-    }
-
-    span.tries-number
-    {
-        font-size: 150px;
-        line-height: 1;
-        font-family: $heading-font;
-        font-weight: bold; 
-        margin-right: 25px;
-        color: #b12b28;
-        text-shadow: 2px 2px 0px #fff, 5px 5px 0px #460c0c;
-    }
-
-    span.tries-word
-    {
-        text-transform: uppercase;
-        font-weight: 800;
-        font-size: 45px;
-        color: #777543;
-        text-shadow: 2px 2px 0px #f00, -2px -2px 0 #0f0;
-    }
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s ease-out;
-}
-
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0
-}
-
-
+/* END OF THANK YOU PAGE */
 
 /* GAME PAGE */
 div.game-page
@@ -803,7 +844,15 @@ div.game-page
     }
 }
 
+/* END OF GAME PAGE */
 
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s ease-out;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0
+}
 
 @keyframes hide
 {
@@ -811,224 +860,45 @@ div.game-page
     100% { visibility: hidden; }
 }
 
-@keyframes lengthen-line-450 {
+@keyframes lengthen-line-450
+{
     0% { width: 0px; }
     100% { width: 450px; }
 }
 
-@keyframes lengthen-line-250 {
+@keyframes lengthen-line-250 
+{
     0% { width: 0px; }
     100% { width: 250px; }
 }
 
-@keyframes lengthen-line-150 {
+@keyframes lengthen-line-150 
+{
     0% { width: 0px; }
     100% { width: 150px; }
 }
 
-@keyframes brighten-elf-green {
+@keyframes brighten-elf-green 
+{
     0% { background-color: $elf-green-dark; }
     100% { background-color: $elf-green; }
 }
 
-@keyframes brighten-elf-yellow {
+@keyframes brighten-elf-yellow 
+{
     0% { background-color: $elf-yellow-dark; }
     100% { background-color: $elf-yellow; }
 }
 
-@keyframes rotate-pointer {
+@keyframes rotate-pointer 
+{
     0% { transform: initial; }
     100% { transform: rotate(var(--rotation-degree)); }
 }
 
 // TODO: Improve animation of bounce
-@keyframes bounce {
-    0% {
-        background-color: #fff;
-    }
-    100%
-    {
-        background-color: #000;
-    }
-}
-
-
-@media (min-width: 768px)
+@keyframes bounce 
 {
-    .pledge-form
-    {
-        label
-        {
-            font-size: 28px;
-        }
-
-        input[type=text]
-        {
-            font-size: 24px;
-            height: 44px;
-        }
-    }
-
-    .index-container
-    {
-        grid-template-columns: 1fr auto;
-        grid-template-rows: 1fr;
-        grid-template-areas: "text menu";
-
-        .index-text
-        {
-            text-align: left;
-            padding: 15px;
-
-            .index-seller
-            {
-                .index-seller-header
-                {
-                    font-size: 60px;
-                }
-            }
-        }
-
-        .index-menu
-        {
-            width: 285px;
-            align-self: center;
-
-            .twitter-button
-            {
-                width: 285px;
-                height: 55px;
-
-                img.new-twitter-logo
-                {
-                    width: 25px;
-                    height: 25px;
-                }
-
-                div.new-twitter-text
-                {
-                    font-size: 17px;
-                    margin: 19px 0;
-                }
-            }
-
-            .menu-header
-            {
-                .main { font-size: 25px; }
-                .sub { font-size: 18px; }
-            }
-        }
-    }
-}
-
-@media (min-width: 992px)
-{
-    .index-container
-    {
-        .index-text
-        {
-            .index-seller
-            {
-                .index-seller-header
-                {
-                    font-size: 85px;
-                }
-            }
-        }
-
-        .index-menu
-        {
-            width: 375px;
-
-            .twitter-button
-            {
-                width: 375px;
-                height: 65px;
-                background-color: #00aced;
-                border-radius: 5px;
-                box-shadow: $box-shadow-grey;
-
-                img.new-twitter-logo
-                {
-                    width: 35px;
-                    height: 35px;
-                    margin: 15px 25px 15px 30px;
-                }
-
-                div.new-twitter-text
-                {
-                    /*       
-                    font-size: 16px;
-                    margin-top: 27px 0 27px 0; */
-                    font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
-                    color: #fffffff0;
-                    font-size: 22px;
-                    line-height: 1;
-                    margin: 22px 0 21px 0;
-                    text-shadow: $box-shadow-grey;
-                }
-            }
-        }
-    }
-
-
-}
-
-@media (min-width: 1200px)
-{
-
-}
-
-@media (min-width: 600px)
-{
-    .pledge-form
-    {
-        div.input-group, div.custom-input-group
-        {
-            width: auto;
-
-            input[type=text], div.custom-input, div.input-select
-            {
-                width: 400px;
-
-                &.short
-                {
-                    width: 180px;
-                }
-            }
-
-            &.short
-            {
-                input[type=text], div.custom-input, div.input-select
-                {
-                    width: 180px !important;
-                }
-            }
-        }
-    }
-
-    .big-button
-    {
-        width: 375px;
-        height: 80px;
-        box-shadow: $box-shadow-yellow;
-        border-radius: 5px;
-        background: linear-gradient(#00aced 70%, #0384b5);
-    }
-
-    .continue {
-        font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
-        color: #fffffff0;
-        font-size: 22px;
-        line-height: 1;
-        margin: 29px 0 29px 0;
-        text-shadow: $box-shadow-grey;
-    }
-
-    .twitter-logo
-    {
-        width: 40px;
-        height: 40px;
-        margin: 20px 25px 20px 30px;
-    }
+    0% { background-color: #fff; }
+    100% { background-color: #000; }
 }

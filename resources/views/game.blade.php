@@ -1,22 +1,6 @@
 @extends('master')
 
 @section('content')
-{{--     <a href="{{ route('pledge') }}" class="pledge-box">
-        <div class="choice-box">
-            <div class="pledge-wish">I want to</div>
-            <div class="pledge-action">Pledge</div>
-            <div class="pledge-line"></div>
-        </div>
-    </a>
-
-    <a href="{{ route('play') }}" class="play-box">
-        <div class="choice-box">
-            <div class="pledge-wish">I want to</div>
-            <div class="pledge-action">Play</div>
-            <div class="pledge-line"></div>
-        </div>
-    </a> --}}
-
     <div class="game-page">
         <div class="new-pledge-box" onclick="window.location = `{{ route('pledge') }}`">
             <div class="game-label pledge-label">
@@ -25,6 +9,7 @@
                 <div class="game-line"></div>
             </div>
         </div>
+        
         <div class="new-play-box" onclick="window.location = `{{ route('play') }}`">
             <div class="game-label pledge-label">
                 <div class="game-label-sub">I want to</div>
@@ -32,5 +17,18 @@
                 <div class="game-line"></div>
             </div>
         </div>
+    </div>
+
+    <div class="master-menu">
+        <a href="">View pledges</a>
+        <a href="">View plays</a>
+        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();">
+            Logout
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+        </form>
     </div>
 @endsection

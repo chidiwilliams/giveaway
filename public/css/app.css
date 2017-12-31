@@ -8425,31 +8425,60 @@ body {
   float: right;
 }
 
-.card {
-  padding: 15px;
-  background-color: #fff;
-  border-radius: 2px;
-  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
-          box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
+:root {
+  --rotation-degree: 10000deg;
 }
 
-.card .card-header {
-  text-transform: uppercase;
-  font-size: 30px;
+.user-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
   line-height: 1;
-  margin-bottom: 20px;
-  text-align: center;
-  font-weight: 200;
+  padding: 30px 40px;
+  font-size: 30px;
 }
 
-.card .card-footer {
-  font-size: 14px;
-  color: #444;
-  text-align: center;
+.menu,
+.master-menu,
+.sub-menu {
+  text-transform: uppercase;
+}
+
+.menu a,
+.master-menu a,
+.sub-menu a {
+  margin-right: 20px;
+  color: #022;
+  font-size: 15px;
+  opacity: 0.8;
+  font-weight: 600;
+}
+
+.master-menu {
+  position: absolute;
+  bottom: 0;
+  padding: 15px 25px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.sub-menu {
+  margin-top: 10px;
+}
+
+.sub-menu a {
+  margin-right: 15px;
+}
+
+@media (min-width: 768px) {
+  .sub-menu a {
+    display: block;
+  }
 }
 
 .twitter-button,
-.index-container .index-menu .twitter-button {
+.index-page .index-container .index-menu .twitter-button {
   width: 280px;
   height: 55px;
   background-color: #00aced;
@@ -8460,99 +8489,20 @@ body {
 }
 
 .twitter-button img.new-twitter-logo,
-.index-container .index-menu .twitter-button img.new-twitter-logo {
+.index-page .index-container .index-menu .twitter-button img.new-twitter-logo {
   width: 25px;
   height: 25px;
   margin: 15px 15px 15px 20px;
 }
 
 .twitter-button div.new-twitter-text,
-.index-container .index-menu .twitter-button div.new-twitter-text {
-  /*       
-        font-size: 16px;
-        margin-top: 27px 0 27px 0; */
+.index-page .index-container .index-menu .twitter-button div.new-twitter-text {
   font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
   color: #fffffff0;
   font-size: 18px;
   line-height: 1;
   margin: 18.5px 0;
   text-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
-}
-
-:root {
-  --rotation-degree: 10000deg;
-}
-
-.header {
-  font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
-  font-size: 32px;
-  font-weight: 900;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  margin: auto;
-  margin-top: 30px;
-  text-align: center;
-  word-spacing: 7px;
-  text-transform: uppercase;
-}
-
-.header a {
-  text-decoration: none;
-  color: #022;
-}
-
-.footer {
-  font-family: "Open Sans", "Raleway";
-  font-size: 20px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  margin: auto;
-  margin-bottom: 20px;
-  text-align: center;
-  opacity: .8;
-  color: #022;
-}
-
-.submit,
-a.submit,
-a.submit:focus,
-a.submit:active,
-a.submit:hover,
-.pledge-form input[type=submit] {
-  width: 120px;
-  height: 50px;
-  border: 0;
-  text-transform: uppercase;
-  border-radius: 3px;
-  -webkit-box-shadow: 0 3px 3px #2f6963;
-          box-shadow: 0 3px 3px #2f6963;
-  font-weight: bolder;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, #fcf665), to(#cac552));
-  background: linear-gradient(#fcf665 70%, #cac552);
-  padding: 10px 20px;
-}
-
-a.submit,
-a.submit:focus,
-a.submit:active,
-a.submit:hover,
-a.submit:focus,
-a.submit:active,
-a.submit:hover {
-  text-decoration: none;
-  color: inherit;
-}
-
-.welcome-user {
-  font-size: 17px;
-  position: absolute;
-  right: 0;
-  margin: 45px 50px 0 0;
-  background: #fff;
-  padding: 5px 10px;
-  font-family: "Open Sans", "Raleway";
 }
 
 .page,
@@ -8569,106 +8519,8 @@ a.submit:hover {
   position: relative;
 }
 
-.index-page {
-  padding: 0;
-  background-color: #6be6d9;
-  height: 100%;
-}
-
-.index-container {
-  height: 100%;
-  display: grid;
-  grid-template-rows: 300px 1fr;
-  grid-template-columns: 1fr;
-  grid-template-areas: "text" "menu";
-}
-
-.index-container .index-container .index-text {
-  padding: 50px;
-}
-
-.index-container .index-container .index-text .index-seller .index-seller-header {
-  font-size: 120px;
-  font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
-}
-
-.index-container .index-text {
-  grid-area: text;
-  padding-right: 25px;
-  padding: 0;
-  text-align: center;
-  -ms-flex-item-align: center;
-      align-self: center;
-  font-size: 60px;
-  padding: 5px;
-}
-
-.index-container .index-text .index-seller {
-  line-height: 1.2;
-}
-
-.index-container .index-text .index-seller .index-seller-header {
-  font-family: "Open Sans";
-  font-weight: 100;
-  line-height: 1.2;
-}
-
-.index-container .index-menu {
-  grid-area: menu;
-  /*width: 375px;*/
-  text-align: center;
-  /*margin: auto;*/
-}
-
-.index-container .index-menu .menu-header,
-.index-container .index-menu .menu-footer {
-  margin-bottom: 40px;
-}
-
-.index-container .index-menu .menu-header .main,
-.index-container .index-menu .menu-footer .main {
-  text-transform: uppercase;
-  font-weight: bold;
-  line-height: 1;
-  /*font-size: 25px;*/
-  font-size: 20px;
-  margin-bottom: 5px;
-}
-
-.index-container .index-menu .menu-header .sub,
-.index-container .index-menu .menu-footer .sub {
-  line-height: 1;
-  /*font-size: 18px;*/
-  font-size: 14px;
-  font-family: "Open Sans", "Raleway";
-  font-weight: 300;
-}
-
-.index-container .index-menu .menu-footer {
-  margin-top: 80px;
-  margin-bottom: 0;
-}
-
-.index-container .index-menu .twitter-button {
-  margin-bottom: 15px;
-  -webkit-box-shadow: 0 3px 3px #2f6963;
-          box-shadow: 0 3px 3px #2f6963;
-}
-
-.midway-y {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-.pledge-page {
-  background-color: #6be6d9;
-}
-
-.play-page {
-  background-color: #fcf665;
+.page-heading {
+  margin-bottom: 30px;
 }
 
 .page-name {
@@ -8681,39 +8533,257 @@ a.submit:hover {
   margin-bottom: 5px;
 }
 
-.page-line {
+.page-line,
+.pledge-page .page-line,
+.play-page .page-line {
   height: 15px;
   width: 150px;
+}
+
+/* INDEX PAGE */
+
+.index-page {
+  padding: 0;
+  background-color: #6be6d9;
+  height: 100%;
+}
+
+.index-page .index-container {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 300px 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas: "text" "menu";
+}
+
+@media (min-width: 768px) {
+  .index-page .index-container {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr;
+    grid-template-areas: "text menu";
+  }
+}
+
+.index-page .index-container .index-text {
+  grid-area: text;
+  padding-right: 25px;
+  padding: 0;
+  text-align: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 60px;
+  padding: 5px;
+}
+
+@media min-width {
+  .index-page .index-container .index-text {
+    text-align: left;
+    padding: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .index-page .index-container .index-text {
+    padding: 50px;
+  }
+}
+
+.index-page .index-container .index-text .index-seller {
+  line-height: 1.2;
+}
+
+.index-page .index-container .index-text .index-seller .index-seller-header {
+  font-family: "Open Sans";
+  font-weight: 100;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .index-page .index-container .index-text .index-seller .index-seller-header {
+    font-size: 60px;
+  }
+}
+
+@media (min-width: 992px) {
+  .index-page .index-container .index-text .index-seller .index-seller-header {
+    font-size: 85px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .index-page .index-container .index-text .index-seller .index-seller-header {
+    font-size: 120px;
+    font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
+  }
+}
+
+.index-page .index-container .index-menu {
+  grid-area: menu;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .index-page .index-container .index-menu {
+    width: 285px;
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
+}
+
+@media (min-width: 992px) {
+  .index-page .index-container .index-menu {
+    width: 375px;
+  }
+}
+
+.index-page .index-container .index-menu .menu-header,
+.index-page .index-container .index-menu .menu-footer {
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .index-page .index-container .index-menu .menu-header .main,
+  .index-page .index-container .index-menu .menu-footer .main {
+    font-size: 25px;
+  }
+
+  .index-page .index-container .index-menu .menu-header .sub,
+  .index-page .index-container .index-menu .menu-footer .sub {
+    font-size: 18px;
+  }
+}
+
+.index-page .index-container .index-menu .menu-header .main,
+.index-page .index-container .index-menu .menu-footer .main {
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 1;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+  .index-page .index-container .index-menu .menu-header .main,
+  .index-page .index-container .index-menu .menu-footer .main {
+    font-size: 25px;
+  }
+}
+
+.index-page .index-container .index-menu .menu-header .sub,
+.index-page .index-container .index-menu .menu-footer .sub {
+  line-height: 1;
+  /*font-size: 18px;*/
+  font-size: 14px;
+  font-family: "Open Sans", "Raleway";
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  .index-page .index-container .index-menu .menu-header .sub,
+  .index-page .index-container .index-menu .menu-footer .sub {
+    font-size: 18px;
+  }
+}
+
+.index-page .index-container .index-menu .menu-footer {
+  margin-top: 80px;
+  margin-bottom: 0;
+}
+
+.index-page .index-container .index-menu .twitter-button {
+  margin-bottom: 15px;
+  -webkit-box-shadow: 0 3px 3px #2f6963;
+          box-shadow: 0 3px 3px #2f6963;
+}
+
+@media (min-width: 768px) {
+  .index-page .index-container .index-menu .twitter-button {
+    width: 285px;
+    height: 55px;
+  }
+
+  .index-page .index-container .index-menu .twitter-button img.new-twitter-logo {
+    width: 25px;
+    height: 25px;
+  }
+
+  .index-page .index-container .index-menu .twitter-button div.new-twitter-text {
+    font-size: 17px;
+    margin: 19px 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .index-page .index-container .index-menu .twitter-button {
+    width: 375px;
+    height: 65px;
+    background-color: #00aced;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
+            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
+  }
+
+  .index-page .index-container .index-menu .twitter-button img.new-twitter-logo {
+    width: 35px;
+    height: 35px;
+    margin: 15px 25px 15px 30px;
+  }
+
+  .index-page .index-container .index-menu .twitter-button div.new-twitter-text {
+    font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
+    color: #fffffff0;
+    font-size: 22px;
+    line-height: 1;
+    margin: 22px 0 21px 0;
+    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
+  }
+}
+
+/* END OF INDEX PAGE */
+
+/* PLEDGE PAGE */
+
+.pledge-page {
+  background-color: #6be6d9;
+}
+
+@media (min-width: 992px) {
+  .pledge-page .page-heading {
+    margin-bottom: -30px;
+  }
 }
 
 .pledge-page .page-line {
   background-color: #fcf665;
 }
 
-.play-page .page-line {
-  background-color: #6be6d9;
-}
-
-.page-heading {
+.pledge-page .pledge-form .input-group {
   margin-bottom: 30px;
-}
-
-.pledge-form .input-group {
-  margin-bottom: 35px;
   width: 100%;
-  min-height: 108px;
 }
 
-.pledge-form label {
+@media (min-width: 600px) {
+  .pledge-page .pledge-form .input-group {
+    width: auto;
+    margin-bottom: 20px;
+  }
+}
+
+.pledge-page .pledge-form label {
   display: block;
   font-weight: normal;
-  margin-bottom: 5px;
   font-weight: 300;
   font-size: 20px;
 }
 
-.pledge-form input[type=text],
-.pledge-form div.custom-input-group div.custom-input {
+@media (min-width: 768px) {
+  .pledge-page .pledge-form label {
+    font-size: 25px;
+  }
+}
+
+.pledge-page .pledge-form input[type=text],
+.pledge-page .pledge-form div.custom-input-group div.custom-input {
   width: 100%;
   background-color: transparent;
   border: 0;
@@ -8729,27 +8799,53 @@ a.submit:hover {
   line-height: 1;
 }
 
-.pledge-form input[type=text].error,
-.pledge-form div.custom-input-group div.error.custom-input {
+@media (min-width: 600px) {
+  .pledge-page .pledge-form input[type=text],
+  .pledge-page .pledge-form div.custom-input-group div.custom-input {
+    width: 400px;
+  }
+
+  .pledge-page .pledge-form input[type=text].short,
+  .pledge-page .pledge-form div.custom-input-group div.short.custom-input {
+    width: 180px;
+  }
+}
+
+@media (min-width: 768px) {
+  .pledge-page .pledge-form input[type=text],
+  .pledge-page .pledge-form div.custom-input-group div.custom-input {
+    font-size: 22px;
+    height: 40px;
+  }
+}
+
+.pledge-page .pledge-form input[type=text].error,
+.pledge-page .pledge-form div.custom-input-group div.error.custom-input {
   border: 2px solid #ef6464;
 }
 
-.pledge-form input[type=text]:focus,
-.pledge-form div.custom-input-group div.custom-input:focus {
+.pledge-page .pledge-form input[type=text]:focus,
+.pledge-page .pledge-form div.custom-input-group div.custom-input:focus {
   outline: none;
 }
 
-.pledge-form div.custom-input-group {
+.pledge-page .pledge-form div.custom-input-group {
   float: left;
   width: 100%;
 }
 
-.pledge-form div.custom-input-group div.custom-input {
+@media (min-width: 600px) {
+  .pledge-page .pledge-form div.custom-input-group {
+    width: auto;
+  }
+}
+
+.pledge-page .pledge-form div.custom-input-group div.custom-input {
   cursor: pointer;
   position: relative;
 }
 
-.pledge-form div.custom-input-group div.custom-input i {
+.pledge-page .pledge-form div.custom-input-group div.custom-input i {
   font-size: 12px;
   color: #355;
   position: absolute;
@@ -8757,11 +8853,11 @@ a.submit:hover {
   top: 17px;
 }
 
-.pledge-form div.custom-input-group div.custom-input .placeholder {
+.pledge-page .pledge-form div.custom-input-group div.custom-input .placeholder {
   color: #757575;
 }
 
-.pledge-form div.custom-input-group div.input-select {
+.pledge-page .pledge-form div.custom-input-group div.input-select {
   max-height: 250px;
   background: #fff;
   font-size: 14px;
@@ -8775,53 +8871,147 @@ a.submit:hover {
   width: 100%;
 }
 
-.pledge-form div.custom-input-group div.input-select div {
+.pledge-page .pledge-form div.custom-input-group div.input-select div {
   padding: 10px 30px;
 }
 
-.pledge-form div.custom-input-group div.input-select div.selected {
+.pledge-page .pledge-form div.custom-input-group div.input-select div.selected {
   background-color: #ddd;
 }
 
-.pledge-form div.custom-input-group div.input-select div:hover {
+.pledge-page .pledge-form div.custom-input-group div.input-select div:hover {
   background-color: #eee;
 }
 
-.pledge-form input[type=submit] {
+@media (min-width: 600px) {
+  .pledge-page .pledge-form div.custom-input-group div.input-select {
+    width: 400px;
+  }
+
+  .pledge-page .pledge-form div.custom-input-group div.input-select.short {
+    width: 180px;
+  }
+}
+
+.pledge-page .pledge-form input[type=submit] {
+  border: 0;
+  text-transform: uppercase;
+  padding: 7px 20px;
+  border-radius: 2px;
+  font-weight: 600;
   margin-top: 0px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, #fcf665), to(#cac552));
   background: linear-gradient(#fcf665 70%, #cac552);
+  -webkit-box-shadow: 0 3px 3px #2f6963;
+          box-shadow: 0 3px 3px #2f6963;
 }
 
-.pledge-form option {
+.pledge-page .pledge-form option {
   font-size: 14px;
   width: 200px;
 }
 
-.bubbles {
-  margin-top: 50px;
+/* END OF PLEDGE PAGE */
+
+/* PLAY PAGE */
+
+.play-page {
+  background-color: #fcf665;
+}
+
+.play-page .page-line {
+  background-color: #6be6d9;
+}
+
+.play-page .game {
   position: relative;
-  width: 420px;
 }
 
-img.bubble {
-  display: block;
+.play-page .game img {
   width: 100%;
   position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.bubble-text {
-  position: absolute;
-  width: 100%;
-  margin: 70px auto;
-  font-family: "Pacifico", "Open Sans", "Segoe UI", cursive;
+.play-page .game img.wheel {
+  /*            position: relative;
+            width: 450px;
+            left: 50%;
+            -webkit-transform: translate(-50%, 0);
+            -ms-transform: translate(-50%, 0);
+            -o-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);*/
 }
 
-.text {
-  max-width: 270px;
-  margin: auto;
-  font-size: 24px;
+.play-page .game img.pointer {
+  /*            left: 31.45%;
+            transform: rotate(0deg);
+            top: 125px;
+            position: absolute;
+            width: 200px;
+
+            &.rotate
+            {
+                -webkit-animation: rotate-pointer 20s forwards;
+                -o-animation: rotate-pointer 20s forwards;
+                animation: rotate-pointer 20s forwards;
+            }*/
 }
+
+.play-page .game .bounce {
+  -webkit-animation: bounce 5s alternate forwards;
+          animation: bounce 5s alternate forwards;
+}
+
+.play-page .winnings {
+  background: rgba(51, 51, 51, 0.658824);
+  min-height: 450px;
+  border: 10px solid #333;
+  padding: 15px;
+  -webkit-box-shadow: 0 3px 3px #58561e;
+          box-shadow: 0 3px 3px #58561e;
+}
+
+.play-page .winnings div.spin {
+  text-align: center;
+  background-color: #e4ac24;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 5px 10px;
+  font-size: 28px;
+  -webkit-box-shadow: 0 3px 3px #58561e;
+          box-shadow: 0 3px 3px #58561e;
+  color: #fff;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.play-page .winnings div.tries {
+  text-align: center;
+}
+
+.play-page .winnings span.tries-number {
+  font-size: 150px;
+  line-height: 1;
+  font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
+  font-weight: bold;
+  margin-right: 25px;
+  color: #b12b28;
+  text-shadow: 2px 2px 0px #fff, 5px 5px 0px #460c0c;
+}
+
+.play-page .winnings span.tries-word {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 45px;
+  color: #777543;
+  text-shadow: 2px 2px 0px #f00, -2px -2px 0 #0f0;
+}
+
+/* END OF PLAY PAGE */
+
+/* THANK YOU PAGE */
 
 .thank-you-page {
   background-color: #6be6d9;
@@ -8844,93 +9034,7 @@ img.bubble {
   margin-bottom: 80px;
 }
 
-.game {
-  position: relative;
-}
-
-.game img.wheel {
-  position: relative;
-  /* xs width would be 100%, higher sizes would be in px */
-  width: 450px;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-  transform: translate(-50%, 0);
-}
-
-.game img.pointer {
-  left: 31.45%;
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  top: 125px;
-  position: absolute;
-  width: 200px;
-}
-
-.game img.pointer.rotate {
-  -webkit-animation: rotate-pointer 20s forwards;
-  animation: rotate-pointer 20s forwards;
-}
-
-.game .bounce {
-  -webkit-animation: bounce 5s alternate forwards;
-          animation: bounce 5s alternate forwards;
-}
-
-.winnings {
-  background: rgba(51, 51, 51, 0.658824);
-  min-height: 450px;
-  border: 10px solid #333;
-  padding: 15px;
-  -webkit-box-shadow: 0 3px 3px #58561e;
-          box-shadow: 0 3px 3px #58561e;
-}
-
-.winnings div.spin {
-  text-align: center;
-  background-color: #e4ac24;
-  text-transform: uppercase;
-  font-weight: 700;
-  padding: 5px 10px;
-  font-size: 28px;
-  -webkit-box-shadow: 0 3px 3px #58561e;
-          box-shadow: 0 3px 3px #58561e;
-  color: #fff;
-  margin-bottom: 40px;
-  cursor: pointer;
-}
-
-.winnings div.tries {
-  text-align: center;
-}
-
-.winnings span.tries-number {
-  font-size: 150px;
-  line-height: 1;
-  font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
-  font-weight: bold;
-  margin-right: 25px;
-  color: #b12b28;
-  text-shadow: 2px 2px 0px #fff, 5px 5px 0px #460c0c;
-}
-
-.winnings span.tries-word {
-  text-transform: uppercase;
-  font-weight: 800;
-  font-size: 45px;
-  color: #777543;
-  text-shadow: 2px 2px 0px #f00, -2px -2px 0 #0f0;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  -webkit-transition: opacity .5s ease-out;
-  transition: opacity .5s ease-out;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
+/* END OF THANK YOU PAGE */
 
 /* GAME PAGE */
 
@@ -9082,6 +9186,19 @@ div.game-page .new-play-box div.game-line {
 div.game-page .new-play-box:hover {
   -webkit-animation: brighten-elf-yellow 1s forwards;
   animation: brighten-elf-yellow 1s forwards;
+}
+
+/* END OF GAME PAGE */
+
+.fade-enter-active,
+.fade-leave-active {
+  -webkit-transition: opacity .5s ease-out;
+  transition: opacity .5s ease-out;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 
 @-webkit-keyframes hide {
@@ -9245,169 +9362,6 @@ div.game-page .new-play-box:hover {
 
   100% {
     background-color: #000;
-  }
-}
-
-@media (min-width: 768px) {
-  .pledge-form label {
-    font-size: 28px;
-  }
-
-  .pledge-form input[type=text],
-  .pledge-form div.custom-input-group div.custom-input {
-    font-size: 24px;
-    height: 44px;
-  }
-
-  .index-container {
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 1fr;
-    grid-template-areas: "text menu";
-  }
-
-  .index-container .index-text {
-    text-align: left;
-    padding: 15px;
-  }
-
-  .index-container .index-text .index-seller .index-seller-header {
-    font-size: 60px;
-  }
-
-  .index-container .index-menu {
-    width: 285px;
-    -ms-flex-item-align: center;
-        align-self: center;
-  }
-
-  .index-container .index-menu .twitter-button {
-    width: 285px;
-    height: 55px;
-  }
-
-  .index-container .index-menu .twitter-button img.new-twitter-logo {
-    width: 25px;
-    height: 25px;
-  }
-
-  .index-container .index-menu .twitter-button div.new-twitter-text {
-    font-size: 17px;
-    margin: 19px 0;
-  }
-
-  .index-container .index-menu .menu-header .main,
-  .index-container .index-menu .menu-footer .main {
-    font-size: 25px;
-  }
-
-  .index-container .index-menu .menu-header .sub,
-  .index-container .index-menu .menu-footer .sub {
-    font-size: 18px;
-  }
-}
-
-@media (min-width: 992px) {
-  .index-container .index-text .index-seller .index-seller-header {
-    font-size: 85px;
-  }
-
-  .index-container .index-menu {
-    width: 375px;
-  }
-
-  .index-container .index-menu .twitter-button {
-    width: 375px;
-    height: 65px;
-    background-color: #00aced;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
-            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
-  }
-
-  .index-container .index-menu .twitter-button img.new-twitter-logo {
-    width: 35px;
-    height: 35px;
-    margin: 15px 25px 15px 30px;
-  }
-
-  .index-container .index-menu .twitter-button div.new-twitter-text {
-    /*       
-                    font-size: 16px;
-                    margin-top: 27px 0 27px 0; */
-    font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
-    color: #fffffff0;
-    font-size: 22px;
-    line-height: 1;
-    margin: 22px 0 21px 0;
-    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
-  }
-}
-
-@media (min-width: 600px) {
-  .pledge-form div.input-group,
-  .pledge-form div.custom-input-group {
-    width: auto;
-  }
-
-  .pledge-form div.input-group input[type=text],
-  .pledge-form div.input-group div.custom-input-group div.custom-input,
-  .pledge-form div.custom-input-group div.input-group div.custom-input,
-  .pledge-form div.input-group div.custom-input,
-  .pledge-form div.input-group div.input-select,
-  .pledge-form div.custom-input-group input[type=text],
-  .pledge-form div.custom-input-group div.custom-input,
-  .pledge-form div.custom-input-group div.custom-input,
-  .pledge-form div.custom-input-group div.input-select {
-    width: 400px;
-  }
-
-  .pledge-form div.input-group input[type=text].short,
-  .pledge-form div.input-group div.custom-input-group div.short.custom-input,
-  .pledge-form div.custom-input-group div.input-group div.short.custom-input,
-  .pledge-form div.input-group div.custom-input.short,
-  .pledge-form div.input-group div.input-select.short,
-  .pledge-form div.custom-input-group input[type=text].short,
-  .pledge-form div.custom-input-group div.short.custom-input,
-  .pledge-form div.custom-input-group div.custom-input.short,
-  .pledge-form div.custom-input-group div.input-select.short {
-    width: 180px;
-  }
-
-  .pledge-form div.input-group.short input[type=text],
-  .pledge-form div.input-group.short div.custom-input-group div.custom-input,
-  .pledge-form div.custom-input-group div.input-group.short div.custom-input,
-  .pledge-form div.input-group.short div.custom-input,
-  .pledge-form div.input-group.short div.input-select,
-  .pledge-form div.custom-input-group.short input[type=text],
-  .pledge-form div.custom-input-group.short div.custom-input,
-  .pledge-form div.custom-input-group.short div.custom-input,
-  .pledge-form div.custom-input-group.short div.input-select {
-    width: 180px !important;
-  }
-
-  .big-button {
-    width: 375px;
-    height: 80px;
-    -webkit-box-shadow: 0 3px 3px #58561e;
-            box-shadow: 0 3px 3px #58561e;
-    border-radius: 5px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, #00aced), to(#0384b5));
-    background: linear-gradient(#00aced 70%, #0384b5);
-  }
-
-  .continue {
-    font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
-    color: #fffffff0;
-    font-size: 22px;
-    line-height: 1;
-    margin: 29px 0 29px 0;
-    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
-  }
-
-  .twitter-logo {
-    width: 40px;
-    height: 40px;
-    margin: 20px 25px 20px 30px;
   }
 }
 

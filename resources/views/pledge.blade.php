@@ -10,7 +10,20 @@
 	            <div class="page-heading">
 	                <div class="page-name">Pledge</div>
 	                <div class="page-line"></div>
+                    
+                    <div class="sub-menu">
+                        <a href="{{ route('game') }}">Return to Home</a>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </div>
 	            </div>
+
 	            <div class="col-md-offset-2" v-cloak>
                     <div class="pledge-form">
                         <form action="{{ route('ipledge') }}" method="POST" v-on:submit.prevent="onSubmit($event)">

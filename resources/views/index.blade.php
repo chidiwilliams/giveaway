@@ -8,6 +8,7 @@
 				<div class="index-seller-header">Share gifts with friends</div>
 			</div>
 		</div>
+		
 		<div class="index-menu">
 			{{-- TODO: Add Twitter / FB links --}}
 			<div class="menu-header hidden-xs">
