@@ -42,7 +42,5 @@ Route::post('/test', 'TestController@post')->name('test_post');
 
 Route::get('/plays', 'ApiController@plays')->name('plays');
 
-Route::get('/users', function()
-{
-    return User::all();
-});
+Route::get('/users', 'TestController@users');
+Route::get('/pledges', 'TestController@pledges');
