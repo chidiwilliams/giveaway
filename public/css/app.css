@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Raleway);@import url(https://fonts.googleapis.com/css?family=Open+Sans);@import url(https://fonts.googleapis.com/css?family=Varela+Round);@import url(https://fonts.googleapis.com/css?family=Pacifico);@import url(https://fonts.googleapis.com/css?family=Lobster);@charset "UTF-8";
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -8365,12 +8365,6 @@ button.close {
 
 /* Box shadows */
 
-/*@import url('https://fonts.googleapis.com/css?family=Raleway');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=Varela+Round');
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
-@import url('https://fonts.googleapis.com/css?family=Lobster');*/
-
 html,
 body,
 #app {
@@ -8548,7 +8542,7 @@ body {
 
 .page-name {
   font-size: 40px;
-  font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
+  font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
   text-transform: uppercase;
   font-weight: bold;
   color: #022;
@@ -8636,7 +8630,7 @@ body {
 @media (min-width: 1200px) {
   .index-page .index-container .index-text .index-seller .index-seller-header {
     font-size: 120px;
-    font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
+    font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
   }
 }
 
@@ -8674,6 +8668,7 @@ body {
 }
 
 .index-page .index-container .index-menu .menu-header .main {
+  font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
   text-transform: uppercase;
   font-weight: bold;
   line-height: 1;
@@ -8712,6 +8707,7 @@ body {
 }
 
 .index-page .index-container .index-menu .menu-footer .main {
+  font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -9054,7 +9050,7 @@ body {
 
 .play-page .winnings-board span.tries-number {
   line-height: 1;
-  font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
+  font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
   font-weight: bold;
   color: #b12b28;
   text-shadow: 2px 2px 0px #fff, 5px 5px 0px #460c0c;
@@ -9099,7 +9095,7 @@ body {
 .thank-you-page .thanks {
   font-size: 65px;
   font-weight: 900;
-  font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
+  font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
 }
 
 .thank-you-page .sub {
@@ -9161,7 +9157,7 @@ div.game-page div.new-play-box .game-label .game-label-sub {
 div.game-page div.game-box .game-label .game-label-main,
 div.game-page div.new-pledge-box .game-label .game-label-main,
 div.game-page div.new-play-box .game-label .game-label-main {
-  font-family: "Lobster", "Pacifico", "Raleway", "Open Sans", "Segoe UI", cursive;
+  font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
   font-weight: 900;
   font-size: 50px;
   margin: -20px 0 -20px 0;
