@@ -8574,7 +8574,7 @@ body {
 .index-page .index-container {
   height: 100%;
   display: grid;
-  grid-template-rows: 250px 1fr;
+  grid-template-rows: 1fr minmax(250px, 1fr);
   grid-template-columns: 1fr;
   grid-template-areas: "text" "menu";
 }
@@ -8708,6 +8708,7 @@ body {
   margin-bottom: 20px;
   left: 0;
   width: 100%;
+  font-size: 14px;
 }
 
 .index-page .index-container .index-menu .menu-footer .main {
@@ -8735,6 +8736,7 @@ body {
   .index-page .index-container .index-menu .twitter-button div.new-twitter-text {
     font-size: 17px;
     margin: 19px 0;
+    color: #fffffff0;
   }
 }
 
