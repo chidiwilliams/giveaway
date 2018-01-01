@@ -5,7 +5,7 @@
 	<div class="container index-container">
 		<div class="index-text">
 			<div class="index-seller">
-				<div class="index-seller-header">Share gifts with friends</div>
+				<div class="index-seller-header">Welcome to the Giveaway</div>
 			</div>
 		</div>
 		
@@ -44,6 +44,18 @@
         $('.twitter-button').on('click touchstart', function() {
             window.location = "{{ route('twitter_login') }}";
         });
+
+        var texts = ["Share with friends", "Enjoy the new year season", "Welcome to 2018!", "Win amazing gifts", "Welcome to the Giveaway"];
+        var rndint = Math.round(Math.random() * texts.length);
+        var count = 0;
+
+        setInterval(function() {
+        	$('.index-seller-header').fadeOut(function () {
+        		if (count == texts.length) count = 0;
+        		$(this).text(texts[count]).fadeIn();
+        		count++;
+        	});
+        }, 6000);
     });
 </script>
 

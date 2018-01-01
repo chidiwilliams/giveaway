@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway);@import url(https://fonts.googleapis.com/css?family=Open+Sans);@import url(https://fonts.googleapis.com/css?family=Varela+Round);@import url(https://fonts.googleapis.com/css?family=Pacifico);@import url(https://fonts.googleapis.com/css?family=Lobster);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Raleway);@import url(https://fonts.googleapis.com/css?family=Open+Sans);@import url(https://fonts.googleapis.com/css?family=Pacifico);@charset "UTF-8";
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -8513,7 +8513,7 @@ body {
 
 .twitter-button div.new-twitter-text,
 .index-page .index-container .index-menu .twitter-button div.new-twitter-text {
-  font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
+  font-family: "Open Sans", "Raleway", "Segoe UI", sans-serif;
   color: #fff;
   font-size: 18px;
   line-height: 1;
@@ -8557,7 +8557,7 @@ body {
 
 .page-name {
   font-size: 30px;
-  font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
+  font-family: "Pacifico", "Open Sans", "Segoe UI", sans-serif;
   text-transform: uppercase;
   font-weight: bold;
   color: #022;
@@ -8633,7 +8633,7 @@ body {
 }
 
 .index-page .index-container .index-text .index-seller .index-seller-header {
-  font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
+  font-family: "Pacifico", "Open Sans", "Segoe UI", sans-serif;
   font-weight: 100;
   line-height: 1.2;
 }
@@ -8671,7 +8671,7 @@ body {
 
 @media (min-width: 992px) {
   .index-page .index-container .index-menu {
-    width: 375px;
+    width: 350px;
   }
 }
 
@@ -8690,7 +8690,7 @@ body {
 }
 
 .index-page .index-container .index-menu .menu-header .main {
-  font-family: "Lobster", "Open Sans", "Segoe UI", cursive;
+  font-family: "Open Sans", "Raleway", "Segoe UI", sans-serif;
   text-transform: uppercase;
   font-weight: bold;
   line-height: 1;
@@ -8708,7 +8708,7 @@ body {
   line-height: 1;
   /*font-size: 18px;*/
   font-size: 14px;
-  font-family: "Open Sans", "Raleway";
+  font-family: "Open Sans", "Raleway", "Segoe UI", sans-serif;
   font-weight: 300;
 }
 
@@ -8729,7 +8729,7 @@ body {
 }
 
 .index-page .index-container .index-menu .menu-footer .main {
-  font-family: "Lobster", "Open Sans", "Segoe UI", cursive;
+  font-family: "Open Sans", "Raleway", "Segoe UI", sans-serif;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -8760,7 +8760,7 @@ body {
 
 @media (min-width: 992px) {
   .index-page .index-container .index-menu .twitter-button {
-    width: 375px;
+    width: 350px;
     height: 65px;
     background-color: #00aced;
     border-radius: 5px;
@@ -8775,7 +8775,7 @@ body {
   }
 
   .index-page .index-container .index-menu .twitter-button div.new-twitter-text {
-    font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
+    font-family: "Open Sans", "Raleway", "Segoe UI", sans-serif;
     color: #fffffff0;
     font-size: 22px;
     line-height: 1;
@@ -9086,7 +9086,7 @@ body {
 
 .play-page .winnings span.tries-number {
   line-height: 1;
-  font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
+  font-family: "Pacifico", "Open Sans", "Segoe UI", sans-serif;
   font-weight: bold;
   color: #b12b28;
   text-shadow: 2px 2px 0px #fff, 5px 5px 0px #460c0c;
@@ -9139,7 +9139,7 @@ body {
 }
 
 .play-page .winnings div.prize a {
-  font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
+  font-family: "Pacifico", "Open Sans", "Segoe UI", sans-serif;
   color: #fff !important;
   text-decoration: underline;
 }
@@ -9160,11 +9160,11 @@ body {
 .thank-you-page .thanks {
   font-size: 65px;
   font-weight: 900;
-  font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
+  font-family: "Pacifico", "Open Sans", "Segoe UI", sans-serif;
 }
 
 .thank-you-page .sub {
-  font-family: "Open Sans", "Raleway";
+  font-family: "Open Sans", "Raleway", "Segoe UI", sans-serif;
   text-transform: uppercase;
   margin-bottom: 80px;
 }
@@ -9215,7 +9215,7 @@ div.game-page div.new-play-box .game-label {
 div.game-page div.game-box .game-label .game-label-sub,
 div.game-page div.new-pledge-box .game-label .game-label-sub,
 div.game-page div.new-play-box .game-label .game-label-sub {
-  font-family: "Open Sans", "Raleway";
+  font-family: "Open Sans", "Raleway", "Segoe UI", sans-serif;
   font-size: 20px;
 }
 
@@ -9230,7 +9230,7 @@ div.game-page div.new-play-box .game-label .game-label-sub {
 div.game-page div.game-box .game-label .game-label-main,
 div.game-page div.new-pledge-box .game-label .game-label-main,
 div.game-page div.new-play-box .game-label .game-label-main {
-  font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
+  font-family: "Pacifico", "Open Sans", "Segoe UI", sans-serif;
   font-weight: 900;
   font-size: 40px;
   margin: -20px 0 -20px 0;

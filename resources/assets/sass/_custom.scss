@@ -1,9 +1,6 @@
 /* Fonts */
-$heading-font: 'Pacifico', 'Lobster', 'Raleway', 'Open Sans', 'Segoe UI', cursive;
-$heading-word-spacing: 7px;
-$cursive-font: 'Lobster', 'Open Sans', 'Segoe UI', cursive;
-$body-font: 'Raleway', 'Open Sans';
-$body-font-alternate: 'Open Sans', 'Raleway';
+$heading-font: 'Pacifico', 'Open Sans', 'Segoe UI', sans-serif;
+$body-font: 'Open Sans', 'Raleway', 'Segoe UI', sans-serif;
 
 /* Colors */
 $grey-highlight: #eee;
@@ -23,9 +20,7 @@ $box-shadow-yellow: 0 3px 3px $elf-yellow-darker;
 
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=Varela+Round');
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
-@import url('https://fonts.googleapis.com/css?family=Lobster');
 
 @mixin media ($queryString){
     @media #{$queryString} {
@@ -195,7 +190,7 @@ body
 
     div.new-twitter-text
     {
-        font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
+        font-family: $body-font;
         color: #fff;
         font-size: 18px;
         line-height: 1;
@@ -327,7 +322,7 @@ body
             }
 
             @include media("(min-width: 992px)") {
-                width: 375px;
+                width: 350px;
             }
 
             .menu-header
@@ -341,7 +336,7 @@ body
 
                 .main
                 {
-                    font-family: $cursive-font;
+                    font-family: $body-font;
                     text-transform: uppercase; 
                     font-weight: bold;
                     line-height: 1;
@@ -358,7 +353,7 @@ body
                     line-height: 1;
                     /*font-size: 18px;*/
                     font-size: 14px;
-                    font-family: $body-font-alternate;
+                    font-family: $body-font;
                     font-weight: 300;
 
                     @include media("(min-width: 768px)") {
@@ -378,7 +373,7 @@ body
                 font-size: 14px;
 
                 .main {
-                    font-family: $cursive-font;
+                    font-family: $body-font;
                     text-transform: uppercase;
                     font-weight: bold;
                 }
@@ -409,7 +404,7 @@ body
                 }
 
                 @include media("(min-width: 992px)") {
-                    width: 375px;
+                    width: 350px;
                     height: 65px;
                     background-color: #00aced;
                     border-radius: 5px;
@@ -424,7 +419,7 @@ body
 
                     div.new-twitter-text
                     {
-                        font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
+                        font-family: $body-font;
                         color: #fffffff0;
                         font-size: 22px;
                         line-height: 1;
@@ -823,7 +818,7 @@ body
 
     .sub 
     {
-        font-family: $body-font-alternate;
+        font-family: $body-font;
         text-transform: uppercase;
         margin-bottom: 80px;
     }
@@ -866,7 +861,7 @@ div.game-page
 
             .game-label-sub
             {
-                font-family: $body-font-alternate;
+                font-family: $body-font;
                 font-size: 20px;
 
                 @include media("(min-width: 400px)"){
