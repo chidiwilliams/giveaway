@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Socialite;
-use App\Services\SocialTwitterAccountService;
+use App\Services\SocialFacebookAccountService;
 
 class SocialAuthFacebookController extends Controller
 {
@@ -25,7 +25,7 @@ class SocialAuthFacebookController extends Controller
      *
      * @return callback URL from facebook
      */
-    public function callback()
+    public function callback(SocialFacebookAccountService $service)
     {
         $user = $service->createOrGetUser(Socialite::driver('facebook')->user());
 
