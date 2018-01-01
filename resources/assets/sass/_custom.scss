@@ -1104,7 +1104,7 @@ div.game-page
 /* PLAYS PAGE */
 .plays-page
 {
-    @extend .page;
+    @extend .pledges-page;
     background-color: $elf-green;
 
     .page-line
@@ -1116,6 +1116,64 @@ div.game-page
     .plays
     {
         @extend .pledges;
+
+        .play
+        {
+            @extend .play;
+
+            @include media("(min-width: 768px)") {
+                display: grid;
+                padding: 20px 30px;
+                background: $elf-green-dark;
+                border-radius: 3px;
+                color: #033;
+                box-shadow: $box-shadow-green;
+                font-size: 18px;
+                grid-template-columns: repeat(4, 1fr);
+                
+            }
+
+            @include media("(min-width: 992px)") {
+                font-size: 21px;
+            }
+
+            @include media("(min-width: 1200px)") {
+                font-size: 23px;
+            }
+
+            &.header
+            {
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 20px;
+            }
+        }
+
+
+        &.plays-x
+        {
+            display: grid;
+            grid-gap: 10px;
+
+            @include media("(min-width: 768px)") {
+                display: none;
+            }
+
+            .play-x
+            {
+                padding: 10px;
+                background-color: $elf-green-dark;
+                border-radius: 3px;
+                color: #033;
+                box-shadow: $box-shadow-green;
+                font-size: 16px;
+
+                .pledge-time
+                {
+                    font-size: 14px;
+                }
+            }
+        }
     }
 }
 

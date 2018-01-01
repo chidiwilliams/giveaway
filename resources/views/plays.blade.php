@@ -22,7 +22,7 @@
 		    			<div class="play-time">{{ Carbon\Carbon::parse($play->created_at)->diffForHumans()  }}</div>
 		    			<div class="play-player">{{ $play->player->name }}</div>
 		    			<div class="play-player-handle"><a href="{{ $play->player->link }}">{{ "@" . $play->player->handle }}</a></div>
-		    			<div class="play-play">{{ $play->win }}</div>
+		    			<div class="play-play">@if ($play->win) W @else L @endif</div>
 		    		</div>
 		    	@endforeach
 		    </div>
@@ -33,7 +33,7 @@
 		    			<span class="play-time">{{ Carbon\Carbon::parse($play->created_at)->diffForHumans() }}</span> <br>
 		    			<span class="play-player">{{ $play->player->name }}</span>
 		    			(<span class="play-player-handle"><a href="{{ $play->player->link }}">{{ "@" . $play->player->handle }}</a></span>) played 
-		    			<span class="play-play">{{ $play->win }}</span> x
+		    			<span class="play-play">@if ($play->win) W @else L @endif</span>
 		    		</div>
 		    	@endforeach
 		    </div>

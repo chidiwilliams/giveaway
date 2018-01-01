@@ -9370,33 +9370,35 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 
 /* PLEDGES PAGE */
 
-.pledges-page {
+.pledges-page,
+.plays-page {
   background-color: #6be6d9;
 }
 
-.pledges-page .page-line {
+.pledges-page .page-line,
+.plays-page .page-line {
   background-color: #fcf665;
 }
 
 .pledges-page .pledges,
-.pledges-page .plays-page .plays,
-.plays-page .pledges-page .plays {
+.plays-page .pledges,
+.plays-page .plays {
   display: grid;
   grid-gap: 25px;
   margin-top: 10px;
 }
 
 .pledges-page .pledges a,
-.pledges-page .plays-page .plays a,
-.plays-page .pledges-page .plays a {
+.plays-page .pledges a,
+.plays-page .plays a {
   color: #033;
   text-decoration: underline;
 }
 
 @media (min-width: 768px) {
   .pledges-page .pledges .pledge,
-  .pledges-page .plays-page .plays .pledge,
-  .plays-page .pledges-page .plays .pledge {
+  .plays-page .pledges .pledge,
+  .plays-page .plays .pledge {
     display: grid;
     padding: 20px 30px;
     background: #56bbb1;
@@ -9411,8 +9413,8 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 
 @media (min-width: 992px) {
   .pledges-page .pledges .pledge,
-  .pledges-page .plays-page .plays .pledge,
-  .plays-page .pledges-page .plays .pledge {
+  .plays-page .pledges .pledge,
+  .plays-page .plays .pledge {
     font-size: 21px;
     grid-template-columns: 200px 200px 165px 165px 120px;
   }
@@ -9420,39 +9422,39 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 
 @media (min-width: 1200px) {
   .pledges-page .pledges .pledge,
-  .pledges-page .plays-page .plays .pledge,
-  .plays-page .pledges-page .plays .pledge {
+  .plays-page .pledges .pledge,
+  .plays-page .plays .pledge {
     font-size: 23px;
     grid-template-columns: 250px 250px 200px 200px 150px;
   }
 }
 
 .pledges-page .pledges .pledge.header,
-.pledges-page .plays-page .plays .pledge.header,
-.plays-page .pledges-page .plays .pledge.header {
+.plays-page .pledges .pledge.header,
+.plays-page .plays .pledge.header {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 20px;
 }
 
 .pledges-page .pledges.pledges-x,
-.pledges-page .plays-page .pledges-x.plays,
-.plays-page .pledges-page .pledges-x.plays {
+.plays-page .pledges.pledges-x,
+.plays-page .pledges-x.plays {
   display: grid;
   grid-gap: 10px;
 }
 
 @media (min-width: 768px) {
   .pledges-page .pledges.pledges-x,
-  .pledges-page .plays-page .pledges-x.plays,
-  .plays-page .pledges-page .pledges-x.plays {
+  .plays-page .pledges.pledges-x,
+  .plays-page .pledges-x.plays {
     display: none;
   }
 }
 
 .pledges-page .pledges.pledges-x .pledge-x,
-.pledges-page .plays-page .pledges-x.plays .pledge-x,
-.plays-page .pledges-page .pledges-x.plays .pledge-x {
+.plays-page .pledges.pledges-x .pledge-x,
+.plays-page .pledges-x.plays .pledge-x {
   padding: 10px;
   background-color: #56bbb1;
   border-radius: 3px;
@@ -9463,8 +9465,8 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 }
 
 .pledges-page .pledges.pledges-x .pledge-x .pledge-time,
-.pledges-page .plays-page .pledges-x.plays .pledge-x .pledge-time,
-.plays-page .pledges-page .pledges-x.plays .pledge-x .pledge-time {
+.plays-page .pledges.pledges-x .pledge-x .pledge-time,
+.plays-page .pledges-x.plays .pledge-x .pledge-time {
   font-size: 14px;
 }
 
@@ -9478,6 +9480,63 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 
 .plays-page .page-line {
   background-color: #fcf665;
+}
+
+@media (min-width: 768px) {
+  .plays-page .plays .play {
+    display: grid;
+    padding: 20px 30px;
+    background: #56bbb1;
+    border-radius: 3px;
+    color: #033;
+    -webkit-box-shadow: 0 3px 3px #2f6963;
+            box-shadow: 0 3px 3px #2f6963;
+    font-size: 18px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .plays-page .plays .play {
+    font-size: 21px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .plays-page .plays .play {
+    font-size: 23px;
+  }
+}
+
+.plays-page .plays .header.play {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.plays-page .plays.plays-x {
+  display: grid;
+  grid-gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .plays-page .plays.plays-x {
+    display: none;
+  }
+}
+
+.plays-page .plays.plays-x .play-x {
+  padding: 10px;
+  background-color: #56bbb1;
+  border-radius: 3px;
+  color: #033;
+  -webkit-box-shadow: 0 3px 3px #2f6963;
+          box-shadow: 0 3px 3px #2f6963;
+  font-size: 16px;
+}
+
+.plays-page .plays.plays-x .play-x .pledge-time {
+  font-size: 14px;
 }
 
 .fade-enter-active,
