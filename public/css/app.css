@@ -8503,6 +8503,7 @@ body {
   -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
           box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
   margin: auto;
+  cursor: pointer;
 }
 
 .twitter-button img.new-twitter-logo,
@@ -8515,7 +8516,7 @@ body {
 .twitter-button div.new-twitter-text,
 .index-page .index-container .index-menu .twitter-button div.new-twitter-text {
   font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
-  color: #fffffff0;
+  color: #fff;
   font-size: 18px;
   line-height: 1;
   margin: 18.5px 0;
@@ -8668,7 +8669,7 @@ body {
 }
 
 .index-page .index-container .index-menu .menu-header .main {
-  font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
+  font-family: "Lobster", "Open Sans", "Segoe UI", cursive;
   text-transform: uppercase;
   font-weight: bold;
   line-height: 1;
@@ -9187,7 +9188,8 @@ div.game-page div.new-play-box .game-label .game-label-main {
   div.game-page div.game-box .game-label .game-label-main,
   div.game-page div.new-pledge-box .game-label .game-label-main,
   div.game-page div.new-play-box .game-label .game-label-main {
-    font-size: 90px;
+    font-size: 75px;
+    margin-top: -25px;
   }
 }
 

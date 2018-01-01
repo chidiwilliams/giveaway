@@ -1,7 +1,7 @@
 /* Fonts */
 $heading-font: 'Pacifico', 'Lobster', 'Raleway', 'Open Sans', 'Segoe UI', cursive;
 $heading-word-spacing: 7px;
-$cursive-font: 'Pacifico', 'Open Sans', 'Segoe UI', cursive;
+$cursive-font: 'Lobster', 'Open Sans', 'Segoe UI', cursive;
 $body-font: 'Raleway', 'Open Sans';
 $body-font-alternate: 'Open Sans', 'Raleway';
 
@@ -183,6 +183,7 @@ body
     border-radius: 5px;
     box-shadow: $box-shadow-grey;
     margin: auto;
+    cursor: pointer;
 
     img.new-twitter-logo
     {   
@@ -194,7 +195,7 @@ body
     div.new-twitter-text
     {
         font-family: "Varela Round", "Open Sans", "Segoe UI", sans-serif;
-        color: #fffffff0;
+        color: #fff;
         font-size: 18px;
         line-height: 1;
         margin: 18.5px 0;
@@ -330,7 +331,7 @@ body
 
                 .main
                 {
-                    font-family: $heading-font;
+                    font-family: $cursive-font;
                     text-transform: uppercase; 
                     font-weight: bold;
                     line-height: 1;
@@ -840,7 +841,8 @@ div.game-page
                 }
 
                 @include media("(min-width: 1125px)"){
-                    font-size: 90px;
+                    font-size: 75px;
+                    margin-top: -25px;
                 }
             }
 
