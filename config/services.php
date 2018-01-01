@@ -42,8 +42,8 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '779998892208056',         // Your FB Client ID
-        'client_secret' => '06edc161a14286211fa3f18c8b016cb9', // Your FB Client Secret
+        'client_id' => '808732392643666',         // Your FB Client ID
+        'client_secret' => '3b0b2962a01a99715d0a25c2f98d7726', // Your FB Client Secret
         'redirect' => '/login/facebook/callback',
     ],
 
