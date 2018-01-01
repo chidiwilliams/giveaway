@@ -47,6 +47,8 @@ Route::post('/play', 'PlayController@store')->name('iplay');
 Route::get('/test', 'TestController@test')->name('test');
 Route::post('/test', 'TestController@post')->name('test_post');
 
+Route::get('/terms', 'TermsController@terms');
+
 Route::post('/network_test', function() {
 	return "Network working!";
 })->name('network_test');
