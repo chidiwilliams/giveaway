@@ -18,6 +18,9 @@ Route::get('/home', 'HomeController@index');
 Route::get('login/twitter', 'SocialAuthTwitterController@redirectToProvider')->name('twitter_login');
 Route::get('login/twitter/callback', 'SocialAuthTwitterController@handleProviderCallback');
 
+Route::get('login/facebook', 'SocialAuthFacebookController@redirect')->name('facebook_login');
+Route::get('login/facebook/callback', 'SocialAuthFacebookController@callback');
+
 Route::get('1234567890/login/', 'Auth\LoginController@showLoginForm');
 Route::post('1234567890/login/', 'Auth\LoginController@login')->name('manual_login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');

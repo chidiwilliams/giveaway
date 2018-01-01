@@ -41,4 +41,10 @@ return [
         'redirect' => '/login/twitter/callback',
     ],
 
+    'facebook' => [
+        'client_id' => '779998892208056',         // Your FB Client ID
+        'client_secret' => '06edc161a14286211fa3f18c8b016cb9', // Your FB Client Secret
+        'redirect' => '/login/facebook/callback',
+    ],
+
 ];
