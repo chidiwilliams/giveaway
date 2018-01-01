@@ -18,7 +18,7 @@
 
 			<div class="twitter-button">
 				<img src="{{ asset('img/Twitter_Logo_WhiteOnWhite.svg') }}" alt="Twitter" class="new-twitter-logo left">
-				<div class="new-twitter-text left">Continue with Twitter</div>
+				<div class="new-twitter-text left" style="color: #fff;">Continue with Twitter</div>
 			</div>
 
 			<!-- {{-- TODO: Login with Facebook --}}
