@@ -16,12 +16,12 @@
 				<div class="sub">Brought to you by #EEE500 #the13set</div>
 			</div>
 
-			<div class="twitter-button">
+			<div class="twitter-button" id="twitter_login">
 				<img src="{{ asset('img/Twitter_Logo_WhiteOnWhite.svg') }}" alt="Twitter" class="new-twitter-logo left">
 				<div class="new-twitter-text left" style="color: #fff;">Continue with Twitter</div>
 			</div>
 
-			<div class="facebook-button">
+			<div class="twitter-button" id="facebook_login">
 				<img src="{{ asset('img/Twitter_Logo_WhiteOnWhite.svg') }}" alt="Facebook" class="new-twitter-logo left">
 				<div class="new-twitter-text left">Continue with Facebook</div>
 			</div>
@@ -38,11 +38,11 @@
 @section('js')
 <script>
     $(document).ready(function() {
-        $('.twitter-button').on('click touchstart', function() {
+        $('#twitter_login').on('click touchstart', function() {
             window.location = "{{ route('twitter_login') }}";
         });
 
-        $('.facebook-button').on('click touchstart', function() {
+        $('#facebook_login').on('click touchstart', function() {
             window.location = "{{ route('facebook_login') }}";
         });
 
