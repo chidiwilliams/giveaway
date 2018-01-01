@@ -23,7 +23,13 @@ class PledgeController extends Controller
      */
     public function index()
     {
-        //
+        $pledges = Pledge::orderBy('created_at', 'desc')->get();
+
+        $params = [
+            "pledges" => $pledges
+        ];
+
+        return view('pledges', $params);
     }
 
     /**
@@ -62,7 +68,7 @@ class PledgeController extends Controller
         $pledge = new Pledge;
 
         $pledge->user_id = Auth::user()->id;
-        $pledge->item = $request->item;
+        $pledge->item = ucwords(strtolower($request->item));
         $pledge->qty = $request->qty;
 
         $pledge->save();

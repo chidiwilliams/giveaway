@@ -8387,7 +8387,8 @@ body {
 
 .central,
 .central-right,
-.central-text {
+.central-text,
+.play-page .game img.display {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -8419,8 +8420,7 @@ body {
   border-radius: 2px;
   font-weight: 600;
   margin-top: 0px;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, #fcf665), to(#cac552));
-  background: linear-gradient(#fcf665 70%, #cac552);
+  background: #fff;
   -webkit-box-shadow: 0 3px 3px #2f6963;
           box-shadow: 0 3px 3px #2f6963;
 }
@@ -8455,7 +8455,6 @@ body {
 .menu a,
 .master-menu a,
 .sub-menu a {
-  margin-right: 20px;
   color: #022;
   font-size: 15px;
   opacity: 0.8;
@@ -8464,19 +8463,24 @@ body {
 
 .master-menu {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
   padding: 10px 0;
-  width: 100%;
+  min-width: 300px;
   text-align: center;
 }
 
 @media (min-width: 768px) {
   .master-menu {
     width: auto;
-    padding: 15px 25px;
+    padding: 15px;
+    grid-gap: 30px;
   }
 }
 
@@ -8486,12 +8490,6 @@ body {
 
 .sub-menu a {
   margin-right: 15px;
-}
-
-@media (min-width: 768px) {
-  .sub-menu a {
-    display: block;
-  }
 }
 
 .twitter-button,
@@ -8527,9 +8525,23 @@ body {
 .index-page,
 .pledge-page,
 .play-page,
-.thank-you-page {
+.thank-you-page,
+.pledges-page,
+.plays-page {
   min-height: 100%;
-  padding: 45px 0;
+  padding: 20px 0;
+}
+
+@media (min-width: 768px) {
+  .page,
+  .index-page,
+  .pledge-page,
+  .play-page,
+  .thank-you-page,
+  .pledges-page,
+  .plays-page {
+    padding: 45px 0;
+  }
 }
 
 .all-page {
@@ -8537,12 +8549,14 @@ body {
   position: relative;
 }
 
-.page-heading {
-  margin-bottom: 30px;
+@media (min-width: 768px) {
+  .page-heading {
+    margin-bottom: 30px;
+  }
 }
 
 .page-name {
-  font-size: 40px;
+  font-size: 30px;
   font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
   text-transform: uppercase;
   font-weight: bold;
@@ -8551,11 +8565,19 @@ body {
   margin-bottom: 5px;
 }
 
+@media (min-width: 768px) {
+  .page-name {
+    font-size: 40px;
+  }
+}
+
 .page-line,
 .pledge-page .page-line,
-.play-page .page-line {
+.play-page .page-line,
+.pledges-page .page-line,
+.plays-page .page-line {
   height: 15px;
-  width: 150px;
+  width: 300px;
 }
 
 /* INDEX PAGE */
@@ -8933,30 +8955,45 @@ body {
   background-color: #6be6d9;
 }
 
+.play-page div.spin,
+.play-page .game div.spin {
+  text-align: center;
+  background-color: #e4ac24;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 5px 10px;
+  font-size: 28px;
+  -webkit-box-shadow: 0 3px 3px #58561e;
+          box-shadow: 0 3px 3px #58561e;
+  color: #fff;
+  cursor: pointer;
+}
+
 .play-page .play-game {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: auto 200px;
+  grid-gap: 20px;
 }
 
 @media (min-width: 768px) {
   .play-page .play-game {
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 350px;
+    grid-template-rows: 300px;
     padding: 0 50px;
-    grid-gap: 50px;
   }
 }
 
 @media (min-width: 992px) {
   .play-page .play-game {
-    grid-template-columns: 350px 1fr;
+    grid-template-rows: 350px;
   }
 }
 
 @media (min-width: 1200px) {
   .play-page .play-game {
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 1fr 600px;
+    grid-template-rows: 400px;
   }
 }
 
@@ -8964,23 +9001,31 @@ body {
   display: grid;
   position: relative;
   overflow: hidden;
-  margin-bottom: 30px;
 }
 
-@media (min-width: 768px) {
-  .play-page .game {
-    margin-bottom: 0;
-  }
+.play-page .game div.spin-parent {
+  z-index: 3;
+}
+
+.play-page .game div.spin {
+  width: 175px;
 }
 
 .play-page .game img.wheel {
-  width: 50px;
+  height: 100%;
   justify-self: center;
-  width: 100%;
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .play-page .game img.wheel {
+    width: 100%;
+  }
 }
 
 .play-page .game img.pointer {
-  width: 100%;
+  height: 100%;
+  width: auto;
   position: absolute;
   left: 0;
   right: 0;
@@ -9002,7 +9047,7 @@ body {
 
 @media (min-width: 1200px) {
   .play-page .game img.pointer {
-    width: 400px;
+    width: 600px;
   }
 }
 
@@ -9013,42 +9058,33 @@ body {
 
 .play-page .game img.display {
   display: block;
-  width: 100%;
-  position: absolute;
   z-index: 3;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  height: 50%;
+  width: auto;
 }
 
-.play-page .winnings-board {
-  background: rgba(51, 51, 51, 0.66);
-  border: 10px solid #333;
-  padding: 15px;
-  -webkit-box-shadow: 0 3px 3px #58561e;
-          box-shadow: 0 3px 3px #58561e;
+@media (min-width: 768px) {
+  .play-page .game img.display {
+    width: 100%;
+  }
 }
 
-.play-page .winnings-board div.spin {
+.play-page .game img.display.sorry {
+  height: 40%;
+}
+
+.play-page .winnings div.tries {
   text-align: center;
-  background-color: #e4ac24;
-  text-transform: uppercase;
-  font-weight: 700;
-  padding: 5px 10px;
-  font-size: 28px;
-  -webkit-box-shadow: 0 3px 3px #58561e;
-          box-shadow: 0 3px 3px #58561e;
-  color: #fff;
-  cursor: pointer;
+  padding-bottom: 15px;
 }
 
-.play-page .winnings-board div.tries {
-  text-align: center;
-  padding-bottom: 30px;
+@media (min-width: 768px) {
+  .play-page .winnings div.tries {
+    padding-bottom: 30px;
+  }
 }
 
-.play-page .winnings-board span.tries-number {
+.play-page .winnings span.tries-number {
   line-height: 1;
   font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
   font-weight: bold;
@@ -9059,32 +9095,50 @@ body {
 }
 
 @media (min-width: 992px) {
-  .play-page .winnings-board span.tries-number {
+  .play-page .winnings span.tries-number {
     font-size: 150px;
     margin-right: 25px;
   }
 }
 
-.play-page .winnings-board span.tries-word {
+.play-page .winnings span.tries-word {
   text-transform: uppercase;
   font-weight: 800;
-  color: #777543;
+  color: #fff;
   text-shadow: 2px 2px 0px #f00, -2px -2px 0 #0f0;
   font-size: 30px;
 }
 
 @media (min-width: 992px) {
-  .play-page .winnings-board span.tries-word {
+  .play-page .winnings span.tries-word {
     font-size: 45px;
   }
 }
 
-.play-page .winnings-board div.prize {
-  font-size: 30px;
-  color: #fff;
+.play-page .winnings div.prize {
+  font-size: 18pxpx;
+  color: #003;
+  background: #fff;
+  padding: 10px;
+  border-top: 10px solid #20403c;
+  border-radius: 0 0 5px 5px;
+  -webkit-box-shadow: #box-shadow-yellow;
+          box-shadow: #box-shadow-yellow;
 }
 
-.play-page .winnings-board div.prize a {
+@media (min-width: 768px) {
+  .play-page .winnings div.prize {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 992px) {
+  .play-page .winnings div.prize {
+    font-size: 30px;
+  }
+}
+
+.play-page .winnings div.prize a {
   font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
   color: #fff !important;
   text-decoration: underline;
@@ -9162,7 +9216,15 @@ div.game-page div.game-box .game-label .game-label-sub,
 div.game-page div.new-pledge-box .game-label .game-label-sub,
 div.game-page div.new-play-box .game-label .game-label-sub {
   font-family: "Open Sans", "Raleway";
-  font-size: 30px;
+  font-size: 20px;
+}
+
+@media (min-width: 400px) {
+  div.game-page div.game-box .game-label .game-label-sub,
+  div.game-page div.new-pledge-box .game-label .game-label-sub,
+  div.game-page div.new-play-box .game-label .game-label-sub {
+    font-size: 30px;
+  }
 }
 
 div.game-page div.game-box .game-label .game-label-main,
@@ -9170,16 +9232,23 @@ div.game-page div.new-pledge-box .game-label .game-label-main,
 div.game-page div.new-play-box .game-label .game-label-main {
   font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
   font-weight: 900;
-  font-size: 50px;
+  font-size: 40px;
   margin: -20px 0 -20px 0;
+}
+
+@media (min-width: 400px) {
+  div.game-page div.game-box .game-label .game-label-main,
+  div.game-page div.new-pledge-box .game-label .game-label-main,
+  div.game-page div.new-play-box .game-label .game-label-main {
+    font-size: 50px;
+  }
 }
 
 @media (min-width: 768px) {
   div.game-page div.game-box .game-label .game-label-main,
   div.game-page div.new-pledge-box .game-label .game-label-main,
   div.game-page div.new-play-box .game-label .game-label-main {
-    font-size: 80px;
-    margin: -35px 0 -20px 0;
+    font-size: 60px;
   }
 }
 
@@ -9298,6 +9367,118 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 }
 
 /* END OF GAME PAGE */
+
+/* PLEDGES PAGE */
+
+.pledges-page {
+  background-color: #6be6d9;
+}
+
+.pledges-page .page-line {
+  background-color: #fcf665;
+}
+
+.pledges-page .pledges,
+.pledges-page .plays-page .plays,
+.plays-page .pledges-page .plays {
+  display: grid;
+  grid-gap: 25px;
+  margin-top: 10px;
+}
+
+.pledges-page .pledges a,
+.pledges-page .plays-page .plays a,
+.plays-page .pledges-page .plays a {
+  color: #033;
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .pledges-page .pledges .pledge,
+  .pledges-page .plays-page .plays .pledge,
+  .plays-page .pledges-page .plays .pledge {
+    display: grid;
+    padding: 20px 30px;
+    background: #56bbb1;
+    border-radius: 3px;
+    color: #033;
+    -webkit-box-shadow: 0 3px 3px #2f6963;
+            box-shadow: 0 3px 3px #2f6963;
+    font-size: 18px;
+    grid-template-columns: 160px 160px 128px 128px 90px;
+  }
+}
+
+@media (min-width: 992px) {
+  .pledges-page .pledges .pledge,
+  .pledges-page .plays-page .plays .pledge,
+  .plays-page .pledges-page .plays .pledge {
+    font-size: 21px;
+    grid-template-columns: 200px 200px 165px 165px 120px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pledges-page .pledges .pledge,
+  .pledges-page .plays-page .plays .pledge,
+  .plays-page .pledges-page .plays .pledge {
+    font-size: 23px;
+    grid-template-columns: 250px 250px 200px 200px 150px;
+  }
+}
+
+.pledges-page .pledges .pledge.header,
+.pledges-page .plays-page .plays .pledge.header,
+.plays-page .pledges-page .plays .pledge.header {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.pledges-page .pledges.pledges-x,
+.pledges-page .plays-page .pledges-x.plays,
+.plays-page .pledges-page .pledges-x.plays {
+  display: grid;
+  grid-gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .pledges-page .pledges.pledges-x,
+  .pledges-page .plays-page .pledges-x.plays,
+  .plays-page .pledges-page .pledges-x.plays {
+    display: none;
+  }
+}
+
+.pledges-page .pledges.pledges-x .pledge-x,
+.pledges-page .plays-page .pledges-x.plays .pledge-x,
+.plays-page .pledges-page .pledges-x.plays .pledge-x {
+  padding: 10px;
+  background-color: #56bbb1;
+  border-radius: 3px;
+  color: #033;
+  -webkit-box-shadow: 0 3px 3px #2f6963;
+          box-shadow: 0 3px 3px #2f6963;
+  font-size: 16px;
+}
+
+.pledges-page .pledges.pledges-x .pledge-x .pledge-time,
+.pledges-page .plays-page .pledges-x.plays .pledge-x .pledge-time,
+.plays-page .pledges-page .pledges-x.plays .pledge-x .pledge-time {
+  font-size: 14px;
+}
+
+/* END OF PLEDGES PAGE */
+
+/* PLAYS PAGE */
+
+.plays-page {
+  background-color: #6be6d9;
+}
+
+.plays-page .page-line {
+  background-color: #fcf665;
+}
 
 .fade-enter-active,
 .fade-leave-active {

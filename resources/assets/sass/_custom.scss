@@ -99,7 +99,7 @@ body
     border-radius: 2px;
     font-weight: 600;
     margin-top: 0px;
-    background: linear-gradient($elf-yellow 70%, $elf-yellow-dark);
+    background: #fff;
     box-shadow: $box-shadow-green;
 }
     
@@ -133,7 +133,6 @@ body
 
     a
     {
-        margin-right: 20px;
         color: #022;
         font-size: 15px;
         opacity: 0.8;
@@ -146,17 +145,23 @@ body
     @extend .menu;
 
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
 
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
     padding: 10px 0;
-    width: 100%;
+
+    min-width: 300px;
     text-align: center;
 
     @include media("(min-width: 768px)") {
         width: auto;
-        padding: 15px 25px;
+        padding: 15px;
+        grid-gap: 30px;
     }
 }
 
@@ -168,10 +173,6 @@ body
     a
     {
         margin-right: 15px;
-
-        @include media("(min-width: 768px)") {
-            display: block;
-        }
     }
 }
 
@@ -206,7 +207,11 @@ body
 .page
 {
     min-height: 100%;
-    padding: 45px 0;
+    padding: 20px 0;
+
+    @include media("(min-width: 768px)") {
+        padding: 45px 0;
+    }
 }
 
 .all-page
@@ -217,24 +222,30 @@ body
 
 .page-heading
 {
-    margin-bottom: 30px;
+    @include media("(min-width: 768px)") {
+        margin-bottom: 30px;
+    }
 }
 
 .page-name
 {
-    font-size: 40px;
+    font-size: 30px;
     font-family: $heading-font;
     text-transform: uppercase;
     font-weight: bold;
     color: $rich-black;
     line-height: 1;
     margin-bottom: 5px;
+
+    @include media("(min-width: 768px)") {
+        font-size: 40px;
+    }
 }
 
 .page-line
 {
     height: 15px;
-    width: 150px;
+    width: 300px;
 }
 
 /* INDEX PAGE */
@@ -607,26 +618,40 @@ body
         background-color: $elf-green;
     }
 
+    div.spin
+    {
+        text-align: center;
+        background-color: #e4ac24;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 5px 10px;
+        font-size: 28px;
+        box-shadow: $box-shadow-yellow;
+        color: #fff;
+        cursor: pointer;
+    }
+
     .play-game
     {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: auto;
+        grid-template-rows: auto 200px;
+        grid-gap: 20px;
 
         @include media("(min-width: 768px)") {
-            grid-template-columns: 250px 1fr;
-            grid-template-rows: 1fr;
+            grid-template-columns: 1fr 350px;
+            grid-template-rows: 300px;
 
             padding: 0 50px;
-            grid-gap: 50px;
         }
 
         @include media("(min-width: 992px)") {
-            grid-template-columns: 350px 1fr;
+            grid-template-rows: 350px;
         }
 
         @include media("(min-width: 1200px)") {
-            grid-template-columns: 400px 1fr;
+            grid-template-columns: 1fr 600px;
+            grid-template-rows: 400px;
         }
     }
 
@@ -635,22 +660,33 @@ body
         display: grid;
         position: relative;
         overflow: hidden;
-        margin-bottom: 30px;
 
-        @include media("(min-width: 768px)") {
-            margin-bottom: 0;
+        div.spin-parent
+        {
+            z-index: 3;
+        }
+
+        div.spin
+        {
+            @extend .spin;
+            width: 175px;
         }
 
         img.wheel
         {
-            width: 50px;
+            height: 100%;
             justify-self: center;
-            width: 100%;
+            width: auto;
+
+            @include media ("(min-width: 768px)") {
+                width: 100%;
+            }
         }
 
         img.pointer
         {
-            width: 100%;
+            height: 100%;
+            width: auto;
             position: absolute;
             left: 0;
             right: 0;
@@ -666,7 +702,7 @@ body
             }
 
             @include media("(min-width: 1200px)") {
-                width: 400px;
+                width: 600px;
             }
 
             &.rotate
@@ -679,40 +715,34 @@ body
 
         img.display
         {
+            @extend .central;
+
             display: block;
-            width: 100%;
-            position: absolute;
             z-index: 3;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            height: 50%;
+            width: auto;
+
+            @include media("(min-width: 768px)") {
+                width: 100%;
+            }
+
+            &.sorry
+            {
+                height: 40%;
+            }
         }
     }
 
-    .winnings-board
+    .winnings
     {
-        background: rgba(51, 51, 51, 0.66);
-        border: 10px solid #333;
-        padding: 15px;
-        box-shadow: 0 3px 3px #58561e;
-
-        div.spin
-        {
-            text-align: center;
-            background-color: #e4ac24;
-            text-transform: uppercase;
-            font-weight: 700;
-            padding: 5px 10px;
-            font-size: 28px;
-            box-shadow: $box-shadow-yellow;
-            color: #fff;
-            cursor: pointer;
-        }
-
         div.tries
         {
             text-align: center;
-            padding-bottom: 30px;
+            padding-bottom: 15px;
+
+            @include media("(min-width: 768px)") {
+                padding-bottom: 30px;
+            }
         }
 
         span.tries-number
@@ -736,7 +766,7 @@ body
         {
             text-transform: uppercase;
             font-weight: 800;
-            color: #777543;
+            color: #fff;
             text-shadow: 2px 2px 0px #f00, -2px -2px 0 #0f0;
             font-size: 30px;
 
@@ -747,8 +777,21 @@ body
 
         div.prize
         {
-            font-size: 30px;
-            color: #fff;
+            font-size: 18pxpx;
+            color: #003;
+            background: #fff;
+            padding: 10px;
+            border-top: 10px solid #20403c;
+            border-radius: 0 0 5px 5px;
+            box-shadow: #box-shadow-yellow;
+
+            @include media("(min-width: 768px)") {
+                font-size: 22px;
+            }
+
+            @include media("(min-width: 992px)") {
+                font-size: 30px;
+            }
 
             a
             {
@@ -824,19 +867,26 @@ div.game-page
             .game-label-sub
             {
                 font-family: $body-font-alternate;
-                font-size: 30px;
+                font-size: 20px;
+
+                @include media("(min-width: 400px)"){
+                    font-size: 30px;
+                }
             }
 
             .game-label-main
             {
                 font-family: $heading-font;
                 font-weight: 900;
-                font-size: 50px;
+                font-size: 40px;
                 margin: -20px 0 -20px 0;
 
+                @include media("(min-width: 400px)"){
+                    font-size: 50px;
+                }
+
                 @include media("(min-width: 768px)"){
-                    font-size: 80px;
-                    margin: -35px 0 -20px 0;
+                    font-size: 60px;
                 }
 
                 @include media("(min-width: 1125px)"){
@@ -966,6 +1016,108 @@ div.game-page
 }
 
 /* END OF GAME PAGE */
+
+/* PLEDGES PAGE */
+.pledges-page
+{
+    @extend .page;
+    background-color: $elf-green;
+
+    .page-line
+    {
+        @extend .page-line;
+        background-color: $elf-yellow;
+    }
+
+    .pledges
+    {    
+        display: grid;
+        grid-gap: 25px;
+        margin-top: 10px;
+
+        a
+        {
+            color: #033;
+            text-decoration: underline;
+        }
+
+        .pledge
+        {
+            @include media("(min-width: 768px)") {
+                display: grid;
+                padding: 20px 30px;
+                background: $elf-green-dark;
+                border-radius: 3px;
+                color: #033;
+                box-shadow: $box-shadow-green;
+                font-size: 18px;
+                grid-template-columns: 160px 160px 128px 128px 90px;
+                
+            }
+
+            @include media("(min-width: 992px)") {
+                font-size: 21px;
+                grid-template-columns: 200px 200px 165px 165px 120px;
+            }
+
+            @include media("(min-width: 1200px)") {
+                font-size: 23px;
+                grid-template-columns: 250px 250px 200px 200px 150px;
+            }
+
+            &.header
+            {
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 20px;
+            }
+        }
+
+        &.pledges-x
+        {
+            display: grid;
+            grid-gap: 10px;
+
+            @include media("(min-width: 768px)") {
+                display: none;
+            }
+
+            .pledge-x
+            {
+                padding: 10px;
+                background-color: $elf-green-dark;
+                border-radius: 3px;
+                color: #033;
+                box-shadow: $box-shadow-green;
+                font-size: 16px;
+
+                .pledge-time
+                {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+/* END OF PLEDGES PAGE */
+
+/* PLAYS PAGE */
+.plays-page
+{
+    @extend .page;
+    background-color: $elf-green;
+
+    .page-line
+    {
+        @extend .page-line;
+        background-color: $elf-yellow;
+    }
+
+    .plays
+    {
+        @extend .pledges;
+    }
+}
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s ease-out;

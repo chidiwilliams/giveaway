@@ -42984,60 +42984,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         spin: function spin() {
-            if (!this.disabled) {
-                if (!this.triesLeft) {
-                    // TODO: Alert user that they have no more tries left!
+            if (this.canPlay()) {
+                var vm = this;
+                vm.disable();
 
-                    return 0;
-                } else {
-                    this.disable();
-                    this.showPrize = false;
-                    this.prize = {};
+                // TODO: Alert something like calculating trajectory for 1.5 seconds while network check goes on...
+                // alert("Calculating...", "testing network...")
 
-                    var degree = 10000 + Math.random() * 10000;
-                    document.getElementById("pointer").style.setProperty('--rotation-degree', degree + 'deg');
+                // Test network
+                vm.networkWorking(function (network) {
+                    if (network) {
+                        vm.showPrize = false;
+                        vm.prize = {};
 
-                    this.startRolling();
+                        var degree = 10000 + Math.random() * 10000;
+                        document.getElementById("pointer").style.setProperty('--rotation-degree', degree + 'deg');
 
-                    var vm = this;
-                    setTimeout(function () {
-                        vm.stopRolling();
-                        vm.savePointerPosition(degree);
-
-                        var didWin = vm.didWin(degree);
-
-                        var result = didWin ? "congratulations" : "sorry";
-
-                        vm[result] = true;
+                        vm.startRolling();
 
                         setTimeout(function () {
-                            vm[result] = false;
-                        }, 5000);
+                            vm.stopRolling();
+                            vm.savePointerPosition(degree);
 
-                        // If this fails, display flash... Bad network connection, refresh
-                        axios.post('/play', {
-                            token: document.querySelector("meta[name=csrf-token]").content,
-                            play: didWin
-                        }).then(function (response) {
-                            if (response.data) {
-                                var prize = response.data.prize;
-                                var pledger = response.data.pledger;
+                            var didWin = vm.didWin(degree);
 
-                                vm.plays = response.data.plays;
+                            var result = didWin ? "congratulations" : "sorry";
+                            vm[result] = true;
+                            setTimeout(function () {
+                                vm[result] = false;
+                            }, 3000);
 
-                                if (prize) {
-                                    vm.prize.pledger = pledger;
-                                    vm.prize.item = prize.item;
-                                    vm.prize.qty = prize.qty;
-
-                                    vm.displayPrize();
-                                }
-
-                                vm.enable();
-                            }
-                        });
-                    }, 20000);
-                }
+                            vm.sendData(didWin);
+                        }, 20000);
+                    } else {
+                        alert("Bad connection. Please refresh");
+                        window.location = "/play";
+                    }
+                });
             }
         },
         stopRolling: function stopRolling() {
@@ -43063,6 +43046,49 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         displayPrize: function displayPrize() {
             this.showPrize = true;
+        },
+        networkWorking: function networkWorking(callback) {
+            var network = 0;
+
+            axios.post('/network_test', {
+                ping: true
+            }).then(function (response) {
+                network = 1;
+            });
+
+            setTimeout(function () {
+                callback(network);
+            }, 1500);
+        },
+        sendData: function sendData(didWin) {
+            var _this = this;
+
+            // If this fails, display flash... Bad network connection, refresh
+            axios.post('/play', {
+                play: didWin
+            }).then(function (response) {
+                if (response.data) {
+                    var prize = response.data.prize;
+                    var pledger = response.data.pledger;
+
+                    _this.plays = response.data.plays;
+
+                    if (prize) {
+                        _this.prize.pledger = pledger;
+                        _this.prize.item = prize.item;
+                        _this.prize.qty = prize.qty;
+
+                        _this.displayPrize();
+                    }
+
+                    if (_this.triesLeft > 0) {
+                        _this.enable();
+                    }
+                }
+            });
+        },
+        canPlay: function canPlay() {
+            return !this.disabled && this.triesLeft;
         }
     },
     computed: {
@@ -43080,10 +43106,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     created: function created() {
-        var _this = this;
+        var _this2 = this;
+
+        axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector("meta[name=csrf-token]").content;
 
         axios.get('/plays').then(function (response) {
-            _this.plays = response.data;
+            _this2.plays = response.data;
         });
     }
 });

@@ -1,8 +1,5 @@
 @extends('master')
 
-@section('heafoo')
-@endsection
-
 @section('content')
     <play-component inline-template>
         <div class="play-page">
@@ -11,21 +8,35 @@
                     <div class="page-name">Play</div>
                     <div class="page-line"></div>
 
-                    <div class="sub-menu">
-                        <a href="{{ route('game') }}">Return to Home</a>
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                            Logout
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-                    </div>
+                    @include('submenu')
                 </div>
 
                 <div class="play-game">
-                    <div class="game">
+                    <div class="winnings" v-cloak>
+                        <div class="tries" v-cloak>
+                            <span class="tries-number">@{{ triesLeft }}</span>
+                            <span class="tries-word">@{{ tryTries }} left</span>
+                        </div>
+                        <div class="prize" v-cloak>
+                            <div class="show-prize" v-if="showPrize">
+                                You've just won <b>@{{ prize.item }} @{{ "x" + prize.qty }}</b>! <br>
+                                Redeem your prize from @{{ prize.pledger.name }},
+                                <a :href="'https://twitter.com/' + prize.pledger.handle">@{{ "@" + prize.pledger.handle }}</a>
+                            </div>
+                            <div class="exceeded-tries" v-else-if="!triesLeft">
+                                Sorry you have exceeded your number of tries!
+                            </div>
+                            <div class="please-play" v-else>
+                                Click the spin button to play!
+                            </div>
+                        </div>
+                        {{-- TODO: Share button. I just won xxx from yyy on the 2018 giveaway. --}}
+                    </div>
+
+                    <div class="game" v-cloak>
+                        <div class="central spin-parent" v-if="!disabled">
+                            <div class="spin animated infinite pulse" @click="spin">Spin</div>
+                        </div>
                         <img src="{{ asset('img/Cool Wheel.svg') }}" alt="" class="wheel">
                         <img src="{{ asset('img/Cool Pointer.svg') }}" alt="" :class="{ pointer: true, rotate: rolling}" id="pointer">
 
@@ -41,21 +52,6 @@
                             v-show="sorry" 
                             :class="{ display: true, sorry: true, animated: sorry, infinite: sorry, flash: sorry }">
                     </div>
-
-                    <div class="winnings" v-cloak>
-                        <div class="winnings-board">
-                            <div class="spin" @click="spin">Spin</div>
-                            <div class="tries" v-cloak>
-                                <span class="tries-number">@{{ triesLeft }}</span>
-                                <span class="tries-word">@{{ tryTries }} left</span>
-                            </div>
-                            <div class="prize" v-if="showPrize" v-cloak>
-                                You've just won <b>@{{ prize.item }} @{{ "x" + prize.qty }}</b>. <br>
-                                Redeem your prize from @{{ prize.pledger.name }},
-                                <a :href="'https://twitter.com/' + prize.pledger.handle">@{{ "@" + prize.pledger.handle }}</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -64,8 +60,5 @@
 
 @section('js')
 <script>
-    $(document).ready(function() {
-        alert("Hello");
-    });
 </script>
 @endsection

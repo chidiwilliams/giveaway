@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pledge extends Model
 {
     protected $fillable = [
-        'pledger', 'item', 'qty'
+        'user_id', 'item', 'qty'
     ];
 
     public function pledger()

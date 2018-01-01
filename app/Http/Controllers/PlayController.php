@@ -24,7 +24,13 @@ class PlayController extends Controller
      */
     public function index()
     {
-        //
+        $plays = Play::orderBy('created_at', 'desc')->get();
+
+        $params = [
+            "plays" => $plays
+        ];
+
+        return view('plays', $params);
     }
 
     /**
@@ -68,6 +74,8 @@ class PlayController extends Controller
 
         if ($request->play) {
             $unred = Pledge::doesntHave('redeem')->get();
+            // TODO: Remove the pledges by the signed in user
+            
             $randNum = rand(0, $unred->count() - 1);
             $randUnred = $unred[$randNum];
 

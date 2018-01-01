@@ -36,8 +36,8 @@
     </div>
 
     <div class="master-menu">
-        <a href="">View pledges</a>
-        <a href="">View plays</a>
+        <a href="{{ route('pledges') }}">View pledges</a>
+        <a href="{{ route('plays') }}">View plays</a>
         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
             Logout
