@@ -8611,7 +8611,7 @@ body {
 }
 
 .index-page .index-container .index-text .index-seller .index-seller-header {
-  font-family: "Open Sans";
+  font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
   font-weight: 100;
   line-height: 1.2;
 }
@@ -8631,7 +8631,6 @@ body {
 @media (min-width: 1200px) {
   .index-page .index-container .index-text .index-seller .index-seller-header {
     font-size: 120px;
-    font-family: "Pacifico", "Lobster", "Raleway", "Open Sans", "Segoe UI", cursive;
   }
 }
 

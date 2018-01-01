@@ -286,7 +286,7 @@ body
 
                 .index-seller-header
                 {
-                    font-family: "Open Sans";
+                    font-family: $heading-font;
                     font-weight: 100;
                     line-height: 1.2;
 
@@ -300,7 +300,6 @@ body
 
                     @include media("(min-width: 1200px)"){
                         font-size: 120px;
-                        font-family: $heading-font;
                     }
                 }
             }
