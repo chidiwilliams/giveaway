@@ -21,8 +21,8 @@
 				<div class="new-twitter-text left" style="color: #fff;">Continue with Twitter</div>
 			</div>
 
-			<div class="twitter-button" id="facebook_login">
-				<img src="{{ asset('img/Twitter_Logo_WhiteOnWhite.svg') }}" alt="Facebook" class="new-twitter-logo left">
+			<div class="twitter-button facebook-button" id="facebook_login">
+				<img src="{{ asset('img/FB.png') }}" alt="Facebook" class="new-twitter-logo left">
 				<div class="new-twitter-text left">Continue with Facebook</div>
 			</div>
 

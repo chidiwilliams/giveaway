@@ -385,6 +385,11 @@ body
                 margin-bottom: 15px;
                 box-shadow: $box-shadow-green;
 
+                &.facebook-button
+                {
+                    background: #3b5998;
+                }
+
                 @include media("(min-width: 768px)") {
                     width: 285px;
                     height: 55px;

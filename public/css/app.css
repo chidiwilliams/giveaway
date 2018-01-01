@@ -8740,6 +8740,10 @@ body {
           box-shadow: 0 3px 3px #2f6963;
 }
 
+.index-page .index-container .index-menu .facebook-button.twitter-button {
+  background: #3b5998;
+}
+
 @media (min-width: 768px) {
   .index-page .index-container .index-menu .twitter-button {
     width: 285px;
