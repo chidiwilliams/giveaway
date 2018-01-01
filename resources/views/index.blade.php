@@ -16,7 +16,7 @@
 				<div class="sub">Brought to you by #EEE500 #the13set</div>
 			</div>
 
-			<a href="{{ route('twitter_login') }}" class="twitter-link">
+			<a href="{{ route('twitter_login') }}" class="twitter-link" style="color: #fffffff0; text-decoration: none;">
 				<div class="twitter-button">
 					<img src="{{ asset('img/Twitter_Logo_WhiteOnWhite.svg') }}" alt="Twitter" class="new-twitter-logo left">
 					<div class="new-twitter-text left">Continue with Twitter</div>
