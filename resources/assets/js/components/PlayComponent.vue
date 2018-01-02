@@ -170,7 +170,7 @@
     created: function() {
         var vm = this
 
-        $.post("/myplays", {
+        $.post("/user/plays", {
             _token: document.querySelector("meta[name=csrf-token]").content
         }, function (data, status) {
             if (status == "success") {
