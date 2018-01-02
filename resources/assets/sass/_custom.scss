@@ -148,7 +148,7 @@ body
 
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
     grid-gap: 10px;
     padding: 10px 0;
 
@@ -156,6 +156,7 @@ body
     text-align: center;
 
     @include media("(min-width: 768px)") {
+        grid-template-columns: auto auto auto auto;
         width: auto;
         padding: 15px;
         grid-gap: 30px;
@@ -1178,6 +1179,85 @@ div.game-page
         }
     }
 }
+/* END OF PLAYS PAGE */
+
+/* REDEEMS PAGE */
+
+.redeems-page
+{
+    @extend .pledges-page;
+    background-color: $elf-green;
+
+    .page-line
+    {
+        @extend .page-line;
+        background-color: $elf-yellow;
+    }
+
+    .redeems
+    {
+        @extend .pledges;
+
+        .redeem
+        {
+            @extend .play;
+
+            @include media("(min-width: 768px)") {
+                display: grid;
+                padding: 20px 30px;
+                background: $elf-green-dark;
+                border-radius: 3px;
+                color: #033;
+                box-shadow: $box-shadow-green;
+                font-size: 15px;
+                grid-template-columns: repeat(5, 1fr);
+                
+            }
+
+            @include media("(min-width: 992px)") {
+                font-size: 16px;
+            }
+
+            @include media("(min-width: 1200px)") {
+                font-size: 18px;
+            }
+
+            &.header
+            {
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 18px;
+            }
+        }
+
+
+        &.redeems-x
+        {
+            display: grid;
+            grid-gap: 10px;
+
+            @include media("(min-width: 768px)") {
+                display: none;
+            }
+
+            .redeem-x
+            {
+                padding: 10px;
+                background-color: $elf-green-dark;
+                border-radius: 3px;
+                color: #033;
+                box-shadow: $box-shadow-green;
+                font-size: 16px;
+
+                .pledge-time
+                {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+/* END OF REDEEMS PAGE */
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s ease-out;

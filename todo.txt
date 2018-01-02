@@ -1,3 +1,2 @@
 TODO LIST
 1. Clean up spinning wheel
-2. Find link for facebook profile

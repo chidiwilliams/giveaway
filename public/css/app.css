@@ -8470,7 +8470,7 @@ body {
           transform: translateX(-50%);
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
   grid-gap: 10px;
   padding: 10px 0;
   min-width: 300px;
@@ -8479,6 +8479,7 @@ body {
 
 @media (min-width: 768px) {
   .master-menu {
+    grid-template-columns: auto auto auto auto;
     width: auto;
     padding: 15px;
     grid-gap: 30px;
@@ -8528,7 +8529,8 @@ body {
 .play-page,
 .thank-you-page,
 .pledges-page,
-.plays-page {
+.plays-page,
+.redeems-page {
   min-height: 100%;
   padding: 20px 0;
 }
@@ -8540,7 +8542,8 @@ body {
   .play-page,
   .thank-you-page,
   .pledges-page,
-  .plays-page {
+  .plays-page,
+  .redeems-page {
     padding: 45px 0;
   }
 }
@@ -8576,7 +8579,8 @@ body {
 .pledge-page .page-line,
 .play-page .page-line,
 .pledges-page .page-line,
-.plays-page .page-line {
+.plays-page .page-line,
+.redeems-page .page-line {
   height: 15px;
   width: 300px;
 }
@@ -9378,18 +9382,22 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 /* PLEDGES PAGE */
 
 .pledges-page,
-.plays-page {
+.plays-page,
+.redeems-page {
   background-color: #6be6d9;
 }
 
 .pledges-page .page-line,
-.plays-page .page-line {
+.plays-page .page-line,
+.redeems-page .page-line {
   background-color: #fcf665;
 }
 
 .pledges-page .pledges,
 .plays-page .pledges,
-.plays-page .plays {
+.redeems-page .pledges,
+.plays-page .plays,
+.redeems-page .redeems {
   display: grid;
   grid-gap: 25px;
   margin-top: 10px;
@@ -9397,7 +9405,9 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 
 .pledges-page .pledges a,
 .plays-page .pledges a,
-.plays-page .plays a {
+.redeems-page .pledges a,
+.plays-page .plays a,
+.redeems-page .redeems a {
   color: #033;
   text-decoration: underline;
 }
@@ -9405,7 +9415,9 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 @media (min-width: 768px) {
   .pledges-page .pledges .pledge,
   .plays-page .pledges .pledge,
-  .plays-page .plays .pledge {
+  .redeems-page .pledges .pledge,
+  .plays-page .plays .pledge,
+  .redeems-page .redeems .pledge {
     display: grid;
     padding: 20px 30px;
     background: #56bbb1;
@@ -9421,7 +9433,9 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 @media (min-width: 992px) {
   .pledges-page .pledges .pledge,
   .plays-page .pledges .pledge,
-  .plays-page .plays .pledge {
+  .redeems-page .pledges .pledge,
+  .plays-page .plays .pledge,
+  .redeems-page .redeems .pledge {
     font-size: 21px;
     grid-template-columns: 200px 200px 165px 165px 120px;
   }
@@ -9430,7 +9444,9 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 @media (min-width: 1200px) {
   .pledges-page .pledges .pledge,
   .plays-page .pledges .pledge,
-  .plays-page .plays .pledge {
+  .redeems-page .pledges .pledge,
+  .plays-page .plays .pledge,
+  .redeems-page .redeems .pledge {
     font-size: 23px;
     grid-template-columns: 250px 250px 200px 200px 150px;
   }
@@ -9438,7 +9454,9 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 
 .pledges-page .pledges .pledge.header,
 .plays-page .pledges .pledge.header,
-.plays-page .plays .pledge.header {
+.redeems-page .pledges .pledge.header,
+.plays-page .plays .pledge.header,
+.redeems-page .redeems .pledge.header {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 20px;
@@ -9446,7 +9464,9 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 
 .pledges-page .pledges.pledges-x,
 .plays-page .pledges.pledges-x,
-.plays-page .pledges-x.plays {
+.redeems-page .pledges.pledges-x,
+.plays-page .pledges-x.plays,
+.redeems-page .pledges-x.redeems {
   display: grid;
   grid-gap: 10px;
 }
@@ -9454,14 +9474,18 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 @media (min-width: 768px) {
   .pledges-page .pledges.pledges-x,
   .plays-page .pledges.pledges-x,
-  .plays-page .pledges-x.plays {
+  .redeems-page .pledges.pledges-x,
+  .plays-page .pledges-x.plays,
+  .redeems-page .pledges-x.redeems {
     display: none;
   }
 }
 
 .pledges-page .pledges.pledges-x .pledge-x,
 .plays-page .pledges.pledges-x .pledge-x,
-.plays-page .pledges-x.plays .pledge-x {
+.redeems-page .pledges.pledges-x .pledge-x,
+.plays-page .pledges-x.plays .pledge-x,
+.redeems-page .pledges-x.redeems .pledge-x {
   padding: 10px;
   background-color: #56bbb1;
   border-radius: 3px;
@@ -9473,7 +9497,9 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 
 .pledges-page .pledges.pledges-x .pledge-x .pledge-time,
 .plays-page .pledges.pledges-x .pledge-x .pledge-time,
-.plays-page .pledges-x.plays .pledge-x .pledge-time {
+.redeems-page .pledges.pledges-x .pledge-x .pledge-time,
+.plays-page .pledges-x.plays .pledge-x .pledge-time,
+.redeems-page .pledges-x.redeems .pledge-x .pledge-time {
   font-size: 14px;
 }
 
@@ -9490,7 +9516,9 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 }
 
 @media (min-width: 768px) {
-  .plays-page .plays .play {
+  .plays-page .plays .play,
+  .plays-page .plays .redeems-page .redeems .redeem,
+  .redeems-page .redeems .plays-page .plays .redeem {
     display: grid;
     padding: 20px 30px;
     background: #56bbb1;
@@ -9504,18 +9532,24 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 }
 
 @media (min-width: 992px) {
-  .plays-page .plays .play {
+  .plays-page .plays .play,
+  .plays-page .plays .redeems-page .redeems .redeem,
+  .redeems-page .redeems .plays-page .plays .redeem {
     font-size: 21px;
   }
 }
 
 @media (min-width: 1200px) {
-  .plays-page .plays .play {
+  .plays-page .plays .play,
+  .plays-page .plays .redeems-page .redeems .redeem,
+  .redeems-page .redeems .plays-page .plays .redeem {
     font-size: 23px;
   }
 }
 
-.plays-page .plays .header.play {
+.plays-page .plays .header.play,
+.plays-page .plays .redeems-page .redeems .header.redeem,
+.redeems-page .redeems .plays-page .plays .header.redeem {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 20px;
@@ -9545,6 +9579,77 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 .plays-page .plays.plays-x .play-x .pledge-time {
   font-size: 14px;
 }
+
+/* END OF PLAYS PAGE */
+
+/* REDEEMS PAGE */
+
+.redeems-page {
+  background-color: #6be6d9;
+}
+
+.redeems-page .page-line {
+  background-color: #fcf665;
+}
+
+@media (min-width: 768px) {
+  .redeems-page .redeems .redeem {
+    display: grid;
+    padding: 20px 30px;
+    background: #56bbb1;
+    border-radius: 3px;
+    color: #033;
+    -webkit-box-shadow: 0 3px 3px #2f6963;
+            box-shadow: 0 3px 3px #2f6963;
+    font-size: 15px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .redeems-page .redeems .redeem {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .redeems-page .redeems .redeem {
+    font-size: 18px;
+  }
+}
+
+.redeems-page .redeems .redeem.header {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.redeems-page .redeems.redeems-x {
+  display: grid;
+  grid-gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .redeems-page .redeems.redeems-x {
+    display: none;
+  }
+}
+
+.redeems-page .redeems.redeems-x .redeem-x {
+  padding: 10px;
+  background-color: #56bbb1;
+  border-radius: 3px;
+  color: #033;
+  -webkit-box-shadow: 0 3px 3px #2f6963;
+          box-shadow: 0 3px 3px #2f6963;
+  font-size: 16px;
+}
+
+.redeems-page .redeems.redeems-x .redeem-x .pledge-time {
+  font-size: 14px;
+}
+
+/* END OF REDEEMS PAGE */
 
 .fade-enter-active,
 .fade-leave-active {

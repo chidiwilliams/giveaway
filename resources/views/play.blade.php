@@ -20,8 +20,8 @@
                         <div class="prize" v-cloak>
                             <div class="show-prize" v-if="showPrize">
                                 You've just won <b>@{{ prize.item }} @{{ "x" + prize.qty }}</b>! <br>
-                                Redeem your prize from @{{ prize.pledger.name }},
-                                <a :href="prize.pledger.link">@{{ prize.pledger.handle }}</a>
+                                Redeem your prize from @{{ prize.pledger.name }}
+                                <a :href="prize.pledger.link" v-if="prize.pledger.link">@{{ prize.pledger.handle }}</a>
                             </div>
                             <div class="exceeded-tries" v-else-if="!triesLeft">
                                 Sorry you have exceeded your number of tries!

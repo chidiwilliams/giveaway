@@ -32,9 +32,9 @@ Route::post('1234567890/register/', 'Auth\RegisterController@register');
 // TODO: Password routes
 Route::get('1234567890/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 
-Route::get('/users', 'UserController@index');
-Route::get('/users/facebook', 'UserController@facebook');
-Route::get('/users/twitter', 'UserController@twitter');
+Route::get('apis/users', 'UserController@index');
+Route::get('apis/users/facebook', 'UserController@facebook');
+Route::get('apis/users/twitter', 'UserController@twitter');
 
 Route::get('/game', 'GameController@game')->name('game');
 
@@ -46,6 +46,8 @@ Route::get('/plays', 'PlayController@index')->name('plays');
 Route::post('/plays', 'PlayController@all')->name('plays_all');
 Route::get('/play', 'PlayController@create')->name('play');
 Route::post('/play', 'PlayController@store')->name('iplay');
+
+Route::get('/wins', 'RedeemController@index')->name('wins');
 
 Route::get('/test', 'TestController@test')->name('test');
 Route::post('/test', 'TestController@post')->name('test_post');
