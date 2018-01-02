@@ -41,8 +41,6 @@
 @endsection
 
 @section('js')
-<script src="{{ asset('js/messenger/messenger.min.js') }}"></script>
-<script src="{{ asset('js/messenger/messenger-theme-future.js') }}"></script>
 <script>
     $(document).ready(function() {
     	// Check browser support for animations
@@ -86,5 +84,4 @@
 
     });
 </script>
-
 @endsection

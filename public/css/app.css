@@ -9287,9 +9287,14 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
   display: grid;
   position: relative;
   overflow: hidden;
-  height: 200px;
-  max-height: 200px;
   max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .play-page .game {
+    height: 200px;
+    max-height: 200px;
+  }
 }
 
 .play-page .game div.spin-parent {

@@ -28,6 +28,8 @@
     </div>
     
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/messenger/messenger.min.js') }}"></script>
+    <script src="{{ asset('js/messenger/messenger-theme-future.js') }}"></script>
     @yield('js')
 </body>
 </html>
