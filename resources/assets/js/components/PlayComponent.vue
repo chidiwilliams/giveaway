@@ -89,11 +89,14 @@
         },
         networkWorking: function (callback) {
             var network = 0
+            var vm = this
 
-            axios.post('/network_test', {
-                ping: true
-            }).then(response => {
-                network = 1
+            $.post("/network_test", {
+                _token: document.querySelector("meta[name=csrf-token]").content
+            }, function (data, status) {
+                if (status == "success") {
+                    network = 1
+                }
             })
 
             setTimeout(function () {
@@ -101,27 +104,31 @@
             }, 1500)
         },
         sendData: function (didWin) {
-            // If this fails, display flash... Bad network connection, refresh
-            axios.post('/play', {
-                play: didWin
-            }).then(response => {
-                if (response.data) {
-                    var prize = response.data.prize
-                    var pledger = response.data.pledger
+            var vm = this
 
-                    this.plays = response.data.plays
+            $.post("/play", {
+                _token: document.querySelector("meta[name=csrf-token]").content,
+                win: (didWin * 1)
+            }, function (data, status) {
+                if (status == "success") {
+                    var prize = data.prize
+                    var pledger = data.pledger
+
+                    vm.plays = data.plays
 
                     if (prize) {
-                        this.prize.pledger = pledger
-                        this.prize.item = prize.item
-                        this.prize.qty = prize.qty
+                        vm.prize.pledger = pledger
+                        vm.prize.item = prize.item
+                        vm.prize.qty = prize.qty
 
-                        this.displayPrize()
+                        vm.displayPrize()
                     }
 
-                    if (this.triesLeft > 0) {
-                        this.enable()
-                    }
+                    setTimeout(function () {
+                        if (vm.triesLeft > 0) {
+                            vm.enable()
+                        }
+                    }, 2000)
                 }
             })
         },
@@ -144,12 +151,18 @@
         }
     },
     created: function() {
-        axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector("meta[name=csrf-token]").content
+        var vm = this
 
-        axios.post('/plays').then(response => {
-            alert("Hello")
-            this.plays = response.data
-            this.fetchedPlays = true
+        $.post("/plays", {
+            _token: document.querySelector("meta[name=csrf-token]").content
+        }, function (data, status) {
+            if (status == "success") {
+                vm.plays = data
+                vm.fetchedPlays = true
+            } else {
+                alert("Network error!")
+                window.location = "/play"
+            }
         })
     }
 }
