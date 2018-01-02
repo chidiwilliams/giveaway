@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\SocialFacebookAccount;
+use App\SocialTwitterAccount;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -86,5 +88,15 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function twitter()
+    {
+        return SocialTwitterAccount::all();
+    }
+
+    public function facebook()
+    {
+        return SocialFacebookAccount::all();
     }
 }

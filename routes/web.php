@@ -33,6 +33,8 @@ Route::post('1234567890/register/', 'Auth\RegisterController@register');
 Route::get('1234567890/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 
 Route::get('/users', 'UserController@index');
+Route::get('/users/facebook', 'UserController@facebook');
+Route::get('/users/twitter', 'UserController@twitter');
 
 Route::get('/game', 'GameController@game')->name('game');
 
