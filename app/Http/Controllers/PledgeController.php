@@ -58,7 +58,8 @@ class PledgeController extends Controller
         	'qty' => ['required', 'integer']
         ])->validate();
 
-        $user = User::find(Auth::user()->id);
+        // $user = User::find(Auth::user()->id);
+        $user = Auth::user()->id;
 
         $user->course = $request->course;
         $user->level = (int) $request->level;
