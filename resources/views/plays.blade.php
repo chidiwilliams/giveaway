@@ -31,7 +31,7 @@
 		    	@forelse($plays as $play)
 		    		<div class="play-x">
 		    			<span class="play-time">{{ Carbon\Carbon::parse($play->created_at)->diffForHumans() }}</span> <br>
-		    			<span class="play-player">{{ $play->player->name }}</span> played
+		    			<span class="play-player">{{ $play->player->name }}</span> scored
 		    			<span class="play-play">@if ($play->win) W @else L @endif</span>
 		    		</div>
 		    	@empty

@@ -33,9 +33,9 @@
 		    	@forelse($pledges as $pledge)
 		    		<div class="pledge-x">
 		    			<span class="pledge-time">{{ Carbon\Carbon::parse($pledge->created_at)->diffForHumans() }}</span> <br>
-		    			<span class="pledge-pledger">{{ $pledge->pledger->name }}</span>
-		    			<span class="pledge-item">{{ ucwords(strtolower($pledge->item)) }}</span> x
-		    			<span class="pledge-qty">{{ $pledge->qty }}</span>
+		    			<span class="pledge-pledger">{{ $pledge->pledger->name }}</span> pledged 
+		    			<span class="pledge-item">{{ ucwords(strtolower($pledge->item)) }}</span>
+		    			x<span class="pledge-qty">{{ $pledge->qty }}</span>
 		    		</div>
 		    	@empty
 			    	<i>No pledges yet. Make one and win a prize!</i>

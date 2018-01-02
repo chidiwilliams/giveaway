@@ -8459,7 +8459,7 @@ body {
   color: #022;
   font-size: 15px;
   opacity: 0.8;
-  font-weight: 600;
+  font-weight: 900;
 }
 
 .master-menu {
@@ -8470,7 +8470,7 @@ body {
           transform: translateX(-50%);
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto auto;
   padding: 10px 0;
   grid-gap: 5px 0;
   min-width: 300px;
@@ -8519,7 +8519,7 @@ body {
   color: #fff;
   font-size: 16px;
   line-height: 1;
-  margin: 21px 0;
+  margin: 19.5px 0;
   text-shadow: 0 0px 4px rgba(0, 0, 0, 0.7);
 }
 
@@ -9255,7 +9255,7 @@ div.game-page div.new-play-box .game-label .game-label-main {
   font-family: "Pacifico", "Open Sans", "Segoe UI", sans-serif;
   font-weight: 900;
   font-size: 40px;
-  margin: -20px 0 -20px 0;
+  margin: -15px 0;
 }
 
 @media (min-width: 400px) {
@@ -9263,6 +9263,7 @@ div.game-page div.new-play-box .game-label .game-label-main {
   div.game-page div.new-pledge-box .game-label .game-label-main,
   div.game-page div.new-play-box .game-label .game-label-main {
     font-size: 50px;
+    margin: -20px 0 -20px 0;
   }
 }
 
