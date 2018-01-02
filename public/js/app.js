@@ -42981,7 +42981,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             },
             showPrize: false,
             fetchedPlays: false,
-            suppBrowser: false
+            suppBrowser: false,
+            prizeless: false
         };
     },
 
@@ -42997,8 +42998,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 // Test network
                 vm.networkWorking(function (network) {
                     if (network) {
+                        // One more to reset function
                         vm.showPrize = false;
                         vm.prize = {};
+                        vm.prizeless = false;
 
                         var degree = 10000 + Math.random() * 10000;
                         document.getElementById("pointer").style.setProperty('--rotation-degree', degree + 'deg');
@@ -43020,8 +43023,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                             vm.sendData(didWin);
                         }, 20000);
                     } else {
-                        alert("Bad connection. Please refresh");
-                        window.location = "/play";
+                        Messenger.options = {
+                            extraClasses: 'messenger-fixed messenger-on-bottom',
+                            theme: 'future'
+                        };
+
+                        Messenger().post({
+                            message: "Didn't quite get that. Refresh.",
+                            hideAfter: 100000,
+                            hideOnNavigate: true,
+                            type: "error"
+                        });
                     }
                 });
             }
@@ -43079,12 +43091,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                     vm.plays = data.plays;
 
-                    if (prize) {
-                        vm.prize.pledger = pledger;
-                        vm.prize.item = prize.item;
-                        vm.prize.qty = prize.qty;
+                    if (didWin) {
+                        if (prize) {
+                            vm.prize.pledger = pledger;
+                            vm.prize.item = prize.item;
+                            vm.prize.qty = prize.qty;
 
-                        vm.displayPrize();
+                            vm.displayPrize();
+                        } else {
+                            vm.prizeless = true;
+                        }
                     }
 
                     setTimeout(function () {
@@ -43137,7 +43153,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             };
 
             Messenger().post({
-                message: "Play feature unsupported. Please continue with a different browser.",
+                message: "Your browser can't handle the fire. Change it!",
                 hideAfter: 100000,
                 hideOnNavigate: true,
                 type: "error"

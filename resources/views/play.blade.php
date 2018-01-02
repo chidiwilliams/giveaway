@@ -24,6 +24,9 @@
                                 Redeem your prize from @{{ prize.pledger.name }}
                                 <a :href="prize.pledger.link" v-if="prize.pledger.link">@{{ prize.pledger.handle }}</a>
                             </div>
+                            <div class="broke" v-else-if="prizeless">
+                                Let's put it this way: We're broke!
+                            </div>
                             <div class="exceeded-tries" v-else-if="!triesLeft">
                                 Sorry you have used up your number of tries!
                             </div>

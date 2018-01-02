@@ -20,7 +20,8 @@
             },
             showPrize: false,
             fetchedPlays: false,
-            suppBrowser: false
+            suppBrowser: false,
+            prizeless: false
         }
     },
     methods: {
@@ -35,8 +36,10 @@
                 // Test network
                 vm.networkWorking(function(network) {
                     if (network) {
+                        // One more to reset function
                         vm.showPrize = false
                         vm.prize = {}
+                        vm.prizeless = false
 
                         var degree = 10000 + (Math.random() * 10000)
                         document.getElementById("pointer").style.setProperty('--rotation-degree', degree + 'deg')
@@ -58,8 +61,17 @@
                             vm.sendData(didWin)
                         }, 20000)
                     } else {
-                        alert("Bad connection. Please refresh")
-                        window.location = "/play"
+                        Messenger.options = {
+                            extraClasses: 'messenger-fixed messenger-on-bottom',
+                            theme: 'future'
+                        }
+
+                        Messenger().post({
+                            message: "Didn't quite get that. Refresh.",
+                            hideAfter: 100000,
+                            hideOnNavigate: true,
+                            type: "error"
+                        })
                     }
                 })
             }
@@ -117,12 +129,16 @@
 
                     vm.plays = data.plays
 
-                    if (prize) {
-                        vm.prize.pledger = pledger
-                        vm.prize.item = prize.item
-                        vm.prize.qty = prize.qty
+                    if (didWin) {
+                        if (prize) {
+                            vm.prize.pledger = pledger
+                            vm.prize.item = prize.item
+                            vm.prize.qty = prize.qty
 
-                        vm.displayPrize()
+                            vm.displayPrize()
+                        } else {
+                            vm.prizeless = true
+                        }
                     }
 
                     setTimeout(function () {
@@ -175,11 +191,11 @@
             }
 
             Messenger().post({
-                message: "Play feature unsupported. Please continue with a different browser.",
+                message: "Your browser can't handle the fire. Change it!",
                 hideAfter: 100000,
                 hideOnNavigate: true,
                 type: "error"
-            });
+            })
         }
     }
 }

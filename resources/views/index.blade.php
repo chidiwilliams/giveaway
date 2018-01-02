@@ -55,7 +55,7 @@
 			}
 
 			Messenger().post({
-				message: "Your browser is not supported. Please try updating or switching browsers for a better experience.",
+				message: "Uncool. Browser not supported. Update or switch for a better experience.",
 				hideAfter: 100000,
 				hideOnNavigate: true,
 				type: "error"
