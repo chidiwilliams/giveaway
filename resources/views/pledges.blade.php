@@ -17,25 +17,29 @@
 	    			<div class="pledge-item">Item</div>
 	    			<div class="pledge-qty">Quantity</div>
 		    	</div>
-		    	@foreach($pledges as $pledge)
+		    	@forelse($pledges as $pledge)
 		    		<div class="pledge">
 		    			<div class="pledge-time">{{ Carbon\Carbon::parse($pledge->created_at)->diffForHumans()  }}</div>
 		    			<div class="pledge-pledger">{{ $pledge->pledger->name }}</div>
 		    			<div class="pledge-item">{{ ucwords(strtolower($pledge->item)) }}</div>
 		    			<div class="pledge-qty">{{ $pledge->qty }}</div>
 		    		</div>
-		    	@endforeach
+		    	@empty
+			    	<i>No pledges yet. Make one and win a prize!</i>
+		    	@endforelse
 		    </div>
 
 		    <div class="pledges pledges-x">
-		    	@foreach($pledges as $pledge)
+		    	@forelse($pledges as $pledge)
 		    		<div class="pledge-x">
 		    			<span class="pledge-time">{{ Carbon\Carbon::parse($pledge->created_at)->diffForHumans() }}</span> <br>
 		    			<span class="pledge-pledger">{{ $pledge->pledger->name }}</span>
 		    			<span class="pledge-item">{{ ucwords(strtolower($pledge->item)) }}</span> x
 		    			<span class="pledge-qty">{{ $pledge->qty }}</span>
 		    		</div>
-		    	@endforeach
+		    	@empty
+			    	<i>No pledges yet. Make one and win a prize!</i>
+		    	@endforelse
 		    </div>
 		</div>
 	</div>

@@ -13,7 +13,7 @@
 			{{-- TODO: Add Twitter / FB links --}}
 			<div class="menu-header hidden-xs">
 				<div class="main">The New Year Giveaway</div>
-				<div class="sub">Brought to you by #EEE500 #the13set</div>
+				<div class="sub">Brought to you by <a href="https://web.facebook.com/groups/317157295144382/">#EEE500</a> <a href="https://twitter.com/The13thSet">#the13set</a></div>
 			</div>
 
 			<div class="twitter-button" id="twitter_login">
@@ -28,7 +28,7 @@
 
 			<div class="menu-footer visible-xs">
 				<div class="main">The New Year Giveaway</div>
-				<div class="sub">Brought to you by #EEE500 #the13set</div>
+				<div class="sub">Brought to you by <a href="https://web.facebook.com/groups/317157295144382/">#EEE500</a> <a href="https://twitter.com/The13thSet">#the13set</a></div>
 			</div>
 		</div>
 	</div>

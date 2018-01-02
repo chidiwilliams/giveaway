@@ -16,23 +16,27 @@
 	    			<div class="play-player">Name</div>
 	    			<div class="play-play">Play</div>
 		    	</div>
-		    	@foreach($plays as $play)
+		    	@forelse($plays as $play)
 		    		<div class="play">
 		    			<div class="play-time">{{ Carbon\Carbon::parse($play->created_at)->diffForHumans()  }}</div>
 		    			<div class="play-player">{{ $play->player->name }}</div>
 		    			<div class="play-play">@if ($play->win) W @else L @endif</div>
 		    		</div>
-		    	@endforeach
+		    	@empty
+		    		<i>No plays yet. Make a pledge and play!</i>
+		    	@endforelse
 		    </div>
 
 		    <div class="plays plays-x">
-		    	@foreach($plays as $play)
+		    	@forelse($plays as $play)
 		    		<div class="play-x">
 		    			<span class="play-time">{{ Carbon\Carbon::parse($play->created_at)->diffForHumans() }}</span> <br>
 		    			<span class="play-player">{{ $play->player->name }}</span> played
 		    			<span class="play-play">@if ($play->win) W @else L @endif</span>
 		    		</div>
-		    	@endforeach
+		    	@empty
+		    		<i>No plays yet. Make a pledge and play!</i>
+		    	@endforelse
 		    </div>
 		</div>
 	</div>

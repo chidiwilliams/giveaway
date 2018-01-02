@@ -13,7 +13,7 @@
         </div>
 
         @if (count(Auth::user()->pledges)) 
-        <div class="new-play-box" onclick="window.location = `{{ route('play') }}`">
+        <div class="new-play-box new-play-box-enabled">
         @else
         <div class="new-play-box new-play-box-disabled">
         @endif
@@ -57,7 +57,7 @@
             window.location = "{{ route('pledge') }}";
         })
 
-        $('.new-play-box').on('click touchstart', function() {
+        $('.new-play-box.new-play-box-enabled').on('click touchstart', function() {
             window.location = "{{ route('play') }}";
         })
     });

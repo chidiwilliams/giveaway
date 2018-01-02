@@ -8471,8 +8471,8 @@ body {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: auto auto;
-  grid-gap: 10px;
   padding: 10px 0;
+  grid-gap: 5px 0;
   min-width: 300px;
   text-align: center;
 }
@@ -8517,9 +8517,9 @@ body {
 .index-page .index-container .index-menu .twitter-button div.new-twitter-text {
   font-family: "Open Sans", "Raleway", "Segoe UI", sans-serif;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
-  margin: 18.5px 0;
+  margin: 21px 0;
   text-shadow: 0 0px 4px rgba(0, 0, 0, 0.7);
 }
 
@@ -8553,10 +8553,8 @@ body {
   position: relative;
 }
 
-@media (min-width: 768px) {
-  .page-heading {
-    margin-bottom: 30px;
-  }
+.page-heading {
+  margin-bottom: 25px;
 }
 
 .page-name {
@@ -8687,6 +8685,11 @@ body {
   margin-bottom: 40px;
 }
 
+.index-page .index-container .index-menu .menu-header a {
+  color: #033;
+  text-decoration: underline;
+}
+
 @media (min-width: 768px) {
   .index-page .index-container .index-menu .menu-header .main {
     font-size: 25px;
@@ -8734,6 +8737,11 @@ body {
   left: 0;
   width: 100%;
   font-size: 14px;
+}
+
+.index-page .index-container .index-menu .menu-footer a {
+  color: #033;
+  text-decoration: underline;
 }
 
 .index-page .index-container .index-menu .menu-footer .main {
@@ -8799,12 +8807,6 @@ body {
 
 .pledge-page {
   background-color: #6be6d9;
-}
-
-@media (min-width: 992px) {
-  .pledge-page .page-heading {
-    margin-bottom: -30px;
-  }
 }
 
 .pledge-page .page-line {
@@ -9172,9 +9174,15 @@ body {
 }
 
 .thank-you-page .thanks {
-  font-size: 65px;
+  font-size: 40px;
   font-weight: 900;
   font-family: "Pacifico", "Open Sans", "Segoe UI", sans-serif;
+}
+
+@media (min-width: 768px) {
+  .thank-you-page .thanks {
+    font-size: 65px;
+  }
 }
 
 .thank-you-page .sub {
@@ -9351,7 +9359,7 @@ div.game-page .new-play-box div.game-line {
 }
 
 div.game-page .new-play-box div.pledge-plead {
-  margin-top: 10px;
+  margin-top: 25px;
   font-size: 15px;
   font-weight: 700;
   color: #ec2121;
