@@ -61,7 +61,7 @@
 
             this.inputs[inputName].error = !this.isCorrectInput(inputVal, inputType)
 
-            this.inputs[inputName].value = inputVal.trim()
+            this.inputs[inputName].value = inputVal
         },
         isCorrectInput: function (val, type) {
             switch (type) {

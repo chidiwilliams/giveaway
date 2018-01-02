@@ -18,7 +18,8 @@
                 item: "",
                 qty: ""
             },
-            showPrize: false
+            showPrize: false,
+            fetchedPlays: false
         }
     },
     methods: {
@@ -125,7 +126,7 @@
             })
         },
         canPlay: function() {
-            return (!this.disabled && this.triesLeft)
+            return (!this.disabled && this.triesLeft && this.fetchedPlays)
         }
     },
     computed: {
@@ -145,11 +146,11 @@
     created: function() {
         axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector("meta[name=csrf-token]").content
 
-        axios.post('/plays').then(
-            response => {
-                this.plays = response.data
-            }
-        )
+        axios.post('/plays').then(response => {
+            alert("Hello")
+            this.plays = response.data
+            this.fetchedPlays = true
+        })
     }
 }
 </script>

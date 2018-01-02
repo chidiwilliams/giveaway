@@ -25,11 +25,7 @@
                 <div class="clearfix"></div>
 
                 @if (!count(Auth::user()->pledges)) 
-                    <div class="pledge-plead" style="">
-                        Playing is currently disabled
-                        <br> 
-                        Make a pledge to continue
-                    </div>
+                    <div class="pledge-plead">Playing is currently disabled <br> Make a pledge to continue</div>
                 @endif 
             </div>
         </div>
@@ -53,11 +49,11 @@
 @section('js')
 <script>
     $(document).ready(function() {
-        $('.new-pledge-box').on('click touchstart', function() {
+        $('.new-pledge-box .game-label div').on('click touchstart', function() {
             window.location = "{{ route('pledge') }}";
         })
 
-        $('.new-play-box.new-play-box-enabled').on('click touchstart', function() {
+        $('.new-play-box.new-play-box-enabled .game-label div').on('click touchstart', function() {
             window.location = "{{ route('play') }}";
         })
     });

@@ -32,7 +32,7 @@
 		    		<div class="play-x">
 		    			<span class="play-time">{{ Carbon\Carbon::parse($play->created_at)->diffForHumans() }}</span> <br>
 		    			<span class="play-player">{{ $play->player->name }}</span>
-		    			<span class="play-play">@if ($play->win) got W @else chopped L @endif</span>
+		    			<span class="play-play">@if ($play->win) got a W @else took an L @endif</span>
 		    		</div>
 		    	@empty
 		    		<i>No plays yet. Make a pledge and play!</i>

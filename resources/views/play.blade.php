@@ -13,10 +13,11 @@
 
                 <div class="play-game">
                     <div class="winnings" v-cloak>
-                        <div class="tries" v-cloak>
+                        <div class="tries" v-cloak v-if="fetchedPlays">
                             <span class="tries-number">@{{ triesLeft }}</span>
                             <span class="tries-word">@{{ tryTries }} left</span>
                         </div>
+                        <div v-else>Fetching previous plays...</div>
                         <div class="prize" v-cloak>
                             <div class="show-prize" v-if="showPrize">
                                 You've just won <b>@{{ prize.item }} @{{ "x" + prize.qty }}</b>! <br>
@@ -26,8 +27,11 @@
                             <div class="exceeded-tries" v-else-if="!triesLeft">
                                 Sorry you have used up your number of tries!
                             </div>
-                            <div class="please-play" v-else>
+                            <div class="please-play" v-else-if="fetchedPlays">
                                 Click the spin button to play!
+                            </div>
+                            <div class="fetching" v-else>
+                                Fetching your information...
                             </div>
                         </div>
                         {{-- TODO: Share button. I just won xxx from yyy on the 2018 giveaway. --}}

@@ -21,5 +21,7 @@ Vue.component('play-component', require('./components/PlayComponent.vue'));
 Vue.component('custom-input', require('./components/CustomInput.vue'))
 
 const app = new Vue({
-	el: '#app'
+	el: '#app',
+	created: function () {
+	}
 })

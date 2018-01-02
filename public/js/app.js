@@ -1102,7 +1102,8 @@ Vue.component('play-component', __webpack_require__(44));
 Vue.component('custom-input', __webpack_require__(46));
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  created: function created() {}
 });
 
 /***/ }),
@@ -42859,7 +42860,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.inputs[inputName].error = !this.isCorrectInput(inputVal, inputType);
 
-            this.inputs[inputName].value = inputVal.trim();
+            this.inputs[inputName].value = inputVal;
         },
         isCorrectInput: function isCorrectInput(val, type) {
             switch (type) {
@@ -42978,7 +42979,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 item: "",
                 qty: ""
             },
-            showPrize: false
+            showPrize: false,
+            fetchedPlays: false
         };
     },
 
@@ -43088,7 +43090,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         canPlay: function canPlay() {
-            return !this.disabled && this.triesLeft;
+            return !this.disabled && this.triesLeft && this.fetchedPlays;
         }
     },
     computed: {
@@ -43111,7 +43113,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector("meta[name=csrf-token]").content;
 
         axios.post('/plays').then(function (response) {
+            alert("Hello");
             _this2.plays = response.data;
+            _this2.fetchedPlays = true;
         });
     }
 });
