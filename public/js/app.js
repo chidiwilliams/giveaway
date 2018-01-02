@@ -43155,7 +43155,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             };
 
             Messenger().post({
-                message: "Your browser can't handle the fire. Change it!",
+                message: "Your browser can't handle the fire. Change!",
                 hideAfter: 100000,
                 hideOnNavigate: true,
                 type: "error"

@@ -193,7 +193,7 @@
             }
 
             Messenger().post({
-                message: "Your browser can't handle the fire. Change it!",
+                message: "Your browser can't handle the fire. Change!",
                 hideAfter: 100000,
                 hideOnNavigate: true,
                 type: "error"

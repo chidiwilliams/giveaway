@@ -30,7 +30,7 @@
                             <div class="exceeded-tries" v-else-if="!triesLeft">
                                 Sorry you have used up your number of tries!
                             </div>
-                            <div class="please-play" v-else-if="fetchedPlays">
+                            <div class="please-play" v-else-if="canPlay">
                                 Click the spin button to play!
                             </div>
                             <div class="fetching" v-else-if="suppBrowser">
@@ -66,4 +66,27 @@
             </div>
         </div>
     </play-component>
+@endsection
+
+@section('js')
+<script>
+    $(document).ready(function() {
+        // Check browser support for animations
+        if (!!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && window.CSS.supports('animation', 'f')) {
+            // continue
+        } else {
+            Messenger.options = {
+                extraClasses: 'messenger-fixed messenger-on-bottom',
+                theme: 'future'
+            }
+
+            Messenger().post({
+                message: "Your browser can't handle the fire. Change!",
+                hideAfter: 100000,
+                hideOnNavigate: true,
+                type: "error"
+            })
+        }
+    });
+</script>
 @endsection
