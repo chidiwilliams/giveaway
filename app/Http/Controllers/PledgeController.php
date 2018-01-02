@@ -59,7 +59,7 @@ class PledgeController extends Controller
         ])->validate();
 
         // $user = User::find(Auth::user()->id);
-        $user = Auth::user();
+        $user = User::find(Auth::user()->id);
 
         $user->course = $request->course;
         $user->level = (int) $request->level;

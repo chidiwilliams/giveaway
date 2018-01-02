@@ -92,11 +92,11 @@ class UserController extends Controller
 
     public function twitter()
     {
-        return SocialTwitterAccount::all();
+        // return SocialTwitterAccount::all();
     }
 
     public function facebook()
     {
-        return SocialFacebookAccount::all();
+        // return SocialFacebookAccount::all();
     }
 }

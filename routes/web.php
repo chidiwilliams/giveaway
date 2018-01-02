@@ -32,10 +32,6 @@ Route::post('1234567890/register/', 'Auth\RegisterController@register');
 // TODO: Password routes
 Route::get('1234567890/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 
-Route::get('apis/users', 'UserController@index');
-Route::get('apis/users/facebook', 'UserController@facebook');
-Route::get('apis/users/twitter', 'UserController@twitter');
-
 Route::get('/game', 'GameController@game')->name('game');
 
 Route::get('/pledges', 'PledgeController@index')->name('pledges');
@@ -60,3 +56,12 @@ Route::get('/terms', 'TermsController@terms');
 Route::post('/network_test', function() {
 	return "Network working!";
 })->name('network_test');
+
+// APIS
+Route::get('apis/users', 'ApiController@users');
+Route::get('apis/users/facebook', 'ApiController@users_facebook');
+Route::get('apis/users/twitter', 'ApiController@users_twitter');
+
+Route::get('apis/pledges', 'ApiController@pledges');
+Route::get('apis/plays', 'ApiController@plays');
+Route::get('apis/redeems', 'ApiController@redeems');
