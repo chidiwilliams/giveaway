@@ -8611,8 +8611,6 @@ body {
 
 .index-page .index-container .index-text {
   grid-area: text;
-  padding-right: 25px;
-  padding: 0;
   text-align: center;
   -ms-flex-item-align: center;
       align-self: center;
@@ -8620,10 +8618,15 @@ body {
   padding: 5px;
 }
 
-@media min-width {
+@media (min-width: 768px) {
   .index-page .index-container .index-text {
-    text-align: left;
-    padding: 15px;
+    padding: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .index-page .index-container .index-text {
+    padding: 25px;
   }
 }
 

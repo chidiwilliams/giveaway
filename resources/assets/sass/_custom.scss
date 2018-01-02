@@ -273,16 +273,17 @@ body
         .index-text
         {
             grid-area: text;
-            padding-right: 25px;
-            padding: 0;
             text-align: center;
             align-self: center;
             font-size: 40px;
             padding: 5px;
 
-            @include media("min-width: 768px)") {
-                text-align: left;
-                padding: 15px;
+            @include media("(min-width: 768px)") {
+                padding: 20px;
+            }
+
+            @include media("(min-width: 992px)") {
+                padding: 25px;
             }
 
             @include media("(min-width: 1200px)"){
