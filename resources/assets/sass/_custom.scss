@@ -1102,6 +1102,7 @@ div.game-page
     {
         font-size: 40px;
         font-weight: 900;
+        margin-bottom: 60px;
         font-family: $heading-font;
 
         @include media("(min-width: 768px)") {
@@ -1113,7 +1114,6 @@ div.game-page
     {
         font-family: $body-font;
         text-transform: uppercase;
-        margin-bottom: 80px;
     }
 }
 

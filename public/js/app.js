@@ -43132,7 +43132,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var vm = this;
 
-        $.post("/plays", {
+        $.post("/myplays", {
             _token: document.querySelector("meta[name=csrf-token]").content
         }, function (data, status) {
             if (status == "success") {

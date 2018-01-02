@@ -146,4 +146,9 @@ class PlayController extends Controller
     {
         return Play::orderBy('created_at', 'desc')->get();
     }
+
+    public function user()
+    {
+        return  Auth::user()->plays;
+    }
 }
