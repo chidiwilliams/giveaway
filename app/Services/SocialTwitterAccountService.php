@@ -22,19 +22,19 @@ class SocialTwitterAccountService
                 'provider' => 'twitter'
             ]);
 
-            $user = User::whereEmail($providerUser->getEmail())->first();
+            // $user = User::whereEmail($providerUser->getEmail())->first();
 
-            if (!$user) {
+            // if (!$user) {
 
-                $user = User::create([
-                    'email' => $providerUser->getEmail(),
-                    'handle' => "@" . $providerUser->getNickname(),
-                    'name' => $providerUser->getName(),
-                    'password' => md5(rand(1, 10000)),
-                    'link' => "https://twitter.com/" . $providerUser->getNickname()
-
-                ]);
-            }
+            $user = User::create([
+                'email' => $providerUser->getEmail(),
+                'handle' => "@" . $providerUser->getNickname(),
+                'name' => $providerUser->getName(),
+                'password' => md5(rand(1, 10000)),
+                'link' => "https://twitter.com/" . $providerUser->getNickname()
+            ]);
+                
+            // }
 
             $account->user()->associate($user);
             $account->save();

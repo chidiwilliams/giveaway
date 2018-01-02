@@ -22,18 +22,19 @@ class SocialFacebookAccountService
                 'provider' => 'facebook'
             ]);
 
-            $user = User::whereEmail($providerUser->getEmail())->first();
+            // $user = User::whereEmail($providerUser->getEmail())->first();
 
-            if (!$user) {
+            // if (!$user) {
 
-                $user = User::create([
-                    'email' => $providerUser->getEmail(),
-                    'handle' => $providerUser->getName(),
-                    'name' => $providerUser->getName(),
-                    'password' => md5(rand(1,10000)),
-                    'link' => $providerUser->getId()
-                ]);
-            }
+            $user = User::create([
+                'email' => $providerUser->getEmail(),
+                'handle' => $providerUser->getName(),
+                'name' => $providerUser->getName(),
+                'password' => md5(rand(1,10000)),
+                'link' => $providerUser->getId()
+            ]);
+                
+            // }
 
             $account->user()->associate($user);
             $account->save();
