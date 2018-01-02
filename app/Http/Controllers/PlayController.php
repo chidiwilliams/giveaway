@@ -66,9 +66,9 @@ class PlayController extends Controller
 
         $play = new Play;
         $play->user_id = Auth::user()->id;
-        $play->win = $request->play;
+        $play->win = $request->win;
         $play->save();
-
+        
         $prize = "";
         $pledger = "";
 

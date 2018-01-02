@@ -61,8 +61,3 @@
         </div>
     </play-component>
 @endsection
-
-@section('js')
-<script>
-</script>
-@endsection

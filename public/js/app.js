@@ -42980,7 +42980,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 qty: ""
             },
             showPrize: false,
-            fetchedPlays: false
+            fetchedPlays: false,
+            suppBrowser: false
         };
     },
 
@@ -43051,11 +43052,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         networkWorking: function networkWorking(callback) {
             var network = 0;
+            var vm = this;
 
-            axios.post('/network_test', {
-                ping: true
-            }).then(function (response) {
-                network = 1;
+            $.post("/network_test", {
+                _token: document.querySelector("meta[name=csrf-token]").content
+            }, function (data, status) {
+                if (status == "success") {
+                    network = 1;
+                }
             });
 
             setTimeout(function () {
@@ -43063,34 +43067,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }, 1500);
         },
         sendData: function sendData(didWin) {
-            var _this = this;
+            var vm = this;
 
-            // If this fails, display flash... Bad network connection, refresh
-            axios.post('/play', {
-                play: didWin
-            }).then(function (response) {
-                if (response.data) {
-                    var prize = response.data.prize;
-                    var pledger = response.data.pledger;
+            $.post("/play", {
+                _token: document.querySelector("meta[name=csrf-token]").content,
+                win: didWin * 1
+            }, function (data, status) {
+                if (status == "success") {
+                    var prize = data.prize;
+                    var pledger = data.pledger;
 
-                    _this.plays = response.data.plays;
+                    vm.plays = data.plays;
 
                     if (prize) {
-                        _this.prize.pledger = pledger;
-                        _this.prize.item = prize.item;
-                        _this.prize.qty = prize.qty;
+                        vm.prize.pledger = pledger;
+                        vm.prize.item = prize.item;
+                        vm.prize.qty = prize.qty;
 
-                        _this.displayPrize();
+                        vm.displayPrize();
                     }
 
-                    if (_this.triesLeft > 0) {
-                        _this.enable();
-                    }
+                    setTimeout(function () {
+                        if (vm.triesLeft > 0) {
+                            vm.enable();
+                        }
+                    }, 2000);
                 }
             });
         },
         canPlay: function canPlay() {
-            return !this.disabled && this.triesLeft && this.fetchedPlays;
+            return !this.disabled && this.triesLeft && this.fetchedPlays && this.suppBrowser;
         }
     },
     computed: {
@@ -43108,15 +43114,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     created: function created() {
-        var _this2 = this;
+        var vm = this;
 
-        axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector("meta[name=csrf-token]").content;
-
-        axios.post('/plays').then(function (response) {
-            alert("Hello");
-            _this2.plays = response.data;
-            _this2.fetchedPlays = true;
+        $.post("/plays", {
+            _token: document.querySelector("meta[name=csrf-token]").content
+        }, function (data, status) {
+            if (status == "success") {
+                vm.plays = data;
+                vm.fetchedPlays = true;
+            } else {
+                alert("Network error!");
+                window.location = "/play";
+            }
         });
+
+        if (!!(window.CSS && window.CSS.supports || window.supportsCSS || false) && window.CSS.supports('animation', 'f')) {
+            this.suppBrowser = true;
+        } else {
+            Messenger.options = {
+                extraClasses: 'messenger-fixed messenger-on-bottom',
+                theme: 'future'
+            };
+
+            Messenger().post({
+                message: "Play feature unsupported. Please continue with a different browser.",
+                hideAfter: 100000,
+                hideOnNavigate: true,
+                type: "error"
+            });
+        }
     }
 });
 

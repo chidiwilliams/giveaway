@@ -1,5 +1,10 @@
 @extends('master')
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/messenger/messenger.css') }}">
+<link rel="stylesheet" href="{{ asset('css/messenger/messenger-theme-future.css') }}">
+@endsection
+
 @section('content')
 <div class="index-page" style="height: 100%;">
 	<div class="container index-container">
@@ -36,8 +41,28 @@
 @endsection
 
 @section('js')
+<script src="{{ asset('js/messenger/messenger.min.js') }}"></script>
+<script src="{{ asset('js/messenger/messenger-theme-future.js') }}"></script>
 <script>
     $(document).ready(function() {
+    	// Check browser support for animations
+    	if (!!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && window.CSS.supports('animation', 'f')) {
+    		// continue
+    	} else {
+    		Messenger.options = {
+			    extraClasses: 'messenger-fixed messenger-on-bottom',
+			    theme: 'future'
+			}
+
+			Messenger().post({
+				message: "Your browser is not supported. Please try updating or switching browsers for a better experience.",
+				hideAfter: 100000,
+				hideOnNavigate: true,
+				type: "error"
+			});
+    	}
+
+    	// Login buttons
         $('#twitter_login').on('click touchstart', function() {
             window.location = "{{ route('twitter_login') }}";
         });
@@ -57,6 +82,8 @@
         		count++;
         	});
         }, 5000);
+
+
     });
 </script>
 
