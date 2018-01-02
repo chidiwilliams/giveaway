@@ -141,4 +141,9 @@ class PlayController extends Controller
     {
         //
     }
+
+    public function all()
+    {
+        return Play::orderBy('created_at', 'desc')->get();
+    }
 }

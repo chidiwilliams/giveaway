@@ -1,4 +1,3 @@
 TODO LIST
-1. Game page conversion to grid
-2. Implement FB login
-3. Change spinning wheel + mobile responsiveness
+1. Clean up spinning wheel
+2. Find link for facebook profile

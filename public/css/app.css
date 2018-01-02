@@ -8420,7 +8420,8 @@ body {
   border-radius: 2px;
   font-weight: 600;
   margin-top: 0px;
-  background: #fff;
+  background: #fcf665;
+  width: 125px;
   -webkit-box-shadow: 0 3px 3px #2f6963;
           box-shadow: 0 3px 3px #2f6963;
 }
@@ -8498,8 +8499,8 @@ body {
   height: 55px;
   background-color: #00aced;
   border-radius: 5px;
-  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
-          box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
   margin: auto;
   cursor: pointer;
 }
@@ -8518,7 +8519,7 @@ body {
   font-size: 18px;
   line-height: 1;
   margin: 18.5px 0;
-  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
+  text-shadow: 0 0px 4px rgba(0, 0, 0, 0.7);
 }
 
 .page,
@@ -8768,8 +8769,6 @@ body {
     height: 65px;
     background-color: #00aced;
     border-radius: 5px;
-    -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
-            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
   }
 
   .index-page .index-container .index-menu .twitter-button img.new-twitter-logo {
@@ -8783,8 +8782,7 @@ body {
     color: #fffffff0;
     font-size: 20px;
     line-height: 1;
-    margin: 22.5px 0;
-    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
+    margin: 23px 0;
   }
 }
 
@@ -8940,6 +8938,11 @@ body {
   .pledge-page .pledge-form div.custom-input-group div.input-select.short {
     width: 180px;
   }
+}
+
+.pledge-page .pledge-form input[type=submit] {
+  background: #fcf665;
+  width: 125px;
 }
 
 .pledge-page .pledge-form option {
@@ -9144,7 +9147,7 @@ body {
 
 .play-page .winnings div.prize a {
   font-family: "Pacifico", "Open Sans", "Segoe UI", sans-serif;
-  color: #fff !important;
+  color: #033;
   text-decoration: underline;
 }
 

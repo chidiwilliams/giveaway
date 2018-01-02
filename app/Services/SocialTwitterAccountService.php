@@ -28,10 +28,11 @@ class SocialTwitterAccountService
 
                 $user = User::create([
                     'email' => $providerUser->getEmail(),
-                    'handle' => $providerUser->getNickname(),
+                    'handle' => "@" . $providerUser->getNickname(),
                     'name' => $providerUser->getName(),
                     'password' => md5(rand(1, 10000)),
-                    'link' => 'https://twitter.com/' . $providerUser->getNickname(),
+                    'link' => "https://twitter.com/" . $providerUser->getNickname()
+
                 ]);
             }
 

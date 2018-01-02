@@ -8,7 +8,7 @@
 	<div class="central-text">
 		<div class="thanks">Thank you for your gift!</div>
 		<div class="sub">We'll notify you when someone wins it</div>
-		<a href="{{ route('game') }}" class="master-button">Return to home</a>
+		<a href="{{ route('game') }}" class="master-button" style="color: #033; text-decoration: none; padding: 10px 30px;">Return to home</a>
 	</div>
 </div>
 @endsection

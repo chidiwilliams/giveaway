@@ -145,7 +145,7 @@
     created: function() {
         axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector("meta[name=csrf-token]").content
 
-        axios.get('/plays').then(
+        axios.post('/plays').then(
             response => {
                 this.plays = response.data
             }

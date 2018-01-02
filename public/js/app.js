@@ -43110,7 +43110,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector("meta[name=csrf-token]").content;
 
-        axios.get('/plays').then(function (response) {
+        axios.post('/plays').then(function (response) {
             _this2.plays = response.data;
         });
     }

@@ -14,7 +14,8 @@ $elf-yellow-dark: #cac552;
 $elf-yellow-darker: #58561e;
 
 /* Box shadows */
-$box-shadow-grey: 0 3px 3px rgba(0,0,0,0.075);
+$box-shadow-grey: 0 3px 3px rgba(0,0,0,0.3);
+$text-shadow-grey: 0 0px 4px rgba(0, 0, 0, 0.7);
 $box-shadow-green: 0 3px 3px $elf-green-darker;
 $box-shadow-yellow: 0 3px 3px $elf-yellow-darker;
 
@@ -94,7 +95,8 @@ body
     border-radius: 2px;
     font-weight: 600;
     margin-top: 0px;
-    background: #fff;
+    background: $elf-yellow;
+    width: 125px;
     box-shadow: $box-shadow-green;
 }
     
@@ -195,7 +197,7 @@ body
         font-size: 18px;
         line-height: 1;
         margin: 18.5px 0;
-        text-shadow: $box-shadow-grey;
+        text-shadow: $text-shadow-grey;
     }
 }
 
@@ -413,7 +415,6 @@ body
                     height: 65px;
                     background-color: #00aced;
                     border-radius: 5px;
-                    box-shadow: $box-shadow-grey;
 
                     img.new-twitter-logo
                     {
@@ -428,8 +429,7 @@ body
                         color: #fffffff0;
                         font-size: 20px;
                         line-height: 1;
-                        margin: 22.5px 0;
-                        text-shadow: $box-shadow-grey;
+                        margin: 23px 0;
                     }
                 }    
             }
@@ -592,7 +592,9 @@ body
 
         input[type=submit]
         {
-            @extend .master-button
+            @extend .master-button;
+            background: $elf-yellow;
+            width: 125px;
         }
 
         option
@@ -796,7 +798,7 @@ body
             a
             {
                 font-family: $heading-font;
-                color: #fff !important;
+                color: #033;
                 text-decoration: underline;
             }
         }
