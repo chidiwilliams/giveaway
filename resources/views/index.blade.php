@@ -55,11 +55,11 @@
 			}
 
 			Messenger().post({
-				message: "Uncool. Browser not supported. Update or switch for a better experience.",
+				message: "Browser not supported. Update or switch for a better experience.",
 				hideAfter: 100000,
 				hideOnNavigate: true,
 				type: "error"
-			});
+			})
     	}
 
     	// Login buttons

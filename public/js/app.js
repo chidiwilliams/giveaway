@@ -42981,7 +42981,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             },
             showPrize: false,
             fetchedPlays: false,
-            suppBrowser: false,
+            suppBrowser: true,
             prizeless: false
         };
     },
@@ -43145,8 +43145,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
 
         if (!!(window.CSS && window.CSS.supports || window.supportsCSS || false) && window.CSS.supports('animation', 'f')) {
-            this.suppBrowser = true;
+            // continue
         } else {
+            this.suppBrowser = false;
+
             Messenger.options = {
                 extraClasses: 'messenger-fixed messenger-on-bottom',
                 theme: 'future'

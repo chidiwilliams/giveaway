@@ -20,7 +20,7 @@
             },
             showPrize: false,
             fetchedPlays: false,
-            suppBrowser: false,
+            suppBrowser: true,
             prizeless: false
         }
     },
@@ -183,8 +183,10 @@
         })
 
         if (!!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && window.CSS.supports('animation', 'f')) {
-            this.suppBrowser = true
+            // continue
         } else {
+            this.suppBrowser = false
+
             Messenger.options = {
                 extraClasses: 'messenger-fixed messenger-on-bottom',
                 theme: 'future'

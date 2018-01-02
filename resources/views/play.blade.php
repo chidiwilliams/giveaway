@@ -33,8 +33,11 @@
                             <div class="please-play" v-else-if="fetchedPlays">
                                 Click the spin button to play!
                             </div>
-                            <div class="fetching" v-else>
+                            <div class="fetching" v-else-if="suppBrowser">
                                 Fetching your information...
+                            </div>
+                            <div class="nobrowser" v-else>
+                                Your browser is unsupported.
                             </div>
                         </div>
                         {{-- TODO: Share button. I just won xxx from yyy on the 2018 giveaway. --}}
