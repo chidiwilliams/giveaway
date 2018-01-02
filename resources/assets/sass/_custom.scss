@@ -1054,18 +1054,16 @@ div.game-page
                 color: #033;
                 box-shadow: $box-shadow-green;
                 font-size: 18px;
-                grid-template-columns: 160px 160px 128px 128px 90px;
+                grid-template-columns: repeat(4, 1fr);
                 
             }
 
             @include media("(min-width: 992px)") {
                 font-size: 21px;
-                grid-template-columns: 200px 200px 165px 165px 120px;
             }
 
             @include media("(min-width: 1200px)") {
                 font-size: 23px;
-                grid-template-columns: 250px 250px 200px 200px 150px;
             }
 
             &.header
@@ -1132,7 +1130,7 @@ div.game-page
                 color: #033;
                 box-shadow: $box-shadow-green;
                 font-size: 18px;
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr);
                 
             }
 

@@ -14,7 +14,6 @@
 		    	<div class="pledge header">
 		    		<div class="pledge-time">Time</div>
 	    			<div class="pledge-pledger">Name</div>
-	    			<div class="pledge-pledger-handle">Handle</div>
 	    			<div class="pledge-item">Item</div>
 	    			<div class="pledge-qty">Quantity</div>
 		    	</div>
@@ -22,7 +21,6 @@
 		    		<div class="pledge">
 		    			<div class="pledge-time">{{ Carbon\Carbon::parse($pledge->created_at)->diffForHumans()  }}</div>
 		    			<div class="pledge-pledger">{{ $pledge->pledger->name }}</div>
-		    			<div class="pledge-pledger-handle"><a href="{{ $pledge->pledger->link }}">{{ "@" . $pledge->pledger->handle }}</a></div>
 		    			<div class="pledge-item">{{ ucwords(strtolower($pledge->item)) }}</div>
 		    			<div class="pledge-qty">{{ $pledge->qty }}</div>
 		    		</div>
@@ -34,7 +32,6 @@
 		    		<div class="pledge-x">
 		    			<span class="pledge-time">{{ Carbon\Carbon::parse($pledge->created_at)->diffForHumans() }}</span> <br>
 		    			<span class="pledge-pledger">{{ $pledge->pledger->name }}</span>
-		    			(<span class="pledge-pledger-handle"><a href="{{ $pledge->pledger->link }}">{{ "@" . $pledge->pledger->handle }}</a></span>) pledged 
 		    			<span class="pledge-item">{{ ucwords(strtolower($pledge->item)) }}</span> x
 		    			<span class="pledge-qty">{{ $pledge->qty }}</span>
 		    		</div>

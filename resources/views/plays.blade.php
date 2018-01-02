@@ -14,14 +14,12 @@
 		    	<div class="play header">
 		    		<div class="play-time">Time</div>
 	    			<div class="play-player">Name</div>
-	    			<div class="play-player-handle">Handle</div>
 	    			<div class="play-play">Play</div>
 		    	</div>
 		    	@foreach($plays as $play)
 		    		<div class="play">
 		    			<div class="play-time">{{ Carbon\Carbon::parse($play->created_at)->diffForHumans()  }}</div>
 		    			<div class="play-player">{{ $play->player->name }}</div>
-		    			<div class="play-player-handle"><a href="{{ $play->player->link }}">{{ "@" . $play->player->handle }}</a></div>
 		    			<div class="play-play">@if ($play->win) W @else L @endif</div>
 		    		</div>
 		    	@endforeach
@@ -31,8 +29,7 @@
 		    	@foreach($plays as $play)
 		    		<div class="play-x">
 		    			<span class="play-time">{{ Carbon\Carbon::parse($play->created_at)->diffForHumans() }}</span> <br>
-		    			<span class="play-player">{{ $play->player->name }}</span>
-		    			(<span class="play-player-handle"><a href="{{ $play->player->link }}">{{ "@" . $play->player->handle }}</a></span>) played 
+		    			<span class="play-player">{{ $play->player->name }}</span> played
 		    			<span class="play-play">@if ($play->win) W @else L @endif</span>
 		    		</div>
 		    	@endforeach

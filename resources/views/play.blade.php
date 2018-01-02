@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="game" v-cloak>
-                        <div class="central spin-parent" v-if="!disabled">
+                        <div class="central spin-parent" v-if="canPlay()">
                             <div class="spin animated infinite pulse" @click="spin">Spin</div>
                         </div>
                         <img src="{{ asset('img/Cool Wheel.svg') }}" alt="" class="wheel">
