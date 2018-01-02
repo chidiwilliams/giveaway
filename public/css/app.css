@@ -8610,7 +8610,7 @@ body {
   grid-template-columns: 1fr;
   grid-template-areas: "text" "menu";
   /* No grid */
-  padding-top: 120px;
+  padding-top: 90px;
 }
 
 @media (min-width: 768px) {

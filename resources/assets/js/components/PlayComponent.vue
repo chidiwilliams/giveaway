@@ -19,7 +19,8 @@
                 qty: ""
             },
             showPrize: false,
-            fetchedPlays: false
+            fetchedPlays: false,
+            suppBrowser: false
         }
     },
     methods: {
@@ -133,7 +134,7 @@
             })
         },
         canPlay: function() {
-            return (!this.disabled && this.triesLeft && this.fetchedPlays)
+            return (!this.disabled && this.triesLeft && this.fetchedPlays && this.suppBrowser)
         }
     },
     computed: {
@@ -164,6 +165,22 @@
                 window.location = "/play"
             }
         })
+
+        if (!!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && window.CSS.supports('animation', 'f')) {
+            this.suppBrowser = true
+        } else {
+            Messenger.options = {
+                extraClasses: 'messenger-fixed messenger-on-bottom',
+                theme: 'future'
+            }
+
+            Messenger().post({
+                message: "Play feature unsupported. Please continue with a different browser.",
+                hideAfter: 100000,
+                hideOnNavigate: true,
+                type: "error"
+            });
+        }
     }
 }
 </script>
