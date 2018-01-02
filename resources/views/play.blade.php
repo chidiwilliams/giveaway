@@ -24,7 +24,7 @@
                                 <a :href="prize.pledger.link" v-if="prize.pledger.link">@{{ prize.pledger.handle }}</a>
                             </div>
                             <div class="exceeded-tries" v-else-if="!triesLeft">
-                                Sorry you have exceeded your number of tries!
+                                Sorry you have used up your number of tries!
                             </div>
                             <div class="please-play" v-else>
                                 Click the spin button to play!

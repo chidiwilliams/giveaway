@@ -9017,6 +9017,9 @@ body {
   display: grid;
   position: relative;
   overflow: hidden;
+  height: 200px;
+  max-height: 200px;
+  max-width: 100%;
 }
 
 .play-page .game div.spin-parent {
@@ -9031,6 +9034,8 @@ body {
   height: 100%;
   justify-self: center;
   width: auto;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -9047,6 +9052,8 @@ body {
   right: 0;
   z-index: 2;
   margin: auto;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 @media (min-width: 768px) {
