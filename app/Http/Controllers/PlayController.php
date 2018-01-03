@@ -73,7 +73,7 @@ class PlayController extends Controller
         $pledger = "";
 
         if ($request->win) {
-            $unred = Pledge::doesntHave('redeem')->get();
+            $unred = Pledge::doesntHave('redeem')->where('user_id', '!=', Auth::id())->get();
             // TODO: Remove the pledges by the signed in user
             
             $randNum = rand(0, $unred->count() - 1);
