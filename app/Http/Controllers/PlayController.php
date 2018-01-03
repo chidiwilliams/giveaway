@@ -72,7 +72,7 @@ class PlayController extends Controller
         $prize = "";
         $pledger = "";
 
-        if ($request->play) {
+        if ($request->win) {
             $unred = Pledge::doesntHave('redeem')->get();
             // TODO: Remove the pledges by the signed in user
             
