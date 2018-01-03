@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Redeem extends Model
 {
     protected $fillable = [
-        'pledger', 'item', 'qty'
+        'user_id', 'pledge_id'
     ];
 
     public function winner()

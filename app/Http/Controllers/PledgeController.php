@@ -53,26 +53,23 @@ class PledgeController extends Controller
         $validator = Validator::make($request->all(), [
             // for the course, check if the values exist in the JSON list
         	'course' => ['required'],
-        	'level' => ['required', Rule::in(['100', '200', '300', '400', '500'])],
+        	'level' => ['required'],
         	'item' => ['required', 'string'],
         	'qty' => ['required', 'integer']
         ])->validate();
 
-        // $user = User::find(Auth::user()->id);
-        $user = Auth::user();
+        $user = User::find($request->user_id);
 
         $user->course = $request->course;
         $user->level = (int) $request->level;
 
         $user->save();
 
-        $pledge = new Pledge;
-
-        $pledge->user_id = Auth::user()->id;
-        $pledge->item = ucwords(strtolower($request->item));
-        $pledge->qty = $request->qty;
-
-        $pledge->save();
+        $pledge = Pledge::create([
+            'user_id' => $request->user_id,
+            'item' => ucwords(strtolower($request->item)),
+            'qty' => $request->qty
+        ]);
 
         return view("pledge_success");
     }

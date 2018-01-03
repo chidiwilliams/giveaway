@@ -50,6 +50,8 @@
                                 	v-on:change="changeLevel"></custom-input>
                             </div>
 
+                            <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
+
                             <div class="input-group">
                                 <label for="name">What do you pledge? How many?</label>
                                 <input type="text" name="item" placeholder="Tin of sardines" maxlength="20" required="required" v-model="inputs.item.value" v-on:input="updateValue($event)" :class="{ error: inputs.item.error }">
