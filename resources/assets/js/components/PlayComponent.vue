@@ -6,8 +6,8 @@
             plays: 0,
             maxPlays: 3,
             win: {
-                min: 30,
-                max: 330
+                min: 45,
+                max: 315
             },
             disabled: false,
             congratulations: false,

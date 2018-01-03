@@ -72,7 +72,7 @@
                         <div class="central spin-parent" v-if="canPlay()">
                             <div class="spin animated infinite pulse" @click="spin">Spin</div>
                         </div>
-                        <img src="{{ asset('img/Cool Wheel.svg') }}" alt="" class="wheel">
+                        <img src="{{ asset('img/Cool Wheel 45.svg') }}" alt="" class="wheel">
                         <img src="{{ asset('img/Cool Pointer.svg') }}" alt="" :class="{ pointer: true, rotate: rolling}" id="pointer">
 
                         <img 
