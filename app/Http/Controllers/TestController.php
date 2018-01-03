@@ -12,7 +12,8 @@ class TestController extends Controller
 {
     public function test(Request $request)
     {
-        return view('test');
+        // return view('pledge_success');
+        // return view('test');
     }
 
     public function post(Request $request)

@@ -9444,7 +9444,7 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
   }
 }
 
-.play-page .winnings div.prize a {
+.play-page .winnings div.prize a.prize-giver {
   font-family: "Pacifico", "Open Sans", "Segoe UI", sans-serif;
   color: #033;
   text-decoration: underline;
@@ -9466,7 +9466,7 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
 .thank-you-page .thanks {
   font-size: 40px;
   font-weight: 900;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   font-family: "Pacifico", "Open Sans", "Segoe UI", sans-serif;
 }
 

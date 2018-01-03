@@ -1079,7 +1079,7 @@ div.game-page
                 font-size: 30px;
             }
 
-            a
+            a.prize-giver
             {
                 font-family: $heading-font;
                 color: #033;
@@ -1107,7 +1107,7 @@ div.game-page
     {
         font-size: 40px;
         font-weight: 900;
-        margin-bottom: 60px;
+        margin-bottom: 30px;
         font-family: $heading-font;
 
         @include media("(min-width: 768px)") {

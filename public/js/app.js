@@ -43029,7 +43029,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         };
 
                         Messenger().post({
-                            message: "Didn't quite get that. Refresh.",
+                            message: "Didn't quite get that. Please refresh your browser.",
                             hideAfter: 100000,
                             hideOnNavigate: true,
                             type: "error"
