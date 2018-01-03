@@ -9288,12 +9288,14 @@ div.game-page .new-play-box.new-play-box-disabled:hover div.game-line {
   position: relative;
   overflow: hidden;
   max-width: 100%;
+  height: 200px;
+  max-height: 200px;
 }
 
 @media (min-width: 768px) {
   .play-page .game {
-    height: 200px;
-    max-height: 200px;
+    height: auto;
+    max-height: 100%;
   }
 }
 
