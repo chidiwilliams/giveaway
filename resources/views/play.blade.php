@@ -1,5 +1,10 @@
 @extends('master')
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/messenger/messenger.css') }}">
+<link rel="stylesheet" href="{{ asset('css/messenger/messenger-theme-future.css') }}">
+@endsection
+
 @section('content')
     <play-component inline-template>
         <div class="play-page">

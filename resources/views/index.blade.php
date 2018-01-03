@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-<div class="index-page" style="height: 100%; background-color: #fff;"> {{-- remove white background. heroku test. --}}
+<div class="index-page" style="height: 100%;"> {{-- remove white background. heroku test. --}}
 	<div class="container index-container">
 		<div class="index-text">
 			<div class="index-seller">
